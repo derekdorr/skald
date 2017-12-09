@@ -1,8 +1,8 @@
 {
-  "name": "rubble",
+  "name": "skald",
   "version": "1.0.2",
   "description": "Javascript utilty functions",
-  "repository": "https://github.com/derekdorr/rubble",
+  "repository": "https://github.com/derekdorr/skald",
   "main": "lib/index.js",
   "publishConfig": {
     "access": "public"
