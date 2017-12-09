@@ -2,7 +2,7 @@
  *
  * Compose functions from right to left
  *
- * @module compose
+ * @module composeL
  * @func
  * @since 1.0.0
  * @params {...function} args

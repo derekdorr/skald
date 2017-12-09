@@ -4,7 +4,7 @@
  * @module and
  * @func
  * @since 1.0.0
- * @param {...*} a
+ * @param {...*} args
  * @return {boolean}
  * @example
  *

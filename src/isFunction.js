@@ -4,7 +4,7 @@
  * @module isFunction
  * @func
  * @since 1.0.0
- * @param {*}
+ * @param {*} val
  * @return {boolean}
  * @example
  *

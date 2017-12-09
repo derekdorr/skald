@@ -4,7 +4,7 @@
  * @module isNaN
  * @func
  * @since 1.0.0
- * @param {number}
+ * @param {number} val
  * @return {boolean}
  * @example
  *

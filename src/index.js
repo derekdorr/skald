@@ -5,6 +5,7 @@ import check from './check';
 import compose from './compose';
 import composeL from './composeL';
 import curry from './curry';
+import defaultTo from './defaultTo';
 import define from './define';
 import divide from './divide';
 import equals from './equals';
@@ -47,6 +48,7 @@ export {
     compose,
     composeL,
     curry,
+    defaultTo,
     define,
     divide,
     equals,

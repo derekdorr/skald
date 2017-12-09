@@ -5,12 +5,12 @@
  * @module callback
  * @func
  * @since 1.0.0
- * @param {*} callback
+ * @param {*} cb
  * @param {*} predicate
  * @return {*}
  * @example
  *
- *     callback('foo', true); //=> true
+ *     callback('foo', true); //=> 'foo'
  *     callback('foo', false); //=> null
  */
 

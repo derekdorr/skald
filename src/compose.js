@@ -5,7 +5,7 @@
  * @module compose
  * @func
  * @since 1.0.0
- * @params {...function} args
+ * @param {...function} args
  * @returns {function}
  * @example
  *

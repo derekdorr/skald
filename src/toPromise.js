@@ -1,7 +1,7 @@
 /**
  * Take a value and if not a promise, make it a promise
  *
- * @module toPromise;
+ * @module toPromise
  * @func
  * @since 1.1.0
  * @param {*} val
