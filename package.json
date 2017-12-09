@@ -1,8 +1,23 @@
 {
   "name": "rubble",
   "version": "1.0.0",
-  "description": "Base functions for pure functional programming",
-  "main": "index.js",
+  "description": "Javascript utilty functions",
+  "repository": "https://github.com/derekdorr/rubble",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "src",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "directories": {
+    "lib": "lib",
+    "src": "src"
+  },
   "scripts": {
     "test": "nyc tape tests/*-test.js",
     "lint": "eslint --fix src/ tests/",
