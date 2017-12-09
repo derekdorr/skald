@@ -1,29 +1,29 @@
 {
   "name": "skald",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Javascript utilty functions",
   "repository": "https://github.com/derekdorr/skald",
   "main": "lib/index.js",
+  "modules": "es/index.js",
   "publishConfig": {
     "access": "public"
   },
   "files": [
     "lib",
+    "es",
     "src",
     "package.json",
     "LICENSE",
     "README.md"
   ],
-  "directories": {
-    "lib": "lib",
-    "src": "src"
-  },
   "scripts": {
     "docs": "gulp docs",
     "test": "nyc tape tests/*-test.js",
     "lint": "eslint --fix src/ tests/",
-    "build": "babel src --out-dir lib",
-    "precommit": "npm run lint && npm run test"
+    "build-lib": "babel src --out-dir lib",
+    "build-es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build": "npm run build-lib && npm run build-es",
+    "precommit": "npm run lint && npm run test && npm run docs"
   },
   "nyc": {
     "require": [
@@ -38,6 +38,7 @@
     "babel-eslint": "^8.0.3",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "cross-env": "^5.1.1",
     "eslint": "^4.13.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
