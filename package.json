@@ -1,6 +1,6 @@
 {
   "name": "skald",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Javascript utilty functions",
   "repository": "https://github.com/derekdorr/skald",
   "main": "lib/index.js",
@@ -19,6 +19,7 @@
     "src": "src"
   },
   "scripts": {
+    "docs": "gulp docs",
     "test": "nyc tape tests/*-test.js",
     "lint": "eslint --fix src/ tests/",
     "build": "babel src --out-dir lib",
@@ -40,6 +41,11 @@
     "eslint": "^4.13.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jsdoc-to-markdown": "^1.2.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.8",
     "husky": "^0.14.3",
     "nyc": "^11.3.0",
     "tape": "^4.8.0"
