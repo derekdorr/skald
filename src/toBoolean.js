@@ -12,12 +12,11 @@
  *     toBoolean({}); //=> true
  */
 
+import { BOOL_FALSE, STR_FALSE } from 'permanent';
 import curry from './curry';
 import equals from './equals';
 import ternary from './ternary';
 
-const STR_FALSE = 'false';
-const BOOL_FALSE = false;
 const equalsFalse = curry(equals, STR_FALSE);
 const toBoolean = value => ternary(
     () => !!value,

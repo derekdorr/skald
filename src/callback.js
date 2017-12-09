@@ -14,8 +14,9 @@
  *     callback('foo', false); //=> null
  */
 
+import { NULL } from 'permanent';
 import ternary from './ternary';
 
-const callback = ternary(null);
+const callback = ternary(NULL);
 
 export default callback;

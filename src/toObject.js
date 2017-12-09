@@ -13,14 +13,12 @@
  *     toObject('foo'); //=> {}
  */
 
+import { INT_ONE, INT_ZERO, NULL } from 'permanent';
 import equals from './equals';
 import isNull from './isNull';
 import isString from './isString';
 import ternary from './ternary';
 
-const INT_ONE = 1;
-const INT_ZERO = 0;
-const NULL = null;
 const equalsOne = equals(INT_ONE);
 const equalsZero = equals(INT_ZERO);
 const createObject = () => Object.create(NULL);

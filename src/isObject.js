@@ -12,11 +12,11 @@
  *     isObject(1); //=> false
  */
 
+import { STR_OBJECT } from 'permanent';
 import typeOf from './typeOf';
 import equals from './equals';
 import compose from './compose';
 
-const STR_OBJECT = 'object';
 const equalsObject = equals(STR_OBJECT);
 const isObject = compose(equalsObject, typeOf);
 

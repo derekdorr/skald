@@ -12,6 +12,11 @@
  *     toArray(2, 3); //=> [2, 3]
  */
 
-const toArray = (...args) => [].concat(...args).filter(val => val !== undefined);
+import { UNDEF } from 'permanent';
+import notEquals from './notEquals';
+
+const notEqualsUndefined = notEquals(UNDEF);
+
+const toArray = (...args) => [].concat(...args).filter(val => notEqualsUndefined(val));
 
 export default toArray;

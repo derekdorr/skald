@@ -13,11 +13,10 @@
  *     traverse({ a: 1 })(['a']); //=> 1
  */
 
+import { UNDEF } from 'permanent';
 import define from './define';
 import isObject from './isObject';
 import ternary from './ternary';
-
-const UNDEF = undefined;
 
 const traverse = (obj, path) => path.reduce((acc, seg) => ternary(
     UNDEF,

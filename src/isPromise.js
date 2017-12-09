@@ -12,12 +12,10 @@
  *     isPromise('foo'); //=> false
  */
 
+import { BOOL_FALSE, BOOL_TRUE } from 'permanent';
 import isFunction from './isFunction';
 import isObject from './isObject';
 import ternary from './ternary';
-
-const BOOL_FALSE = false;
-const BOOL_TRUE = true;
 
 const isPromise = val => ternary(
     BOOL_FALSE,
