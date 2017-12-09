@@ -6,6 +6,7 @@ import toBoolean from './toBoolean';
  * Determine if at least one argument or array value is truthy
  *
  * @func
+ * @module or
  * @since 1.0.0
  * @param {...*} args
  * @returns {boolean}
