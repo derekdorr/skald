@@ -22,6 +22,9 @@
 <dt><a href="#curry">curry(fn, ...args)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Curry arguments to function and return new function</p>
 </dd>
+<dt><a href="#deepEquals">deepEquals(a, b)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dd><p>Allow comparison of two objects or arrays</p>
+</dd>
 <dt><a href="#defaultTo">defaultTo(def, val)</a> ⇒ <code>*</code></dt>
 <dd><p>Sets default value if passed value is falsy</p>
 </dd>
@@ -35,17 +38,26 @@ passed until it executes</p>
 <dt><a href="#equals">equals(a, b)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Determine if two values are equal</p>
 </dd>
+<dt><a href="#excludes">excludes(search, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dd><p>Returns true if string is not in string or array</p>
+</dd>
 <dt><a href="#gt">gt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if first value is greater than</p>
 </dd>
 <dt><a href="#gte">gte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is greater than or equal to other value</p>
 </dd>
+<dt><a href="#includes">includes(search, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dd><p>Returns true if string is in string or array</p>
+</dd>
 <dt><a href="#isArray">isArray(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is array</p>
 </dd>
 <dt><a href="#isBoolean">isBoolean(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is boolean;</p>
+</dd>
+<dt><a href="#isEmpty">isEmpty(val)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Check whether object, array, or string is empty</p>
 </dd>
 <dt><a href="#isFunction">isFunction(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is function</p>
@@ -80,10 +92,13 @@ passed until it executes</p>
 <dt><a href="#multiply">multiply(a, b)</a> ⇒ <code>function</code> | <code>number</code></dt>
 <dd><p>Multiply two numbers together</p>
 </dd>
+<dt><a href="#none">none(...args)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Returns true if no argument or array value is true</p>
+</dd>
 <dt><a href="#not">not(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Returns false if truthy, true if falsy</p>
 </dd>
-<dt><a href="#notEquals">notEquals(a, b)</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#notEquals">notEquals(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Return true if two values are not equal</p>
 </dd>
 <dt><a href="#or">or(...args)</a> ⇒ <code>boolean</code></dt>
@@ -254,6 +269,24 @@ const foo = (a, b, c) => a + b + c;
     curry(foo, 2)(3)(4); //=> 9
     curry(foo)(1)(1)(1); // => 3
 ```
+<a name="deepEquals"></a>
+
+## deepEquals(a, b) ⇒ <code>boolean</code> &#124; <code>function</code>
+Allow comparison of two objects or arrays
+
+**Kind**: global function  
+**Since**: 1.4.0  
+
+| Param | Type |
+| --- | --- |
+| a | <code>\*</code> | 
+| b | <code>\*</code> | 
+
+**Example**  
+```js
+deepEquals({}, {}); //=> true
+    deepEquals([])([]); //=> true
+```
 <a name="defaultTo"></a>
 
 ## defaultTo(def, val) ⇒ <code>\*</code>
@@ -330,6 +363,24 @@ Determine if two values are equal
 equals(1, 1); //=> true
     equals(1)(2); //=> false
 ```
+<a name="excludes"></a>
+
+## excludes(search, val) ⇒ <code>boolean</code> &#124; <code>function</code>
+Returns true if string is not in string or array
+
+**Kind**: global function  
+**Since**: 1.4.0  
+
+| Param | Type |
+| --- | --- |
+| search | <code>string</code> &#124; <code>number</code> | 
+| val | <code>string</code> &#124; <code>Array</code> | 
+
+**Example**  
+```js
+includes('h', 'hello'); //=> false
+    includes('a')('apple'); //=> false
+```
 <a name="gt"></a>
 
 ## gt(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
@@ -366,6 +417,24 @@ Determine if value is greater than or equal to other value
 gte(1, 1); //=> true
     gte('b')('a'); //=> true
 ```
+<a name="includes"></a>
+
+## includes(search, val) ⇒ <code>boolean</code> &#124; <code>function</code>
+Returns true if string is in string or array
+
+**Kind**: global function  
+**Since**: 1.4.0  
+
+| Param | Type |
+| --- | --- |
+| search | <code>string</code> &#124; <code>number</code> | 
+| val | <code>string</code> &#124; <code>Array</code> | 
+
+**Example**  
+```js
+includes('h', 'hello'); //=> true
+    includes('a')('apple'); //=> true
+```
 <a name="isArray"></a>
 
 ## isArray(val) ⇒ <code>boolean</code>
@@ -399,6 +468,24 @@ Determine if value is boolean;
 ```js
 isBoolean(1); //=> false
     isBoolean(false); //=> true
+```
+<a name="isEmpty"></a>
+
+## isEmpty(val) ⇒ <code>boolean</code>
+Check whether object, array, or string is empty
+
+**Kind**: global function  
+**Since**: 1.4.0  
+
+| Param | Type |
+| --- | --- |
+| val | <code>Object</code> &#124; <code>Array</code> &#124; <code>string</code> | 
+
+**Example**  
+```js
+isEmpty([]); //=> true
+    isEmpty({}); //=> true
+    isEmpty(''); //=> true
 ```
 <a name="isFunction"></a>
 
@@ -590,6 +677,18 @@ Multiply two numbers together
 multiply(2, 3); //=> 6
     multiply(2)(2); //=> 4
 ```
+<a name="none"></a>
+
+## none(...args) ⇒ <code>boolean</code>
+Returns true if no argument or array value is true
+
+**Kind**: global function  
+**Since**: 1.4.0  
+
+| Param | Type |
+| --- | --- |
+| ...args | <code>\*</code> | 
+
 <a name="not"></a>
 
 ## not(val) ⇒ <code>boolean</code>
@@ -609,7 +708,7 @@ not(1); //=> false
 ```
 <a name="notEquals"></a>
 
-## notEquals(a, b) ⇒ <code>boolean</code>
+## notEquals(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
 Return true if two values are not equal
 
 **Kind**: global function  

@@ -5,12 +5,15 @@ import check from './check';
 import compose from './compose';
 import composeL from './composeL';
 import curry from './curry';
+import deepEquals from './deepEquals';
 import defaultTo from './defaultTo';
 import define from './define';
 import divide from './divide';
 import equals from './equals';
+import excludes from './excludes';
 import gt from './gt';
 import gte from './gte';
+import includes from './includes';
 import isArray from './isArray';
 import isBoolean from './isBoolean';
 import isFunction from './isFunction';
@@ -24,6 +27,7 @@ import isUndefined from './isUndefined';
 import lt from './lt';
 import lte from './lte';
 import multiply from './multiply';
+import none from './none';
 import not from './not';
 import notEquals from './notEquals';
 import or from './or';
@@ -48,12 +52,15 @@ export {
     compose,
     composeL,
     curry,
+    deepEquals,
     defaultTo,
     define,
     divide,
     equals,
+    excludes,
     gt,
     gte,
+    includes,
     isArray,
     isBoolean,
     isFunction,
@@ -67,6 +74,7 @@ export {
     lt,
     lte,
     multiply,
+    none,
     not,
     notEquals,
     or,
