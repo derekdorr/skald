@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * Take two arguments and if second argument is truthy, return first.
  *
  * @module callback
