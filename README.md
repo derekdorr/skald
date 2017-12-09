@@ -4,23 +4,26 @@
 <dt><a href="#add">add(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Add two numbers</p>
 </dd>
-<dt><a href="#and">and(...a)</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#and">and(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if all arguments are truthy or if array is truthy</p>
 </dd>
-<dt><a href="#callback">callback(callback, predicate)</a> ⇒ <code>*</code></dt>
+<dt><a href="#callback">callback(cb, predicate)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first.</p>
 </dd>
 <dt><a href="#check">check(obj, path)</a> ⇒ <code>*</code></dt>
 <dd><p>Safely traverse object nested properties</p>
 </dd>
-<dt><a href="#compose">compose()</a> ⇒ <code>function</code></dt>
+<dt><a href="#compose">compose(...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
 </dd>
-<dt><a href="#compose">compose()</a> ⇒ <code>function</code></dt>
+<dt><a href="#composeL">composeL(...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
 </dd>
-<dt><a href="#curry">curry(fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
+<dt><a href="#curry">curry(fn, ...args)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Curry arguments to function and return new function</p>
+</dd>
+<dt><a href="#defaultTo">defaultTo(def, val)</a> ⇒ <code>*</code></dt>
+<dd><p>Sets default value if passed value is falsy</p>
 </dd>
 <dt><a href="#define">define(fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Take a function with a known signature and allow arguments to be
@@ -38,34 +41,34 @@ passed until it executes</p>
 <dt><a href="#gte">gte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is greater than or equal to other value</p>
 </dd>
-<dt><a href="#isArray">isArray()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isArray">isArray(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is array</p>
 </dd>
-<dt><a href="#isBoolean">isBoolean()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isBoolean">isBoolean(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is boolean;</p>
 </dd>
-<dt><a href="#isFunction">isFunction()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isFunction">isFunction(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is function</p>
 </dd>
-<dt><a href="#isNaN">isNaN()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isNaN">isNaN(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is NaN</p>
 </dd>
-<dt><a href="#isNull">isNull()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isNull">isNull(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is null</p>
 </dd>
-<dt><a href="#isNumber">isNumber()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isNumber">isNumber(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is function</p>
 </dd>
-<dt><a href="#isObject">isObject()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isObject">isObject(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Detemine if value is object</p>
 </dd>
 <dt><a href="#isPromise">isPromise(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Take a value and determine if it is a promise</p>
 </dd>
-<dt><a href="#isString">isString()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isString">isString(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is string</p>
 </dd>
-<dt><a href="#isUndefined">isUndefined()</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#isUndefined">isUndefined(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is undefined</p>
 </dd>
 <dt><a href="#lt">lt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
@@ -115,7 +118,7 @@ failure are functions, returns executed result.</p>
 <dt><a href="#toObject">toObject(value)</a> ⇒ <code>Object</code></dt>
 <dd><p>Forces value into object. If not object, returns {}</p>
 </dd>
-<dt><a href="#toPromise;">toPromise;(val)</a> ⇒ <code>Promise</code></dt>
+<dt><a href="#toPromise">toPromise(val)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Take a value and if not a promise, make it a promise</p>
 </dd>
 <dt><a href="#toString">toString(value)</a> ⇒ <code>string</code></dt>
@@ -146,7 +149,7 @@ add(1,2); //=> 3
 ```
 <a name="and"></a>
 
-## and(...a) ⇒ <code>boolean</code>
+## and(...args) ⇒ <code>boolean</code>
 Determine if all arguments are truthy or if array is truthy
 
 **Kind**: global function  
@@ -154,7 +157,7 @@ Determine if all arguments are truthy or if array is truthy
 
 | Param | Type |
 | --- | --- |
-| ...a | <code>\*</code> | 
+| ...args | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -164,7 +167,7 @@ and(true, true); //=> true
 ```
 <a name="callback"></a>
 
-## callback(callback, predicate) ⇒ <code>\*</code>
+## callback(cb, predicate) ⇒ <code>\*</code>
 Take two arguments and if second argument is truthy, return first.
 
 **Kind**: global function  
@@ -172,12 +175,12 @@ Take two arguments and if second argument is truthy, return first.
 
 | Param | Type |
 | --- | --- |
-| callback | <code>\*</code> | 
+| cb | <code>\*</code> | 
 | predicate | <code>\*</code> | 
 
 **Example**  
 ```js
-callback('foo', true); //=> true
+callback('foo', true); //=> 'foo'
     callback('foo', false); //=> null
 ```
 <a name="check"></a>
@@ -200,40 +203,48 @@ traverse({}, ['a', 'b', 'c']); //=> undefined
 ```
 <a name="compose"></a>
 
-## compose() ⇒ <code>function</code>
+## compose(...args) ⇒ <code>function</code>
 Compose functions from right to left
 
 **Kind**: global function  
-**Params**: <code>...function</code> args  
 **Since**: 1.0.0  
+
+| Param | Type |
+| --- | --- |
+| ...args | <code>function</code> | 
+
 **Example**  
 ```js
 compose(val => val + 1, val => val + 2); //=> val => val + 3
 ```
-<a name="compose"></a>
+<a name="composeL"></a>
 
-## compose() ⇒ <code>function</code>
+## composeL(...args) ⇒ <code>function</code>
 Compose functions from right to left
 
 **Kind**: global function  
-**Params**: <code>...function</code> args  
 **Since**: 1.0.0  
+
+| Param | Type |
+| --- | --- |
+| ...args | <code>function</code> | 
+
 **Example**  
 ```js
 compose(val => val + 1, val => val + 2); //=> val => val + 3
 ```
 <a name="curry"></a>
 
-## curry(fn) ⇒ <code>function</code> &#124; <code>\*</code>
+## curry(fn, ...args) ⇒ <code>function</code> &#124; <code>\*</code>
 Curry arguments to function and return new function
 
 **Kind**: global function  
-**Params**: <code>...\*</code> args  
 **Since**: 1.0.0  
 
 | Param | Type |
 | --- | --- |
 | fn | <code>function</code> | 
+| ...args | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -242,6 +253,24 @@ const foo = (a, b, c) => a + b + c;
     curry(foo, 1)(3, 4); //=> 8
     curry(foo, 2)(3)(4); //=> 9
     curry(foo)(1)(1)(1); // => 3
+```
+<a name="defaultTo"></a>
+
+## defaultTo(def, val) ⇒ <code>\*</code>
+Sets default value if passed value is falsy
+
+**Kind**: global function  
+**Since**: 1.2.0  
+
+| Param | Type |
+| --- | --- |
+| def | <code>\*</code> | 
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+defaultTo(5, undefined); //=> 5
+    defaultTo(3)(4); //=> 4
 ```
 <a name="define"></a>
 
@@ -339,15 +368,15 @@ gte(1, 1); //=> true
 ```
 <a name="isArray"></a>
 
-## isArray() ⇒ <code>boolean</code>
+## isArray(val) ⇒ <code>boolean</code>
 Determine if value is array
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -356,15 +385,15 @@ isArray([]); //=> true
 ```
 <a name="isBoolean"></a>
 
-## isBoolean() ⇒ <code>boolean</code>
+## isBoolean(val) ⇒ <code>boolean</code>
 Determine if value is boolean;
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -373,15 +402,15 @@ isBoolean(1); //=> false
 ```
 <a name="isFunction"></a>
 
-## isFunction() ⇒ <code>boolean</code>
+## isFunction(val) ⇒ <code>boolean</code>
 Determine if value is function
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -390,15 +419,15 @@ isFunction(1); //=> false
 ```
 <a name="isNaN"></a>
 
-## isNaN() ⇒ <code>boolean</code>
+## isNaN(val) ⇒ <code>boolean</code>
 Determine if value is NaN
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>number</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>number</code> | 
 
 **Example**  
 ```js
@@ -407,15 +436,15 @@ isNaN(NaN); //=> true
 ```
 <a name="isNull"></a>
 
-## isNull() ⇒ <code>boolean</code>
+## isNull(val) ⇒ <code>boolean</code>
 Determine if value is null
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -424,15 +453,15 @@ isNull(null); //=> true
 ```
 <a name="isNumber"></a>
 
-## isNumber() ⇒ <code>boolean</code>
+## isNumber(val) ⇒ <code>boolean</code>
 Determine if value is function
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -441,15 +470,15 @@ isNumber(1); //=> true
 ```
 <a name="isObject"></a>
 
-## isObject() ⇒ <code>boolean</code>
+## isObject(val) ⇒ <code>boolean</code>
 Detemine if value is object
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -475,15 +504,15 @@ isPromise(Promise.resolve()); //=> true
 ```
 <a name="isString"></a>
 
-## isString() ⇒ <code>boolean</code>
+## isString(val) ⇒ <code>boolean</code>
 Determine if value is string
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -492,15 +521,15 @@ isString('foo'); //=> true;
 ```
 <a name="isUndefined"></a>
 
-## isUndefined() ⇒ <code>boolean</code>
+## isUndefined(val) ⇒ <code>boolean</code>
 Determine if value is undefined
 
 **Kind**: global function  
 **Since**: 1.0.0  
 
-| Type |
-| --- |
-| <code>\*</code> | 
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -775,9 +804,9 @@ toObject({ a: 1 }); //=> { a: 1 }
     toObject(null); //=> null
     toObject('foo'); //=> {}
 ```
-<a name="toPromise;"></a>
+<a name="toPromise"></a>
 
-## toPromise;(val) ⇒ <code>Promise</code>
+## toPromise(val) ⇒ <code>Promise</code>
 Take a value and if not a promise, make it a promise
 
 **Kind**: global function  
