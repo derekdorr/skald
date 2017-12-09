@@ -16,6 +16,9 @@
 <dt><a href="#compose">compose()</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
 </dd>
+<dt><a href="#compose">compose()</a> ⇒ <code>function</code></dt>
+<dd><p>Compose functions from right to left</p>
+</dd>
 <dt><a href="#curry">curry(fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Curry arguments to function and return new function</p>
 </dd>
@@ -56,6 +59,9 @@ passed until it executes</p>
 <dt><a href="#isObject">isObject()</a> ⇒ <code>boolean</code></dt>
 <dd><p>Detemine if value is object</p>
 </dd>
+<dt><a href="#isPromise">isPromise(val)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Take a value and determine if it is a promise</p>
+</dd>
 <dt><a href="#isString">isString()</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is string</p>
 </dd>
@@ -71,13 +77,26 @@ passed until it executes</p>
 <dt><a href="#multiply">multiply(a, b)</a> ⇒ <code>function</code> | <code>number</code></dt>
 <dd><p>Multiply two numbers together</p>
 </dd>
+<dt><a href="#not">not(val)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Returns false if truthy, true if falsy</p>
+</dd>
+<dt><a href="#notEquals">notEquals(a, b)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Return true if two values are not equal</p>
+</dd>
 <dt><a href="#or">or(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if at least one argument or array value is truthy</p>
+</dd>
+<dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
+<dd><p>Take a function and return a function which accepts ars in reverse order</p>
 </dd>
 <dt><a href="#subtract">subtract(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Subtract one number from another</p>
 </dd>
 <dt><a href="#ternary">ternary(failure, success, predicate)</a> ⇒ <code>*</code></dt>
+<dd><p>Return success or failure based on predicate evaluation. If success or
+failure are functions, returns executed result.</p>
+</dd>
+<dt><a href="#ternaryL">ternaryL(predicate, success, failure)</a> ⇒ <code>*</code></dt>
 <dd><p>Return success or failure based on predicate evaluation. If success or
 failure are functions, returns executed result.</p>
 </dd>
@@ -95,6 +114,9 @@ failure are functions, returns executed result.</p>
 </dd>
 <dt><a href="#toObject">toObject(value)</a> ⇒ <code>Object</code></dt>
 <dd><p>Forces value into object. If not object, returns {}</p>
+</dd>
+<dt><a href="#toPromise;">toPromise;(val)</a> ⇒ <code>Promise</code></dt>
+<dd><p>Take a value and if not a promise, make it a promise</p>
 </dd>
 <dt><a href="#toString">toString(value)</a> ⇒ <code>string</code></dt>
 <dd><p>Converts value to string. Converts undefined to empty string.</p>
@@ -188,6 +210,18 @@ Compose functions from right to left
 ```js
 compose(val => val + 1, val => val + 2); //=> val => val + 3
 ```
+<a name="compose"></a>
+
+## compose() ⇒ <code>function</code>
+Compose functions from right to left
+
+**Kind**: global function  
+**Params**: <code>...function</code> args  
+**Since**: 1.0.0  
+**Example**  
+```js
+compose(val => val + 1, val => val + 2); //=> val => val + 3
+```
 <a name="curry"></a>
 
 ## curry(fn) ⇒ <code>function</code> &#124; <code>\*</code>
@@ -216,6 +250,7 @@ Take a function with a known signature and allow arguments to be
 passed until it executes
 
 **Kind**: global function  
+**Update**:   
 **Since**: 1.0.0  
 
 | Param | Type |
@@ -421,6 +456,23 @@ Detemine if value is object
 isObject({}); //=> true
     isObject(1); //=> false
 ```
+<a name="isPromise"></a>
+
+## isPromise(val) ⇒ <code>boolean</code>
+Take a value and determine if it is a promise
+
+**Kind**: global function  
+**Since**: 1.1.0  
+
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+isPromise(Promise.resolve()); //=> true
+    isPromise('foo'); //=> false
+```
 <a name="isString"></a>
 
 ## isString() ⇒ <code>boolean</code>
@@ -509,6 +561,41 @@ Multiply two numbers together
 multiply(2, 3); //=> 6
     multiply(2)(2); //=> 4
 ```
+<a name="not"></a>
+
+## not(val) ⇒ <code>boolean</code>
+Returns false if truthy, true if falsy
+
+**Kind**: global function  
+**Since**: 1.1.0  
+
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+not(1); //=> false
+    not(false); //=> true
+```
+<a name="notEquals"></a>
+
+## notEquals(a, b) ⇒ <code>boolean</code>
+Return true if two values are not equal
+
+**Kind**: global function  
+**Since**: 1.1.0  
+
+| Param | Type |
+| --- | --- |
+| a | <code>\*</code> | 
+| b | <code>\*</code> | 
+
+**Example**  
+```js
+notEquals(1, 2); //=> true
+    notEquals(3)(4); //=> true
+```
 <a name="or"></a>
 
 ## or(...args) ⇒ <code>boolean</code>
@@ -525,6 +612,23 @@ Determine if at least one argument or array value is truthy
 ```js
 or(true, false, false); //=> true
     or([false, false, true]); //=> true
+```
+<a name="reverse"></a>
+
+## reverse(fn) ⇒ <code>function</code>
+Take a function and return a function which accepts ars in reverse order
+
+**Kind**: global function  
+**Since**: 1.1.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+
+**Example**  
+```js
+const foo = (a, b, c) => a + b - c;
+    reverse(foo); //=> (c, b, a) => c + b - a;
 ```
 <a name="subtract"></a>
 
@@ -563,6 +667,26 @@ failure are functions, returns executed result.
 ```js
 ternary(1, 2, true); //=> 2
     ternary(1, 2, false); //=> 1
+```
+<a name="ternaryL"></a>
+
+## ternaryL(predicate, success, failure) ⇒ <code>\*</code>
+Return success or failure based on predicate evaluation. If success or
+failure are functions, returns executed result.
+
+**Kind**: global function  
+**Since**: 1.1.0  
+
+| Param | Type |
+| --- | --- |
+| predicate | <code>\*</code> | 
+| success | <code>\*</code> | 
+| failure | <code>\*</code> | 
+
+**Example**  
+```js
+ternaryL(true, 1, 2); //=> 1
+    ternaryL(false, 1, 2); //=> 2
 ```
 <a name="toArray"></a>
 
@@ -650,6 +774,23 @@ Forces value into object. If not object, returns {}
 toObject({ a: 1 }); //=> { a: 1 }
     toObject(null); //=> null
     toObject('foo'); //=> {}
+```
+<a name="toPromise;"></a>
+
+## toPromise;(val) ⇒ <code>Promise</code>
+Take a value and if not a promise, make it a promise
+
+**Kind**: global function  
+**Since**: 1.1.0  
+
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = toPromise(5);
+    foo.then(console.log); //=> 5;
 ```
 <a name="toString"></a>
 

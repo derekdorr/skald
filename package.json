@@ -1,6 +1,6 @@
 {
   "name": "skald",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Javascript utilty functions",
   "repository": "https://github.com/derekdorr/skald",
   "main": "lib/index.js",
@@ -26,6 +26,9 @@
     "precommit": "npm run lint && npm run test"
   },
   "nyc": {
+    "exclude": [
+      "tests/"
+    ],
     "require": [
       "babel-register"
     ]

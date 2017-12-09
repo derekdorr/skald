@@ -5,6 +5,7 @@
  * @module define
  * @func
  * @since 1.0.0
+ * @update
  * @param {function} fn
  * @return {function|*}
  * @example
@@ -16,8 +17,9 @@
  *     bar(1)(2)(3); // 6
  */
 
-const define = fn => {
-    const internal = (...args) => (args.length < fn.length ?
+const define = (fn, len) => {
+    const length = len || fn.length;
+    const internal = (...args) => (args.length < length ?
         (...ops) => internal(...args.concat(ops)) :
         fn(...args));
 
