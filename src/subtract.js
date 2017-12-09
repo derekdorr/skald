@@ -1,7 +1,7 @@
 /**
- * @module subtract
  * Subtract one number from another
  *
+ * @module subtract
  * @func
  * @since 1.0.0
  * @param {number} a

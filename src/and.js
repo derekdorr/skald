@@ -1,7 +1,7 @@
 /**
- * @module and
  * Determine if all arguments are truthy or if array is truthy
  *
+ * @module and
  * @func
  * @since 1.0.0
  * @param {...*} a

@@ -1,7 +1,7 @@
 /**
- * @module multiply
  * Multiply two numbers together
  *
+ * @module multiply
  * @func
  * @since 1.0.0
  * @param {number} a

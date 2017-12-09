@@ -1,7 +1,7 @@
 /**
- * @module toObject
  * Forces value into object. If not object, returns {}
  *
+ * @module toObject
  * @func
  * @since 1.0.0
  * @param {*} value

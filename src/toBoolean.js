@@ -1,7 +1,7 @@
 /**
- * @module toBoolean
  * Returns boolean value and converts string 'false' to false
  *
+ * @module toBoolean
  * @func
  * @since 1.0.0
  * @param {*} value

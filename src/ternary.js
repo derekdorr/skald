@@ -1,8 +1,8 @@
 /**
- * @module ternary
  * Return success or failure based on predicate evaluation. If success or
  * failure are functions, returns executed result.
  *
+ * @module ternary
  * @func
  * @since 1.0.0
  * @param {*} failure

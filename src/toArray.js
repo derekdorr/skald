@@ -1,7 +1,7 @@
 /**
- * @module toArray
  * Force args to array if not arrays
  *
+ * @module toArray
  * @func
  * @since 1.0.0
  * @param {...*} args

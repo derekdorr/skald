@@ -1,7 +1,7 @@
 /**
- * @module isBoolean
  * Determine if value is boolean;
  *
+ * @module isBoolean
  * @func
  * @since 1.0.0
  * @param {*}

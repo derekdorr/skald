@@ -1,7 +1,7 @@
 /**
- * @module lt
  * Determine if value is less than other value
  *
+ * @module lt
  * @func
  * @since 1.0.0
  * @param {number|string} a

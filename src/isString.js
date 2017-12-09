@@ -1,7 +1,7 @@
 /**
- * @module isString
  * Determine if value is string
  *
+ * @module isString
  * @func
  * @since 1.0.0
  * @param {*}

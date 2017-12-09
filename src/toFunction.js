@@ -1,7 +1,7 @@
 /**
- * @module toFunction
  * Returns function which returns value if value is not a function.
  *
+ * @module toFunction
  * @func
  * @since 1.0.0
  * @param {*} value

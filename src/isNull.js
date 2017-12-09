@@ -1,7 +1,7 @@
 /**
- * @module isNull
  * Determine if value is null
  *
+ * @module isNull
  * @func
  * @since 1.0.0
  * @param {*}

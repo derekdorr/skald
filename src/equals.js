@@ -1,7 +1,7 @@
 /**
- * @module equals
  * Determine if two values are equal
  *
+ * @module equals
  * @func
  * @since 1.0.0
  * @param {*} a

@@ -1,7 +1,7 @@
 /**
- * @module isNaN
  * Determine if value is NaN
  *
+ * @module isNaN
  * @func
  * @since 1.0.0
  * @param {number}

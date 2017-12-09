@@ -1,7 +1,8 @@
 /**
- * @module callback
+ * 
  * Take two arguments and if second argument is truthy, return first.
  *
+ * @module callback
  * @func
  * @since 1.0.0
  * @param {*} callback

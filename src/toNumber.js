@@ -1,7 +1,7 @@
 /**
- * @module toNumber
  * Parses int or float or Infinity to numeric value
  *
+ * @module toNumber
  * @func
  * @since 1.0.0
  * @param {*} value

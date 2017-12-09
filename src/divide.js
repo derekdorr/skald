@@ -1,7 +1,7 @@
 /**
- * @module divide
  * Divide two numbers
  *
+ * @module divide
  * @func
  * @since 1.0.0
  * @param {number} a

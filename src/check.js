@@ -1,7 +1,7 @@
 /**
- * @module check
  * Safely traverse object nested properties
  *
+ * @module check
  * @func
  * @since 1.0.0
  * @param {Object} obj

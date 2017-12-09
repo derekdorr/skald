@@ -1,7 +1,7 @@
 /**
- * @module toString
  * Converts value to string. Converts undefined to empty string.
  *
+ * @module toString
  * @func
  * @since 1.0.0
  * @param {*} value

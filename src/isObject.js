@@ -1,7 +1,7 @@
 /**
- * @module isObject
  * Detemine if value is object
  *
+ * @module isObject
  * @func
  * @since 1.0.0
  * @param {*}

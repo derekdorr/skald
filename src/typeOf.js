@@ -1,7 +1,7 @@
 /**
- * @module typeOf
  * Returns typeof value
  *
+ * @module typeOf
  * @func
  * @since 1.0.0
  * @param {*} val

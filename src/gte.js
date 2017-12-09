@@ -1,7 +1,7 @@
 /**
- * @module gte
  * Determine if value is greater than or equal to other value
  *
+ * @module gte
  * @func
  * @since 1.0.0
  * @param {number|string} a

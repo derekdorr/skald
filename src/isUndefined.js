@@ -1,7 +1,7 @@
 /**
- * @module isUndefined
  * Determine if value is undefined
  *
+ * @module isUndefined
  * @func
  * @since 1.0.0
  * @param {*}

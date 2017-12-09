@@ -1,7 +1,7 @@
 /**
- * @module isArray
  * Determine if value is array
  *
+ * @module isArray
  * @func
  * @since 1.0.0
  * @param {*}

@@ -1,7 +1,7 @@
 /**
- * @module isNumber
  * Determine if value is function
  *
+ * @module isNumber
  * @func
  * @since 1.0.0
  * @param {*}

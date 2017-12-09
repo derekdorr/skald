@@ -1,8 +1,8 @@
 /**
- * @module define
  * Take a function with a known signature and allow arguments to be
  * passed until it executes
  *
+ * @module define
  * @func
  * @since 1.0.0
  * @param {function} fn

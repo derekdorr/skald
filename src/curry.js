@@ -1,7 +1,7 @@
 /**
- * @module curry
  * Curry arguments to function and return new function
  *
+ * @module curry
  * @func
  * @since 1.0.0
  * @param {function} fn

@@ -3,9 +3,9 @@ import equals from './equals';
 import ternary from './ternary';
 import toBoolean from './toBoolean';
 /**
- * @module or
  * Determine if at least one argument or array value is truthy
  *
+ * @module or
  * @func
  * @since 1.0.0
  * @param {...*} args

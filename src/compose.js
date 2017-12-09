@@ -1,7 +1,8 @@
 /**
- * @module compose
+ * 
  * Compose functions from right to left
  *
+ * @module compose
  * @func
  * @since 1.0.0
  * @params {...function} args

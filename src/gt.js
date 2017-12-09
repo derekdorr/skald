@@ -1,7 +1,7 @@
 /**
- * @module gt
  * Determine if first value is greater than
  *
+ * @module gt
  * @func
  * @since 1.0.0
  * @param {number|string} a
