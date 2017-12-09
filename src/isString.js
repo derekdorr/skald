@@ -1,4 +1,5 @@
 /**
+ * @module isString
  * Determine if value is string
  *
  * @func

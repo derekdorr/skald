@@ -1,4 +1,5 @@
 /**
+ * @module isBoolean
  * Determine if value is boolean;
  *
  * @func

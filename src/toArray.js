@@ -1,4 +1,5 @@
 /**
+ * @module toArray
  * Force args to array if not arrays
  *
  * @func

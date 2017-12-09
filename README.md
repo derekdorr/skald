@@ -1,108 +1,149 @@
 ## Functions
 
 <dl>
-<dt><a href="#add">add(a, b)</a> ⇒ <code>number</code></dt>
-<dd><p>Add two numbers</p>
-</dd>
-<dt><a href="#INT_ZERO">INT_ZERO(...a)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if all arguments are truthy or if array is truthy</p>
-</dd>
-<dt><a href="#default">default(callback, predicate)</a> ⇒ <code>*</code></dt>
-<dd><p>Take two arguments and if second argument is truthy, return first.</p>
-</dd>
-<dt><a href="#traverse">traverse(obj, path)</a> ⇒ <code>*</code></dt>
-<dd><p>Safely traverse object nested properties</p>
-</dd>
-<dt><a href="#compose">compose()</a> ⇒ <code>function</code></dt>
-<dd><p>Compose functions from right to left</p>
-</dd>
-<dt><a href="#default">default(fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
-<dd><p>Curry arguments to function and return new function</p>
-</dd>
-<dt><a href="#define">define(fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
-<dd><p>Take a function with a known signature and allow arguments to be
-passed until it executes</p>
-</dd>
-<dt><a href="#divide">divide(a, b)</a> ⇒ <code>number</code> | <code>function</code></dt>
-<dd><p>Divide two numbers</p>
-</dd>
-<dt><a href="#equals">equals(a, b)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
-<dd><p>Determine if two values are equal</p>
-</dd>
-<dt><a href="#gt">gt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
-<dd><p>Determine if first value is greater than</p>
-</dd>
-<dt><a href="#gte">gte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
-<dd><p>Determine if value is greater than or equal to other value</p>
-</dd>
-<dt><a href="#equalsBoolean">equalsBoolean()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is boolean;</p>
-</dd>
-<dt><a href="#equalsFunction">equalsFunction()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is function</p>
-</dd>
-<dt><a href="#NULL">NULL()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is null</p>
-</dd>
-<dt><a href="#equalsNumber">equalsNumber()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is function</p>
-</dd>
-<dt><a href="#equalsObject">equalsObject()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Detemine if value is object</p>
-</dd>
-<dt><a href="#equalsString">equalsString()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is string</p>
-</dd>
-<dt><a href="#equalsUndefined">equalsUndefined()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is undefined</p>
-</dd>
-<dt><a href="#lt">lt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
-<dd><p>Determine if value is less than other value</p>
-</dd>
-<dt><a href="#lte">lte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
-<dd><p>Determine if value is less than or equal to other value</p>
-</dd>
-<dt><a href="#multiply">multiply(a, b)</a> ⇒ <code>function</code> | <code>number</code></dt>
-<dd><p>Multiply two numbers together</p>
-</dd>
-<dt><a href="#INT_ONE">INT_ONE(...args)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if at least one argument or array value is truthy</p>
-</dd>
-<dt><a href="#subtract">subtract(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
-<dd><p>Subtract one number from another</p>
-</dd>
-<dt><a href="#internal">internal(failure, success, predicate)</a> ⇒ <code>*</code></dt>
-<dd><p>Return success or failure based on predicate evaluation. If success or
-failure are functions, returns executed result.</p>
-</dd>
-<dt><a href="#toArray">toArray(...args)</a> ⇒ <code>Array</code></dt>
-<dd><p>Force args to array if not arrays</p>
-</dd>
-<dt><a href="#BOOL_FALSE">BOOL_FALSE(value)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Returns boolean value and converts string &#39;false&#39; to false</p>
-</dd>
-<dt><a href="#default">default(value)</a> ⇒ <code>function</code></dt>
-<dd><p>Returns function which returns value if value is not a function.</p>
-</dd>
-<dt><a href="#NUM_INFINITY">NUM_INFINITY(value)</a> ⇒ <code>number</code></dt>
-<dd><p>Parses int or float or Infinity to numeric value</p>
-</dd>
-<dt><a href="#INT_ONE">INT_ONE(value)</a> ⇒ <code>Object</code></dt>
-<dd><p>Forces value into object. If not object, returns {}</p>
-</dd>
-<dt><a href="#concatToEmpty">concatToEmpty(value)</a> ⇒ <code>string</code></dt>
-<dd><p>Converts value to string. Converts undefined to empty string.</p>
-</dd>
-<dt><a href="#typeOf">typeOf(val)</a> ⇒ <code>string</code></dt>
-<dd><p>Returns typeof value</p>
-</dd>
+<dt><a href="#add
+Add two numbers">add
+Add two numbers(a, b)</a> ⇒ <code>number</code></dt>
+<dd></dd>
+<dt><a href="#and
+Determine if all arguments are truthy or if array is truthy">and
+Determine if all arguments are truthy or if array is truthy(...a)</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#callback
+Take two arguments and if second argument is truthy, return first.">callback
+Take two arguments and if second argument is truthy, return first.(callback, predicate)</a> ⇒ <code>*</code></dt>
+<dd></dd>
+<dt><a href="#check
+Safely traverse object nested properties">check
+Safely traverse object nested properties(obj, path)</a> ⇒ <code>*</code></dt>
+<dd></dd>
+<dt><a href="#compose
+Compose functions from right to left">compose
+Compose functions from right to left()</a> ⇒ <code>function</code></dt>
+<dd></dd>
+<dt><a href="#curry
+Curry arguments to function and return new function">curry
+Curry arguments to function and return new function(fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
+<dd></dd>
+<dt><a href="#define
+Take a function with a known signature and allow arguments to be
+passed until it executes">define
+Take a function with a known signature and allow arguments to be
+passed until it executes(fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
+<dd></dd>
+<dt><a href="#divide
+Divide two numbers">divide
+Divide two numbers(a, b)</a> ⇒ <code>number</code> | <code>function</code></dt>
+<dd></dd>
+<dt><a href="#equals
+Determine if two values are equal">equals
+Determine if two values are equal(a, b)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dd></dd>
+<dt><a href="#gt
+Determine if first value is greater than">gt
+Determine if first value is greater than(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#gte
+Determine if value is greater than or equal to other value">gte
+Determine if value is greater than or equal to other value(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isArray
+Determine if value is array">isArray
+Determine if value is array()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isBoolean
+Determine if value is boolean;">isBoolean
+Determine if value is boolean;()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isFunction
+Determine if value is function">isFunction
+Determine if value is function()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isNaN
+Determine if value is NaN">isNaN
+Determine if value is NaN()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isNull
+Determine if value is null">isNull
+Determine if value is null()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isNumber
+Determine if value is function">isNumber
+Determine if value is function()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isObject
+Detemine if value is object">isObject
+Detemine if value is object()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isString
+Determine if value is string">isString
+Determine if value is string()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#isUndefined
+Determine if value is undefined">isUndefined
+Determine if value is undefined()</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#lt
+Determine if value is less than other value">lt
+Determine if value is less than other value(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#lte
+Determine if value is less than or equal to other value">lte
+Determine if value is less than or equal to other value(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#multiply
+Multiply two numbers together">multiply
+Multiply two numbers together(a, b)</a> ⇒ <code>function</code> | <code>number</code></dt>
+<dd></dd>
+<dt><a href="#or
+Determine if at least one argument or array value is truthy">or
+Determine if at least one argument or array value is truthy(...args)</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#subtract
+Subtract one number from another">subtract
+Subtract one number from another(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#ternary
+Return success or failure based on predicate evaluation. If success or
+failure are functions, returns executed result.">ternary
+Return success or failure based on predicate evaluation. If success or
+failure are functions, returns executed result.(failure, success, predicate)</a> ⇒ <code>*</code></dt>
+<dd></dd>
+<dt><a href="#toArray
+Force args to array if not arrays">toArray
+Force args to array if not arrays(...args)</a> ⇒ <code>Array</code></dt>
+<dd></dd>
+<dt><a href="#toBoolean
+Returns boolean value and converts string false to false">toBoolean
+Returns boolean value and converts string false to false(value)</a> ⇒ <code>boolean</code></dt>
+<dd></dd>
+<dt><a href="#toFunction
+Returns function which returns value if value is not a function.">toFunction
+Returns function which returns value if value is not a function.(value)</a> ⇒ <code>function</code></dt>
+<dd></dd>
+<dt><a href="#toNumber
+Parses int or float or Infinity to numeric value">toNumber
+Parses int or float or Infinity to numeric value(value)</a> ⇒ <code>number</code></dt>
+<dd></dd>
+<dt><a href="#toObject
+Forces value into object. If not object, returns">toObject
+Forces value into object. If not object, returns(value)</a> ⇒ <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#toString
+Converts value to string. Converts undefined to empty string.">toString
+Converts value to string. Converts undefined to empty string.(value)</a> ⇒ <code>string</code></dt>
+<dd></dd>
+<dt><a href="#typeOf
+Returns typeof value">typeOf
+Returns typeof value(val)</a> ⇒ <code>string</code></dt>
+<dd></dd>
 </dl>
 
-<a name="add"></a>
+<a name="add
+Add two numbers"></a>
 
-## add(a, b) ⇒ <code>number</code>
-Add two numbers
-
+## add
+Add two numbers(a, b) ⇒ <code>number</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -116,11 +157,11 @@ Add two numbers
 add(1,2); //=> 3
     add(2)(3); //=> 5
 ```
-<a name="INT_ZERO"></a>
+<a name="and
+Determine if all arguments are truthy or if array is truthy"></a>
 
-## INT_ZERO(...a) ⇒ <code>boolean</code>
-Determine if all arguments are truthy or if array is truthy
-
+## and
+Determine if all arguments are truthy or if array is truthy(...a) ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -134,11 +175,11 @@ and(true, true); //=> true
     and([true, true]); //=> true
     and(true, true, false); //=> false
 ```
-<a name="default"></a>
+<a name="callback
+Take two arguments and if second argument is truthy, return first."></a>
 
-## default(callback, predicate) ⇒ <code>\*</code>
-Take two arguments and if second argument is truthy, return first.
-
+## callback
+Take two arguments and if second argument is truthy, return first.(callback, predicate) ⇒ <code>\*</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -152,11 +193,11 @@ Take two arguments and if second argument is truthy, return first.
 callback('foo', true); //=> true
     callback('foo', false); //=> null
 ```
-<a name="traverse"></a>
+<a name="check
+Safely traverse object nested properties"></a>
 
-## traverse(obj, path) ⇒ <code>\*</code>
-Safely traverse object nested properties
-
+## check
+Safely traverse object nested properties(obj, path) ⇒ <code>\*</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -170,11 +211,11 @@ Safely traverse object nested properties
 traverse({}, ['a', 'b', 'c']); //=> undefined
     traverse({ a: 1 })(['a']); //=> 1
 ```
-<a name="compose"></a>
+<a name="compose
+Compose functions from right to left"></a>
 
-## compose() ⇒ <code>function</code>
-Compose functions from right to left
-
+## compose
+Compose functions from right to left() ⇒ <code>function</code>
 **Kind**: global function  
 **Params**: <code>...function</code> args  
 **Since**: 1.0.0  
@@ -182,11 +223,11 @@ Compose functions from right to left
 ```js
 compose(val => val + 1, val => val + 2); //=> val => val + 3
 ```
-<a name="default"></a>
+<a name="curry
+Curry arguments to function and return new function"></a>
 
-## default(fn) ⇒ <code>function</code> &#124; <code>\*</code>
-Curry arguments to function and return new function
-
+## curry
+Curry arguments to function and return new function(fn) ⇒ <code>function</code> &#124; <code>\*</code>
 **Kind**: global function  
 **Params**: <code>...\*</code> args  
 **Since**: 1.0.0  
@@ -203,12 +244,13 @@ const foo = (a, b, c) => a + b + c;
     curry(foo, 2)(3)(4); //=> 9
     curry(foo)(1)(1)(1); // => 3
 ```
-<a name="define"></a>
-
-## define(fn) ⇒ <code>function</code> &#124; <code>\*</code>
+<a name="define
 Take a function with a known signature and allow arguments to be
-passed until it executes
+passed until it executes"></a>
 
+## define
+Take a function with a known signature and allow arguments to be
+passed until it executes(fn) ⇒ <code>function</code> &#124; <code>\*</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -224,11 +266,11 @@ const foo = (a, b, c) => a + b + c;
     bar(1)(2); // c => 1 + 2 + c
     bar(1)(2)(3); // 6
 ```
-<a name="divide"></a>
+<a name="divide
+Divide two numbers"></a>
 
-## divide(a, b) ⇒ <code>number</code> &#124; <code>function</code>
-Divide two numbers
-
+## divide
+Divide two numbers(a, b) ⇒ <code>number</code> &#124; <code>function</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -242,11 +284,11 @@ Divide two numbers
 divide(9, 3); //=> 3
     divide(4)(2); //=> 2
 ```
-<a name="equals"></a>
+<a name="equals
+Determine if two values are equal"></a>
 
-## equals(a, b) ⇒ <code>boolean</code> &#124; <code>function</code>
-Determine if two values are equal
-
+## equals
+Determine if two values are equal(a, b) ⇒ <code>boolean</code> &#124; <code>function</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -260,11 +302,11 @@ Determine if two values are equal
 equals(1, 1); //=> true
     equals(1)(2); //=> false
 ```
-<a name="gt"></a>
+<a name="gt
+Determine if first value is greater than"></a>
 
-## gt(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
-Determine if first value is greater than
-
+## gt
+Determine if first value is greater than(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -278,11 +320,11 @@ Determine if first value is greater than
 gt(2, 1); //=> true
     gt('b')('c'); //=> false
 ```
-<a name="gte"></a>
+<a name="gte
+Determine if value is greater than or equal to other value"></a>
 
-## gte(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
-Determine if value is greater than or equal to other value
-
+## gte
+Determine if value is greater than or equal to other value(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -296,11 +338,28 @@ Determine if value is greater than or equal to other value
 gte(1, 1); //=> true
     gte('b')('a'); //=> true
 ```
-<a name="equalsBoolean"></a>
+<a name="isArray
+Determine if value is array"></a>
 
-## equalsBoolean() ⇒ <code>boolean</code>
-Determine if value is boolean;
+## isArray
+Determine if value is array() ⇒ <code>boolean</code>
+**Kind**: global function  
+**Since**: 1.0.0  
 
+| Type |
+| --- |
+| <code>\*</code> | 
+
+**Example**  
+```js
+isArray([]); //=> true
+    isArray(1); //=> false
+```
+<a name="isBoolean
+Determine if value is boolean;"></a>
+
+## isBoolean
+Determine if value is boolean;() ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -313,11 +372,11 @@ Determine if value is boolean;
 isBoolean(1); //=> false
     isBoolean(false); //=> true
 ```
-<a name="equalsFunction"></a>
+<a name="isFunction
+Determine if value is function"></a>
 
-## equalsFunction() ⇒ <code>boolean</code>
-Determine if value is function
-
+## isFunction
+Determine if value is function() ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -330,11 +389,28 @@ Determine if value is function
 isFunction(1); //=> false
     isFunction(() => ({})); //=> true
 ```
-<a name="NULL"></a>
+<a name="isNaN
+Determine if value is NaN"></a>
 
-## NULL() ⇒ <code>boolean</code>
-Determine if value is null
+## isNaN
+Determine if value is NaN() ⇒ <code>boolean</code>
+**Kind**: global function  
+**Since**: 1.0.0  
 
+| Type |
+| --- |
+| <code>number</code> | 
+
+**Example**  
+```js
+isNaN(NaN); //=> true
+    isNaN(1); //=> false
+```
+<a name="isNull
+Determine if value is null"></a>
+
+## isNull
+Determine if value is null() ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -347,11 +423,11 @@ Determine if value is null
 isNull(null); //=> true
     isNull({}); //=> false
 ```
-<a name="equalsNumber"></a>
+<a name="isNumber
+Determine if value is function"></a>
 
-## equalsNumber() ⇒ <code>boolean</code>
-Determine if value is function
-
+## isNumber
+Determine if value is function() ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -364,11 +440,11 @@ Determine if value is function
 isNumber(1); //=> true
     isNumber([]); //=> false
 ```
-<a name="equalsObject"></a>
+<a name="isObject
+Detemine if value is object"></a>
 
-## equalsObject() ⇒ <code>boolean</code>
-Detemine if value is object
-
+## isObject
+Detemine if value is object() ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -381,11 +457,11 @@ Detemine if value is object
 isObject({}); //=> true
     isObject(1); //=> false
 ```
-<a name="equalsString"></a>
+<a name="isString
+Determine if value is string"></a>
 
-## equalsString() ⇒ <code>boolean</code>
-Determine if value is string
-
+## isString
+Determine if value is string() ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -398,11 +474,11 @@ Determine if value is string
 isString('foo'); //=> true;
     isString(true); //=> false;
 ```
-<a name="equalsUndefined"></a>
+<a name="isUndefined
+Determine if value is undefined"></a>
 
-## equalsUndefined() ⇒ <code>boolean</code>
-Determine if value is undefined
-
+## isUndefined
+Determine if value is undefined() ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -415,11 +491,11 @@ Determine if value is undefined
 isUndefined(undefined); //=> true
     isUndefined(true); //=> false
 ```
-<a name="lt"></a>
+<a name="lt
+Determine if value is less than other value"></a>
 
-## lt(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
-Determine if value is less than other value
-
+## lt
+Determine if value is less than other value(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -433,11 +509,11 @@ Determine if value is less than other value
 lt(1, 2); //=> true
     lt('a')('b'); //=> true
 ```
-<a name="lte"></a>
+<a name="lte
+Determine if value is less than or equal to other value"></a>
 
-## lte(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
-Determine if value is less than or equal to other value
-
+## lte
+Determine if value is less than or equal to other value(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -451,11 +527,11 @@ Determine if value is less than or equal to other value
 lte(1, 1); //=> true
     lte('a')('b'); //=> true
 ```
-<a name="multiply"></a>
+<a name="multiply
+Multiply two numbers together"></a>
 
-## multiply(a, b) ⇒ <code>function</code> &#124; <code>number</code>
-Multiply two numbers together
-
+## multiply
+Multiply two numbers together(a, b) ⇒ <code>function</code> &#124; <code>number</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -469,11 +545,11 @@ Multiply two numbers together
 multiply(2, 3); //=> 6
     multiply(2)(2); //=> 4
 ```
-<a name="INT_ONE"></a>
+<a name="or
+Determine if at least one argument or array value is truthy"></a>
 
-## INT_ONE(...args) ⇒ <code>boolean</code>
-Determine if at least one argument or array value is truthy
-
+## or
+Determine if at least one argument or array value is truthy(...args) ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -486,11 +562,11 @@ Determine if at least one argument or array value is truthy
 or(true, false, false); //=> true
     or([false, false, true]); //=> true
 ```
-<a name="subtract"></a>
+<a name="subtract
+Subtract one number from another"></a>
 
-## subtract(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
-Subtract one number from another
-
+## subtract
+Subtract one number from another(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -504,12 +580,13 @@ Subtract one number from another
 subtract(3, 2); //=> 1
     subtract(2)(1); //=> 1
 ```
-<a name="internal"></a>
-
-## internal(failure, success, predicate) ⇒ <code>\*</code>
+<a name="ternary
 Return success or failure based on predicate evaluation. If success or
-failure are functions, returns executed result.
+failure are functions, returns executed result."></a>
 
+## ternary
+Return success or failure based on predicate evaluation. If success or
+failure are functions, returns executed result.(failure, success, predicate) ⇒ <code>\*</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -524,11 +601,11 @@ failure are functions, returns executed result.
 ternary(1, 2, true); //=> 2
     ternary(1, 2, false); //=> 1
 ```
-<a name="toArray"></a>
+<a name="toArray
+Force args to array if not arrays"></a>
 
-## toArray(...args) ⇒ <code>Array</code>
-Force args to array if not arrays
-
+## toArray
+Force args to array if not arrays(...args) ⇒ <code>Array</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -541,11 +618,11 @@ Force args to array if not arrays
 toArray([1, 2]); //=> [1, 2]
     toArray(2, 3); //=> [2, 3]
 ```
-<a name="BOOL_FALSE"></a>
+<a name="toBoolean
+Returns boolean value and converts string false to false"></a>
 
-## BOOL_FALSE(value) ⇒ <code>boolean</code>
-Returns boolean value and converts string 'false' to false
-
+## toBoolean
+Returns boolean value and converts string false to false(value) ⇒ <code>boolean</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -558,11 +635,11 @@ Returns boolean value and converts string 'false' to false
 toBoolean('false'); //=> false
     toBoolean({}); //=> true
 ```
-<a name="default"></a>
+<a name="toFunction
+Returns function which returns value if value is not a function."></a>
 
-## default(value) ⇒ <code>function</code>
-Returns function which returns value if value is not a function.
-
+## toFunction
+Returns function which returns value if value is not a function.(value) ⇒ <code>function</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -575,11 +652,11 @@ Returns function which returns value if value is not a function.
 toFunction(3); //=> () => 3
     toFunction(() => 1); //=> () => 1
 ```
-<a name="NUM_INFINITY"></a>
+<a name="toNumber
+Parses int or float or Infinity to numeric value"></a>
 
-## NUM_INFINITY(value) ⇒ <code>number</code>
-Parses int or float or Infinity to numeric value
-
+## toNumber
+Parses int or float or Infinity to numeric value(value) ⇒ <code>number</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -593,11 +670,11 @@ toNumber('Infinity'); //=> Infinity
     toNumber('1.0'); //=> 1
     toNumber({}); //=> NaN
 ```
-<a name="INT_ONE"></a>
+<a name="toObject
+Forces value into object. If not object, returns"></a>
 
-## INT_ONE(value) ⇒ <code>Object</code>
-Forces value into object. If not object, returns {}
-
+## toObject
+Forces value into object. If not object, returns(value) ⇒ <code>Object</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -611,11 +688,11 @@ toObject({ a: 1 }); //=> { a: 1 }
     toObject(null); //=> null
     toObject('foo'); //=> {}
 ```
-<a name="concatToEmpty"></a>
+<a name="toString
+Converts value to string. Converts undefined to empty string."></a>
 
-## concatToEmpty(value) ⇒ <code>string</code>
-Converts value to string. Converts undefined to empty string.
-
+## toString
+Converts value to string. Converts undefined to empty string.(value) ⇒ <code>string</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 
@@ -629,11 +706,11 @@ toString('foo'); //=> 'foo'
     toString(false); //=> 'false'
     toString(undefined); //=> ''
 ```
-<a name="typeOf"></a>
+<a name="typeOf
+Returns typeof value"></a>
 
-## typeOf(val) ⇒ <code>string</code>
-Returns typeof value
-
+## typeOf
+Returns typeof value(val) ⇒ <code>string</code>
 **Kind**: global function  
 **Since**: 1.0.0  
 

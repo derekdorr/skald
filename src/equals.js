@@ -1,4 +1,5 @@
 /**
+ * @module equals
  * Determine if two values are equal
  *
  * @func

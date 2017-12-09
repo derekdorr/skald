@@ -1,4 +1,5 @@
 /**
+ * @module define
  * Take a function with a known signature and allow arguments to be
  * passed until it executes
  *

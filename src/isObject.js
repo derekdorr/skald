@@ -1,4 +1,5 @@
 /**
+ * @module isObject
  * Detemine if value is object
  *
  * @func

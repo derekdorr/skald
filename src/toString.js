@@ -1,4 +1,5 @@
 /**
+ * @module toString
  * Converts value to string. Converts undefined to empty string.
  *
  * @func

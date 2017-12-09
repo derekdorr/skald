@@ -1,4 +1,5 @@
 /**
+ * @module subtract
  * Subtract one number from another
  *
  * @func

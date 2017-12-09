@@ -1,4 +1,5 @@
 /**
+ * @module toBoolean
  * Returns boolean value and converts string 'false' to false
  *
  * @func

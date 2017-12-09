@@ -1,4 +1,5 @@
 /**
+ * @module isNull
  * Determine if value is null
  *
  * @func

@@ -1,4 +1,5 @@
 /**
+ * @module isNumber
  * Determine if value is function
  *
  * @func

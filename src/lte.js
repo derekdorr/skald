@@ -1,4 +1,5 @@
 /**
+ * @module lte
  * Determine if value is less than or equal to other value
  *
  * @func

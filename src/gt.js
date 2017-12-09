@@ -1,4 +1,5 @@
 /**
+ * @module gt
  * Determine if first value is greater than
  *
  * @func

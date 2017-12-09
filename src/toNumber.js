@@ -1,4 +1,5 @@
 /**
+ * @module toNumber
  * Parses int or float or Infinity to numeric value
  *
  * @func

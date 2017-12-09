@@ -1,4 +1,5 @@
 /**
+ * @module isNaN
  * Determine if value is NaN
  *
  * @func

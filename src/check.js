@@ -1,4 +1,5 @@
 /**
+ * @module check
  * Safely traverse object nested properties
  *
  * @func

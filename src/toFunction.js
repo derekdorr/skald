@@ -1,4 +1,5 @@
 /**
+ * @module toFunction
  * Returns function which returns value if value is not a function.
  *
  * @func

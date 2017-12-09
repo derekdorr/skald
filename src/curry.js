@@ -1,4 +1,5 @@
 /**
+ * @module curry
  * Curry arguments to function and return new function
  *
  * @func

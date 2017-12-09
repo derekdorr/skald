@@ -1,4 +1,5 @@
 /**
+ * @module toObject
  * Forces value into object. If not object, returns {}
  *
  * @func

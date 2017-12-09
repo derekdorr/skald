@@ -1,4 +1,5 @@
 /**
+ * @module compose
  * Compose functions from right to left
  *
  * @func

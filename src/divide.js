@@ -1,4 +1,5 @@
 /**
+ * @module divide
  * Divide two numbers
  *
  * @func

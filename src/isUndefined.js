@@ -1,4 +1,5 @@
 /**
+ * @module isUndefined
  * Determine if value is undefined
  *
  * @func

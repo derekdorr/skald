@@ -1,4 +1,5 @@
 /**
+ * @module isArray
  * Determine if value is array
  *
  * @func

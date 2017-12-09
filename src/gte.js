@@ -1,4 +1,5 @@
 /**
+ * @module gte
  * Determine if value is greater than or equal to other value
  *
  * @func

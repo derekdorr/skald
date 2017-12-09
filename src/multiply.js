@@ -1,4 +1,5 @@
 /**
+ * @module multiply
  * Multiply two numbers together
  *
  * @func

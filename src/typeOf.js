@@ -1,4 +1,5 @@
 /**
+ * @module typeOf
  * Returns typeof value
  *
  * @func

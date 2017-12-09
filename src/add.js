@@ -1,8 +1,8 @@
 /**
+ * @module add
  * Add two numbers
  *
  * @func
- * @module add
  * @since 1.0.0
  * @param {number} a
  * @param {number} b

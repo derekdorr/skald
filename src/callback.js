@@ -1,4 +1,5 @@
 /**
+ * @module callback
  * Take two arguments and if second argument is truthy, return first.
  *
  * @func

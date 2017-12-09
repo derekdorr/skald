@@ -1,4 +1,5 @@
 /**
+ * @module ternary
  * Return success or failure based on predicate evaluation. If success or
  * failure are functions, returns executed result.
  *
