@@ -1,12 +1,12 @@
 /**
  * Determine if value is boolean;
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {*}
  * @return {boolean}
  * @example
- * 
+ *
  *     isBoolean(1); //=> false
  *     isBoolean(false); //=> true
  */

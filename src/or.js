@@ -4,13 +4,13 @@ import ternary from './ternary';
 import toBoolean from './toBoolean';
 /**
  * Determine if at least one argument or array value is truthy
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {...*} args
  * @returns {boolean}
  * @example
- * 
+ *
  *     or(true, false, false); //=> true
  *     or([false, false, true]); //=> true
  */

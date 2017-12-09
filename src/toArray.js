@@ -1,12 +1,12 @@
 /**
  * Force args to array if not arrays
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {...*} args
  * @return {Array}
  * @example
- * 
+ *
  *     toArray([1, 2]); //=> [1, 2]
  *     toArray(2, 3); //=> [2, 3]
  */

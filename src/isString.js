@@ -1,12 +1,12 @@
 /**
  * Determine if value is string
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {*}
  * @return {boolean}
  * @example
- * 
+ *
  *     isString('foo'); //=> true;
  *     isString(true); //=> false;
  */

@@ -1,12 +1,12 @@
 /**
  * Determine if value is function
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {*}
  * @return {boolean}
  * @example
- * 
+ *
  *     isNumber(1); //=> true
  *     isNumber([]); //=> false
  */

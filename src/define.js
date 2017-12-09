@@ -1,13 +1,13 @@
 /**
  * Take a function with a known signature and allow arguments to be
  * passed until it executes
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {function} fn
  * @return {function|*}
  * @example
- * 
+ *
  *     const foo = (a, b, c) => a + b + c;
  *     const bar = define(foo);
  *     bar(1); // (b, c) => 1 + b + c

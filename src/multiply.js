@@ -1,13 +1,13 @@
 /**
  * Multiply two numbers together
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {number} a
  * @param {number} b
  * @return {function|number}
  * @example
- * 
+ *
  *     multiply(2, 3); //=> 6
  *     multiply(2)(2); //=> 4
  */

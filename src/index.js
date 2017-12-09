@@ -1,33 +1,69 @@
-export add from './add';
-export and from './and';
-export callback from './callback';
-export check from './check';
-export compose from './compose';
-export curry from './curry';
-export define from './define';
-export divide from './divide';
-export equals from './equals';
-export gt from './gt';
-export gte from './gte';
-export isArray from './isArray';
-export isBoolean from './isBoolean';
-export isFunction from './isFunction';
-export isNaN from './isNaN';
-export isNull from './isNull';
-export isNumber from './isNumber';
-export isObject from './isObject';
-export isString from './isString';
-export isUndefined from './isUndefined';
-export lt from './lt';
-export lte from './lte';
-export multiply from './multiply';
-export or from './or';
-export subtract from './subtract';
-export ternary from './ternary';
-export toArray from './toArray';
-export toBoolean from './toBoolean';
-export toFunction from './toFunction';
-export toNumber from './toNumber';
-export toObject from './toObject';
-export toString from './toString';
-export typeOf from './typeOf';
+import add from './add';
+import and from './and';
+import callback from './callback';
+import check from './check';
+import compose from './compose';
+import curry from './curry';
+import define from './define';
+import divide from './divide';
+import equals from './equals';
+import gt from './gt';
+import gte from './gte';
+import isArray from './isArray';
+import isBoolean from './isBoolean';
+import isFunction from './isFunction';
+import isNaN from './isNaN';
+import isNull from './isNull';
+import isNumber from './isNumber';
+import isObject from './isObject';
+import isString from './isString';
+import isUndefined from './isUndefined';
+import lt from './lt';
+import lte from './lte';
+import multiply from './multiply';
+import or from './or';
+import subtract from './subtract';
+import ternary from './ternary';
+import toArray from './toArray';
+import toBoolean from './toBoolean';
+import toFunction from './toFunction';
+import toNumber from './toNumber';
+import toObject from './toObject';
+import toString from './toString';
+import typeOf from './typeOf';
+
+export {
+    add,
+    and,
+    callback,
+    check,
+    compose,
+    curry,
+    define,
+    divide,
+    equals,
+    gt,
+    gte,
+    isArray,
+    isBoolean,
+    isFunction,
+    isNaN,
+    isNull,
+    isNumber,
+    isObject,
+    isString,
+    isUndefined,
+    lt,
+    lte,
+    multiply,
+    or,
+    subtract,
+    ternary,
+    toArray,
+    toBoolean,
+    toFunction,
+    toNumber,
+    toObject,
+    toString,
+    typeOf,
+};

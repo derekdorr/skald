@@ -1,12 +1,12 @@
 /**
  * Returns boolean value and converts string 'false' to false
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {*} value
  * @return {boolean}
  * @example
- * 
+ *
  *     toBoolean('false'); //=> false
  *     toBoolean({}); //=> true
  */

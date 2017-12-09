@@ -1,12 +1,12 @@
 /**
  * Parses int or float or Infinity to numeric value
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {*} value
  * @return {number}
  * @example
- * 
+ *
  *     toNumber('Infinity'); //=> Infinity
  *     toNumber('1.0'); //=> 1
  *     toNumber({}); //=> NaN

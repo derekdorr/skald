@@ -1,12 +1,12 @@
 /**
  * Determine if value is null
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {*}
  * @return {boolean}
  * @example
- * 
+ *
  *     isNull(null); //=> true
  *     isNull({}); //=> false
  */

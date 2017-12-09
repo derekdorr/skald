@@ -1,12 +1,12 @@
 /**
  * Forces value into object. If not object, returns {}
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {*} value
  * @return {Object}
  * @example
- * 
+ *
  *     toObject({ a: 1 }); //=> { a: 1 }
  *     toObject(null); //=> null
  *     toObject('foo'); //=> {}

@@ -1,12 +1,12 @@
- /**
+/**
  * Determine if all arguments are truthy or if array is truthy
- * 
+ *
  * @func
  * @since 1.0.0
  * @param {...*} a
  * @return {boolean}
  * @example
- * 
+ *
  *     and(true, true); //=> true
  *     and([true, true]); //=> true
  *     and(true, true, false); //=> false
