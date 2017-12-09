@@ -1,3 +1,16 @@
+/**
+ * Determine if value is string
+ * 
+ * @func
+ * @since 1.0.0
+ * @param {*}
+ * @return {boolean}
+ * @example
+ * 
+ *     isString('foo'); //=> true;
+ *     isString(true); //=> false;
+ */
+
 import typeOf from './typeOf';
 import equals from './equals';
 import compose from './compose';

@@ -1,3 +1,17 @@
+/**
+ * Safely traverse object nested properties
+ * 
+ * @func
+ * @since 1.0.0
+ * @param {Object} obj
+ * @param {Array<string>} path
+ * @return {*}
+ * @example
+ * 
+ *     traverse({}, ['a', 'b', 'c']); //=> undefined
+ *     traverse({ a: 1 })(['a']); //=> 1
+ */
+
 import define from './define';
 import isObject from './isObject';
 import ternary from './ternary';

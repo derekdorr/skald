@@ -1,6 +1,6 @@
 {
   "name": "rubble",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript utilty functions",
   "repository": "https://github.com/derekdorr/rubble",
   "main": "lib/index.js",
@@ -37,6 +37,7 @@
     "babel-eslint": "^8.0.3",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "docme": "^0.3.0",
     "eslint": "^4.13.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "husky": "^0.14.3",
