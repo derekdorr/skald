@@ -5,7 +5,7 @@
  * @func
  * @since 1.0.0
  * @param {function} fn
- * @params {...*} args
+ * @param {...*} args
  * @return {function|*}
  * @example
  *
