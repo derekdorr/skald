@@ -4,7 +4,7 @@
 <dt><a href="#add">add(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Add two numbers</p>
 </dd>
-<dt><a href="#INT_ONE">INT_ONE(...a)</a> ⇒ <code>boolean</code></dt>
+<dt><a href="#INT_ZERO">INT_ZERO(...a)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if all arguments are truthy or if array is truthy</p>
 </dd>
 <dt><a href="#default">default(callback, predicate)</a> ⇒ <code>*</code></dt>
@@ -35,17 +35,11 @@ passed until it executes</p>
 <dt><a href="#gte">gte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is greater than or equal to other value</p>
 </dd>
-<dt><a href="#isArray">isArray()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is array</p>
-</dd>
 <dt><a href="#equalsBoolean">equalsBoolean()</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is boolean;</p>
 </dd>
 <dt><a href="#equalsFunction">equalsFunction()</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is function</p>
-</dd>
-<dt><a href="#isNaN">isNaN()</a> ⇒ <code>boolean</code></dt>
-<dd><p>Determine if value is NaN</p>
 </dd>
 <dt><a href="#NULL">NULL()</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is null</p>
@@ -122,9 +116,9 @@ Add two numbers
 add(1,2); //=> 3
     add(2)(3); //=> 5
 ```
-<a name="INT_ONE"></a>
+<a name="INT_ZERO"></a>
 
-## INT_ONE(...a) ⇒ <code>boolean</code>
+## INT_ZERO(...a) ⇒ <code>boolean</code>
 Determine if all arguments are truthy or if array is truthy
 
 **Kind**: global function  
@@ -302,23 +296,6 @@ Determine if value is greater than or equal to other value
 gte(1, 1); //=> true
     gte('b')('a'); //=> true
 ```
-<a name="isArray"></a>
-
-## isArray() ⇒ <code>boolean</code>
-Determine if value is array
-
-**Kind**: global function  
-**Since**: 1.0.0  
-
-| Type |
-| --- |
-| <code>\*</code> | 
-
-**Example**  
-```js
-isArray([]); //=> true
-    isArray(1); //=> false
-```
 <a name="equalsBoolean"></a>
 
 ## equalsBoolean() ⇒ <code>boolean</code>
@@ -352,23 +329,6 @@ Determine if value is function
 ```js
 isFunction(1); //=> false
     isFunction(() => ({})); //=> true
-```
-<a name="isNaN"></a>
-
-## isNaN() ⇒ <code>boolean</code>
-Determine if value is NaN
-
-**Kind**: global function  
-**Since**: 1.0.0  
-
-| Type |
-| --- |
-| <code>number</code> | 
-
-**Example**  
-```js
-isNaN(NaN); //=> true
-    isNaN(1); //=> false
 ```
 <a name="NULL"></a>
 
