@@ -1,5 +1,5 @@
 import test from 'tape';
-import isArray from '../src/isArray';
+import { isArray } from '../src';
 
 test('Tests - isArray.js', t => {
     t.equal(isArray([]), true, '[] is array');

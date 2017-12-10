@@ -1,5 +1,5 @@
 import test from 'tape';
-import reverse from '../src/reverse';
+import { reverse } from '../src';
 
 test('Tests - reverse.js', t => {
     const foo = (a, b, c) => (a + b) - c;

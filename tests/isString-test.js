@@ -1,5 +1,5 @@
 import test from 'tape';
-import isString from '../src/isString';
+import { isString } from '../src';
 
 test('Tests - isString.js', t => {
     t.equal(isString('foo'), true, 'foo is string');

@@ -1,5 +1,5 @@
 import test from 'tape';
-import typeOf from '../src/typeOf';
+import { typeOf } from '../src';
 
 test('Tests - typeOf.js', t => {
     t.equal(typeOf({}), 'object', '{} is object');

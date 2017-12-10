@@ -1,5 +1,5 @@
 import test from 'tape';
-import deepEquals from '../src/deepEquals';
+import { deepEquals } from '../src';
 
 test('Tests - deepEquals.js', t => {
     const arr1 = [1, 2];

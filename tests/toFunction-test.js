@@ -1,5 +1,5 @@
 import test from 'tape';
-import toFunction from '../src/toFunction';
+import { toFunction } from '../src';
 
 test('Tests - toFunction.js', t => {
     t.equal(toFunction(null)(), null, 'null becomes null');

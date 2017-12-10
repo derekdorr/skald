@@ -1,5 +1,5 @@
 import test from 'tape';
-import divide from '../src/divide';
+import { divide } from '../src';
 
 test('Tests - divide.js', t => {
     t.equal(divide(100, 2), 50, '100 / 2 = 50');

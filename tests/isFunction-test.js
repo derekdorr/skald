@@ -1,5 +1,5 @@
 import test from 'tape';
-import isFunction from '../src/isFunction';
+import { isFunction } from '../src';
 
 test('Tests - isFunction.js', t => {
     t.equal(isFunction(RegExp), true, 'regex is function');

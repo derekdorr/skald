@@ -1,5 +1,5 @@
 import test from 'tape';
-import includes from '../src/includes';
+import { includes } from '../src';
 
 test('Tests - includes.js', t => {
     t.equal(includes('f', 'foo'), true, 'foo includes f');

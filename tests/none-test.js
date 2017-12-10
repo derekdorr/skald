@@ -1,5 +1,5 @@
 import test from 'tape';
-import none from '../src/none';
+import { none } from '../src';
 
 test('Tests - none.js', t => {
     t.equal(none(false, false), true, 'all args are falsy');

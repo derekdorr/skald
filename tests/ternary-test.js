@@ -1,5 +1,5 @@
 import test from 'tape';
-import ternary from '../src/ternary';
+import { ternary } from '../src';
 
 test('Tests - ternary.js', t => {
     t.equal(ternary(2, 1, true), 1, 'true returns 1');

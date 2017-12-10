@@ -1,5 +1,5 @@
 import test from 'tape';
-import gte from '../src/gte';
+import { gte } from '../src';
 
 test('Tests - gte.js', t => {
     t.equal(gte(1, 2), false, '1 is not greater than 2');

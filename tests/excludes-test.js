@@ -1,5 +1,5 @@
 import test from 'tape';
-import excludes from '../src/excludes';
+import { excludes } from '../src';
 
 test('Tests - excludes.js', t => {
     t.equal(excludes('g', 'foo'), true, 'foo excludes g');

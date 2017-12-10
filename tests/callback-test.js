@@ -1,5 +1,5 @@
 import test from 'tape';
-import callback from '../src/callback';
+import { callback } from '../src';
 
 test('Tests - callback.js', t => {
     t.equal(callback(1, true), 1, 'true returns 1');

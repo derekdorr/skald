@@ -1,5 +1,5 @@
 import test from 'tape';
-import lte from '../src/lte';
+import { lte } from '../src';
 
 test('Tests - lt.js', t => {
     t.equal(lte(1, 2), true, '1 is less than 2');

@@ -1,5 +1,6 @@
 import add from './add';
 import and from './and';
+import at from './at';
 import callback from './callback';
 import check from './check';
 import compose from './compose';
@@ -13,9 +14,11 @@ import equals from './equals';
 import excludes from './excludes';
 import gt from './gt';
 import gte from './gte';
+import identity from './identity';
 import includes from './includes';
 import isArray from './isArray';
 import isBoolean from './isBoolean';
+import isEmpty from './isEmpty';
 import isFunction from './isFunction';
 import isNaN from './isNaN';
 import isNull from './isNull';
@@ -28,6 +31,7 @@ import lt from './lt';
 import lte from './lte';
 import multiply from './multiply';
 import none from './none';
+import noop from './noop';
 import not from './not';
 import notEquals from './notEquals';
 import or from './or';
@@ -47,6 +51,7 @@ import typeOf from './typeOf';
 export {
     add,
     and,
+    at,
     callback,
     check,
     compose,
@@ -60,9 +65,11 @@ export {
     excludes,
     gt,
     gte,
+    identity,
     includes,
     isArray,
     isBoolean,
+    isEmpty,
     isFunction,
     isNaN,
     isNull,
@@ -75,6 +82,7 @@ export {
     lte,
     multiply,
     none,
+    noop,
     not,
     notEquals,
     or,

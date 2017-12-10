@@ -1,5 +1,5 @@
 import test from 'tape';
-import toArray from '../src/toArray';
+import { toArray } from '../src';
 
 test('Tests - toArray.js', t => {
     t.deepEqual(toArray(undefined, undefined), [], 'Undefined are filtered');

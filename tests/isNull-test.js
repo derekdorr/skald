@@ -1,5 +1,5 @@
 import test from 'tape';
-import isNull from '../src/isNull';
+import { isNull } from '../src';
 
 test('Tests - isNull.js', t => {
     t.equal(isNull(null), true, 'null is null');

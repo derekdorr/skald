@@ -1,5 +1,5 @@
 import test from 'tape';
-import isNumber from '../src/isNumber';
+import { isNumber } from '../src';
 
 test('Tests - isNumber.js', t => {
     t.equal(isNumber(0), true, '0 is number');

@@ -1,5 +1,5 @@
 import test from 'tape';
-import toNumber from '../src/toNumber';
+import { toNumber } from '../src';
 
 test('Tests - toNumber.js', t => {
     t.equal(toNumber('Infinity'), Infinity, 'Infinity becomes infinity');

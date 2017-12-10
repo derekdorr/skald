@@ -1,5 +1,5 @@
 import test from 'tape';
-import notEquals from '../src/notEquals';
+import { notEquals } from '../src';
 
 test('Tests - notEquals.js', t => {
     t.equals(notEquals(1, 2), true, '1 !== 2');

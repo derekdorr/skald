@@ -1,5 +1,5 @@
 import test from 'tape';
-import toObject from '../src/toObject';
+import { toObject } from '../src';
 
 test('Tests - toObject.js', t => {
     t.deepEqual(toObject(null), null, 'null becomes null');

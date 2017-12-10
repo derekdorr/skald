@@ -1,5 +1,5 @@
 import test from 'tape';
-import equals from '../src/equals';
+import { equals } from '../src';
 
 test('Tests - equals.js', t => {
     t.equals(equals(1, 1), true, '1 equals 1');

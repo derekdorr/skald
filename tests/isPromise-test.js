@@ -1,5 +1,5 @@
 import test from 'tape';
-import isPromise from '../src/isPromise';
+import { isPromise } from '../src';
 
 test('Tests - isPromise.js', t => {
     t.equal(isPromise(Promise.resolve()), true, 'Promise.resolve is promise');

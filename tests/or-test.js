@@ -1,5 +1,5 @@
 import test from 'tape';
-import or from '../src/or';
+import { or } from '../src';
 
 test('Tests - or.js', t => {
     t.equal(or(false, false, false), false, 'all false is false');

@@ -1,5 +1,5 @@
 import test from 'tape';
-import curry from '../src/curry';
+import { curry } from '../src';
 
 test('Tests - curry.js', t => {
     const add = (a, b, c) => a + b + c;

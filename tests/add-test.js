@@ -1,5 +1,5 @@
 import test from 'tape';
-import add from '../src/add';
+import { add } from '../src';
 
 test('Tests - add.js', t => {
     t.equal(add(1, 2), 3, '1 + 2 = 3');

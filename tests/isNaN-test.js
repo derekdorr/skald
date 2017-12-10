@@ -1,5 +1,5 @@
 import test from 'tape';
-import isNaN from '../src/isNaN';
+import { isNaN } from '../src';
 
 test('Tests - isNaN.js', t => {
     t.equal(isNaN(1), false, '1 is not NaN');

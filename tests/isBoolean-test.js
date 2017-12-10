@@ -1,5 +1,5 @@
 import test from 'tape';
-import isBoolean from '../src/isBoolean';
+import { isBoolean } from '../src';
 
 test('Tests - isBoolean.js', t => {
     t.equal(isBoolean(true), true, 'true is boolean');

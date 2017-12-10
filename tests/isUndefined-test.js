@@ -1,5 +1,5 @@
 import test from 'tape';
-import isUndefined from '../src/isUndefined';
+import { isUndefined } from '../src';
 
 test('Tests - isUndefined.js', t => {
     t.equal(isUndefined(undefined), true, 'undefined is undefined');

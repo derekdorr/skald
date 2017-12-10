@@ -1,5 +1,5 @@
 import test from 'tape';
-import toBoolean from '../src/toBoolean';
+import { toBoolean } from '../src';
 
 test('Tests - toBoolean.js', t => {
     t.equal(toBoolean(true), true, 'true becomes true');

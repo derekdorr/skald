@@ -7,6 +7,9 @@
 <dt><a href="#and">and(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if all arguments are truthy or if array is truthy</p>
 </dd>
+<dt><a href="#at">at(index, val)</a> ⇒ <code>*</code></dt>
+<dd><p>Returns copy of entry or character at given index in string or array</p>
+</dd>
 <dt><a href="#callback">callback(cb, predicate)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first.</p>
 </dd>
@@ -46,6 +49,9 @@ passed until it executes</p>
 </dd>
 <dt><a href="#gte">gte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is greater than or equal to other value</p>
+</dd>
+<dt><a href="#identity">identity()</a> ⇒ <code>*</code></dt>
+<dd><p>A function which returns whatever is passed into it</p>
 </dd>
 <dt><a href="#includes">includes(search, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Returns true if string is in string or array</p>
@@ -94,6 +100,9 @@ passed until it executes</p>
 </dd>
 <dt><a href="#none">none(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Returns true if no argument or array value is true</p>
+</dd>
+<dt><a href="#noop">noop()</a> ⇒ <code>undefined</code></dt>
+<dd><p>Executes a noop</p>
 </dd>
 <dt><a href="#not">not(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Returns false if truthy, true if falsy</p>
@@ -179,6 +188,24 @@ Determine if all arguments are truthy or if array is truthy
 and(true, true); //=> true
     and([true, true]); //=> true
     and(true, true, false); //=> false
+```
+<a name="at"></a>
+
+## at(index, val) ⇒ <code>\*</code>
+Returns copy of entry or character at given index in string or array
+
+**Kind**: global function  
+**Since**: 1.5.0  
+
+| Param | Type |
+| --- | --- |
+| index | <code>number</code> | 
+| val | <code>Array</code> &#124; <code>string</code> | 
+
+**Example**  
+```js
+at(2, 'foo'); //=> 'o'
+    at(1)([0, 1, 2]); //=> 1
 ```
 <a name="callback"></a>
 
@@ -417,6 +444,19 @@ Determine if value is greater than or equal to other value
 gte(1, 1); //=> true
     gte('b')('a'); //=> true
 ```
+<a name="identity"></a>
+
+## identity() ⇒ <code>\*</code>
+A function which returns whatever is passed into it
+
+**Kind**: global function  
+**Params**: <code>\*</code> val  
+**Since**: 1.5.0  
+**Example**  
+```js
+identity(5); //=> 5
+    identity({}); //=> {}
+```
 <a name="includes"></a>
 
 ## includes(search, val) ⇒ <code>boolean</code> &#124; <code>function</code>
@@ -475,7 +515,7 @@ isBoolean(1); //=> false
 Check whether object, array, or string is empty
 
 **Kind**: global function  
-**Since**: 1.4.0  
+**Since**: 1.5.0  
 
 | Param | Type |
 | --- | --- |
@@ -689,6 +729,13 @@ Returns true if no argument or array value is true
 | --- | --- |
 | ...args | <code>\*</code> | 
 
+<a name="noop"></a>
+
+## noop() ⇒ <code>undefined</code>
+Executes a noop
+
+**Kind**: global function  
+**Since**: 1.5.0  
 <a name="not"></a>
 
 ## not(val) ⇒ <code>boolean</code>

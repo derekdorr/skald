@@ -1,5 +1,5 @@
 import test from 'tape';
-import compose from '../src/compose';
+import { compose } from '../src';
 
 test('Tests - compose.js', t => {
     const add = (a, b) => (a + b);

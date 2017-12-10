@@ -1,5 +1,5 @@
 import test from 'tape';
-import multiply from '../src/multiply';
+import { multiply } from '../src';
 
 test('Tests - multiply.js', t => {
     t.equal(multiply(2, 2), 4, '2 * 2 = 4');

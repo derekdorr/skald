@@ -1,5 +1,5 @@
 import test from 'tape';
-import toString from '../src/toString';
+import { toString } from '../src';
 
 test('Tests - toString.js', t => {
     t.equal(toString(undefined), '', 'undefined -> ""');

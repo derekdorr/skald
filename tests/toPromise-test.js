@@ -1,5 +1,5 @@
 import test from 'tape';
-import toPromise from '../src/toPromise';
+import { toPromise } from '../src';
 
 test('Test - toPromise.js', t => {
     const foo = new Promise(res => res([]));

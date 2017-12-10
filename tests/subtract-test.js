@@ -1,5 +1,5 @@
 import test from 'tape';
-import subtract from '../src/subtract';
+import { subtract } from '../src';
 
 test('Tests - subtract.js', t => {
     t.equal(subtract(10, 1), 9, '10 - 1 = 9');
