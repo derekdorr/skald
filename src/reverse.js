@@ -1,5 +1,5 @@
 /**
- * Take a function and return a function which accepts ars in reverse order
+ * Take a function and return a function which accepts args in reverse order
  *
  * @module reverse
  * @func

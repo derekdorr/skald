@@ -114,7 +114,7 @@ passed until it executes</p>
 <dd><p>Determine if at least one argument or array value is truthy</p>
 </dd>
 <dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
-<dd><p>Take a function and return a function which accepts ars in reverse order</p>
+<dd><p>Take a function and return a function which accepts args in reverse order</p>
 </dd>
 <dt><a href="#subtract">subtract(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Subtract one number from another</p>
