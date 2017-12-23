@@ -1,6 +1,6 @@
 {
   "name": "skald",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "Javascript utilty functions",
   "repository": "https://github.com/derekdorr/skald",
   "main": "lib/index.js",
