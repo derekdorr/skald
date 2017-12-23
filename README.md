@@ -10,7 +10,7 @@
 <dt><a href="#at">at(index, val)</a> ⇒ <code>*</code></dt>
 <dd><p>Returns copy of entry or character at given index in string or array</p>
 </dd>
-<dt><a href="#ternaryL">ternaryL(toTry, onError)</a> ⇒ <code>*</code></dt>
+<dt><a href="#attempt">attempt(toTry, onError)</a> ⇒ <code>*</code></dt>
 <dd><p>Attempt something. If an error is thrown, return something else.
 (Wrapper for try / catch)</p>
 </dd>
@@ -211,9 +211,9 @@ Returns copy of entry or character at given index in string or array
 at(2, 'foo'); //=> 'o'
     at(1)([0, 1, 2]); //=> 1
 ```
-<a name="ternaryL"></a>
+<a name="attempt"></a>
 
-## ternaryL(toTry, onError) ⇒ <code>\*</code>
+## attempt(toTry, onError) ⇒ <code>\*</code>
 Attempt something. If an error is thrown, return something else.
 (Wrapper for try / catch)
 

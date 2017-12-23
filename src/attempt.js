@@ -2,7 +2,7 @@
  * Attempt something. If an error is thrown, return something else.
  * (Wrapper for try / catch)
  *
- * @module ternaryL
+ * @module attempt
  * @func
  * @since 1.7.0
  * @param {*} toTry
