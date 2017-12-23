@@ -14,11 +14,11 @@
  */
 
 import { STR_EMPTY } from 'permanent';
-import curry from './curry';
+import _concat from './_internal/_concat';
 import isUndefined from './isUndefined';
-import ternary from './ternary';
+import ternaryWith from './ternaryWith';
 
-const concatToEmpty = val => STR_EMPTY.concat(val);
-const toString = val => ternary(curry(concatToEmpty, val), STR_EMPTY)(isUndefined(val));
+const concatToEmpty = val => _concat(STR_EMPTY, val);
+const toString = ternaryWith(concatToEmpty, STR_EMPTY, isUndefined);
 
 export default toString;

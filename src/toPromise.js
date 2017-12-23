@@ -12,13 +12,11 @@
  *     foo.then(console.log); //=> 5;
  */
 
-import ternary from './ternary';
+import identity from './identity';
 import isPromise from './isPromise';
+import ternaryWith from './ternaryWith';
 
-const toPromise = val => ternary(
-    () => new Promise(res => res(val)),
-    val,
-    isPromise(val),
-);
+const genPromise = val => new Promise(res => res(val));
+const toPromise = ternaryWith(genPromise, identity, isPromise);
 
 export default toPromise;

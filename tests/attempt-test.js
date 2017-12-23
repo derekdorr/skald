@@ -1,5 +1,5 @@
 import test from 'tape';
-import attempt from '../src/attempt';
+import { attempt } from '../src';
 
 test('Tests - attempt.js', t => {
     t.equal(attempt(() => JSON.parse('<>'), true), true, 'JSON parse failed, true is returned');

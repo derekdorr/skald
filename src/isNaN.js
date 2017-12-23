@@ -12,6 +12,6 @@
  *     isNaN(1); //=> false
  */
 
-const { isNaN } = Number;
+import _isNaN from './_internal/_isNaN';
 
-export default isNaN;
+export default _isNaN;

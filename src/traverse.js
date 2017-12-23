@@ -14,15 +14,20 @@
  */
 
 import { UNDEF } from 'permanent';
+import _reduce from './_internal/_reduce';
 import define from './define';
 import isObject from './isObject';
 import ternary from './ternary';
 
-const internal = (obj, path) => path.reduce((acc, seg) => ternary(
-    UNDEF,
-    () => acc[seg],
-    isObject(acc),
-), obj);
+const internal = (obj, path) => _reduce(
+    path,
+    (acc, seg) => ternary(
+        UNDEF,
+        () => acc[seg],
+        isObject(acc),
+    ),
+    obj,
+);
 
 const traverse = define(internal);
 

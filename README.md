@@ -21,6 +21,10 @@ binds defined arguments to their position in arguments list.</p>
 <dt><a href="#callback">callback(cb, predicate)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first.</p>
 </dd>
+<dt><a href="#callback">callback(cb, predicate, val)</a> ⇒ <code>*</code></dt>
+<dd><p>Take two arguments and if second argument is truthy, return first
+based on val</p>
+</dd>
 <dt><a href="#compose">compose(...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
 </dd>
@@ -49,11 +53,17 @@ passed until it executes</p>
 <dt><a href="#excludes">excludes(search, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Returns true if string is not in string or array</p>
 </dd>
+<dt><a href="#filterBy">filterBy(fn, arr)</a> ⇒ <code>function</code> | <code>Array</code></dt>
+<dd><p>Filter elements in an array by function</p>
+</dd>
 <dt><a href="#gt">gt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if first value is greater than</p>
 </dd>
 <dt><a href="#gte">gte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is greater than or equal to other value</p>
+</dd>
+<dt><a href="#has">has(obj, key)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd><p>Return true if object has key</p>
 </dd>
 <dt><a href="#identity">identity()</a> ⇒ <code>*</code></dt>
 <dd><p>A function which returns whatever is passed into it</p>
@@ -94,11 +104,20 @@ passed until it executes</p>
 <dt><a href="#isUndefined">isUndefined(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is undefined</p>
 </dd>
+<dt><a href="#iterate">iterate(fn, len)</a> ⇒ <code>Array</code></dt>
+<dd><p>Return array of function iterations of specified length generated from 0-based index</p>
+</dd>
 <dt><a href="#lt">lt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is less than other value</p>
 </dd>
 <dt><a href="#lte">lte(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is less than or equal to other value</p>
+</dd>
+<dt><a href="#mapBy">mapBy(fn, arr)</a> ⇒ <code>function</code> | <code>Array</code></dt>
+<dd><p>Map elements in an array by function</p>
+</dd>
+<dt><a href="#memoize">memoize(fn, [function])</a> ⇒ <code>function</code></dt>
+<dd><p>Cache return contents of functions</p>
 </dd>
 <dt><a href="#multiply">multiply(a, b)</a> ⇒ <code>function</code> | <code>number</code></dt>
 <dd><p>Multiply two numbers together</p>
@@ -118,6 +137,9 @@ passed until it executes</p>
 <dt><a href="#or">or(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if at least one argument or array value is truthy</p>
 </dd>
+<dt><a href="#reduceBy">reduceBy(fn, accumulator, arr)</a> ⇒ <code>function</code> | <code>*</code></dt>
+<dd><p>Reduce array to new value by function</p>
+</dd>
 <dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
 <dd><p>Take a function and return a function which accepts args in reverse order</p>
 </dd>
@@ -131,6 +153,10 @@ failure are functions, returns executed result.</p>
 <dt><a href="#ternaryL">ternaryL(predicate, success, failure)</a> ⇒ <code>*</code></dt>
 <dd><p>Return success or failure based on predicate evaluation. If success or
 failure are functions, returns executed result.</p>
+</dd>
+<dt><a href="#ternaryWith">ternaryWith(failure, success, predicate, val)</a> ⇒ <code>*</code></dt>
+<dd><p>Return success or failure based on predicate evaluation. If success or
+failure are functions, returns executed result with passed in parameter;</p>
 </dd>
 <dt><a href="#toArray">toArray(...args)</a> ⇒ <code>Array</code></dt>
 <dd><p>Force args to array if not arrays</p>
@@ -268,6 +294,26 @@ Take two arguments and if second argument is truthy, return first.
 | --- | --- |
 | cb | <code>\*</code> | 
 | predicate | <code>\*</code> | 
+
+**Example**  
+```js
+callback('foo', true); //=> 'foo'
+    callback('foo', false); //=> null
+```
+<a name="callback"></a>
+
+## callback(cb, predicate, val) ⇒ <code>\*</code>
+Take two arguments and if second argument is truthy, return first
+based on val
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type |
+| --- | --- |
+| cb | <code>\*</code> | 
+| predicate | <code>\*</code> | 
+| val | <code>\*</code> | 
 
 **Example**  
 ```js
@@ -436,8 +482,27 @@ Returns true if string is not in string or array
 
 **Example**  
 ```js
-includes('h', 'hello'); //=> false
-    includes('a')('apple'); //=> false
+excludes('h', 'hello'); //=> false
+    excludes('a')('apple'); //=> false
+```
+<a name="filterBy"></a>
+
+## filterBy(fn, arr) ⇒ <code>function</code> &#124; <code>Array</code>
+Filter elements in an array by function
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+const foo = val => val < 3;
+    filterBy(foo, [1, 2, 4]); //=> [1, 2]
+    filterBy(foo)([2,3]); //=> [2]
 ```
 <a name="gt"></a>
 
@@ -474,6 +539,25 @@ Determine if value is greater than or equal to other value
 ```js
 gte(1, 1); //=> true
     gte('b')('a'); //=> true
+```
+<a name="has"></a>
+
+## has(obj, key) ⇒ <code>function</code> &#124; <code>boolean</code>
+Return true if object has key
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type |
+| --- | --- |
+| obj | <code>Object</code> | 
+| key | <code>string</code> | 
+
+**Example**  
+```js
+has({ a: 1 }, 'a'); //=> true
+   has({ a: 1 })('a'); //=> true
+   has({ a: 1 })('b'); //=> false
 ```
 <a name="identity"></a>
 
@@ -694,6 +778,25 @@ Determine if value is undefined
 isUndefined(undefined); //=> true
     isUndefined(true); //=> false
 ```
+<a name="iterate"></a>
+
+## iterate(fn, len) ⇒ <code>Array</code>
+Return array of function iterations of specified length generated from 0-based index
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| len | <code>number</code> | 
+
+**Example**  
+```js
+const foo = index => index + 1;
+    iterate(foo, 3); //=> [1, 2, 3]
+    iterate(foo)(2); //=> [1, 2]
+```
 <a name="lt"></a>
 
 ## lt(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
@@ -730,6 +833,38 @@ Determine if value is less than or equal to other value
 lte(1, 1); //=> true
     lte('a')('b'); //=> true
 ```
+<a name="mapBy"></a>
+
+## mapBy(fn, arr) ⇒ <code>function</code> &#124; <code>Array</code>
+Map elements in an array by function
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+const foo = val => val + 1;
+    mapBy(foo, [1, 2]); //=> [2, 3]
+    mapBy(foo)([4, 5]); //=> [5, 6]
+```
+<a name="memoize"></a>
+
+## memoize(fn, [function]) ⇒ <code>function</code>
+Cache return contents of functions
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>function</code> | Function to templatize |
+| [function] |  | template - Function to determine cache key |
+
 <a name="multiply"></a>
 
 ## multiply(a, b) ⇒ <code>function</code> &#124; <code>number</code>
@@ -819,6 +954,27 @@ Determine if at least one argument or array value is truthy
 or(true, false, false); //=> true
     or([false, false, true]); //=> true
 ```
+<a name="reduceBy"></a>
+
+## reduceBy(fn, accumulator, arr) ⇒ <code>function</code> &#124; <code>\*</code>
+Reduce array to new value by function
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| accumulator | <code>\*</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+const foo = (acc, val) = acc + val;
+    reduceBy(foo, 1, [1, 1]); //=> 3
+    reduceBy(foo, 2)([2, 2]); //=> 6
+    reduceBy(foo)(3)([3, 3]); //=> 9
+```
 <a name="reverse"></a>
 
 ## reverse(fn) ⇒ <code>function</code>
@@ -893,6 +1049,29 @@ failure are functions, returns executed result.
 ```js
 ternaryL(true, 1, 2); //=> 1
     ternaryL(false, 1, 2); //=> 2
+```
+<a name="ternaryWith"></a>
+
+## ternaryWith(failure, success, predicate, val) ⇒ <code>\*</code>
+Return success or failure based on predicate evaluation. If success or
+failure are functions, returns executed result with passed in parameter;
+
+**Kind**: global function  
+**Since**: 1.9.0  
+
+| Param | Type |
+| --- | --- |
+| failure | <code>\*</code> | 
+| success | <code>\*</code> | 
+| predicate | <code>\*</code> | 
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = val => val + 1;
+    const bar = val => val - 1;
+    ternaryWith(bar, foo, true, 3); //=> 4
+    ternaryWith(bar, foo, false, 2); //=> 1
 ```
 <a name="toArray"></a>
 

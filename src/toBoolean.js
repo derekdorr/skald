@@ -13,15 +13,13 @@
  */
 
 import { BOOL_FALSE, STR_FALSE } from 'permanent';
-import curry from './curry';
+import compose from './compose';
 import equals from './equals';
-import ternary from './ternary';
+import not from './not';
+import ternaryWith from './ternaryWith';
 
-const equalsFalse = curry(equals, STR_FALSE);
-const toBoolean = value => ternary(
-    () => !!value,
-    BOOL_FALSE,
-    equalsFalse(value),
-);
+const notNot = compose(not, not);
+const equalsFalse = equals(STR_FALSE);
+const toBoolean = ternaryWith(notNot, BOOL_FALSE, equalsFalse);
 
 export default toBoolean;

@@ -13,9 +13,8 @@
  */
 
 import { NULL } from 'permanent';
-import curry from './curry';
 import equals from './equals';
 
-const isNull = curry(equals, NULL);
+const isNull = equals(NULL);
 
 export default isNull;

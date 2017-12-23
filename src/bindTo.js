@@ -17,28 +17,32 @@
  *     bindTo(foo, undefined, 1)(1)(1); //=> 3
  */
 
-import { BOOL_TRUE } from 'permanent';
+import _filter from './_internal/_filter';
+import _len from './_internal/_len';
 import _or from './_internal/_or';
+import compose from './compose';
 import define from './define';
 import isUndefined from './isUndefined';
+import iterate from './iterate';
+import not from './not';
 import subtract from './subtract';
 import ternary from './ternary';
 
+const notIsUndefined = compose(not, isUndefined);
 const bindTo = (fn, ...args) => {
-    const length = _or(fn.length, args.length);
-    const def = args.filter(val => !isUndefined(val));
-    const defLength = def.length;
-    const iterator = Array(length).fill(BOOL_TRUE);
+    const length = _or(_len(fn), _len(args));
+    const def = _filter(args, notIsUndefined);
+    const defLength = _len(def);
     const diff = subtract(length, defLength);
     const internal = (...ops) => {
-        const fin = iterator.map((v, index) => {
-            const argAtIndex = args[index];
+        const fin = iterate(i => {
+            const argAtIndex = args[i];
             return ternary(
                 argAtIndex,
                 () => ops.pop(),
                 isUndefined(argAtIndex),
             );
-        });
+        }, length);
 
         return fn(...fin);
     };

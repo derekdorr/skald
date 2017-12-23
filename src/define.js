@@ -17,12 +17,15 @@
  *     bar(1)(2)(3); // 6
  */
 
+import _concat from './_internal/_concat';
+import _len from './_internal/_len';
+import _lt from './_internal/_lt';
 import _or from './_internal/_or';
 
 const define = (fn, len) => {
-    const length = _or(len, fn.length);
-    const internal = (...args) => (args.length < length ?
-        (...ops) => internal(...args.concat(ops)) :
+    const length = _or(len, _len(fn));
+    const internal = (...args) => (_lt(_len(args), length) ?
+        (...ops) => internal(..._concat(args, ops)) :
         fn(...args));
 
     return internal;

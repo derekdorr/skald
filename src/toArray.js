@@ -13,10 +13,12 @@
  */
 
 import { UNDEF } from 'permanent';
+import _concat from './_internal/_concat';
+import _filter from './_internal/_filter';
 import notEquals from './notEquals';
 
 const notEqualsUndefined = notEquals(UNDEF);
 
-const toArray = (...args) => [].concat(...args).filter(val => notEqualsUndefined(val));
+const toArray = (...args) => _filter(_concat([], ...args), notEqualsUndefined);
 
 export default toArray;

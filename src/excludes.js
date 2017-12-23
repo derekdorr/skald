@@ -9,24 +9,16 @@
  * @returns {boolean|function}
  * @example
  *
- *     includes('h', 'hello'); //=> false
- *     includes('a')('apple'); //=> false
+ *     excludes('h', 'hello'); //=> false
+ *     excludes('a')('apple'); //=> false
  */
 
-import { BOOL_FALSE, INT_NEGATIVE_ONE } from 'permanent';
+import compose from './compose';
 import define from './define';
-import equals from './equals';
-import isArray from './isArray';
-import isString from './isString';
-import or from './or';
-import ternary from './ternary';
+import includes from './includes';
+import not from './not';
 
-const equalsNegativeOne = equals(INT_NEGATIVE_ONE);
-const pre = (search, value) => ternary(
-    BOOL_FALSE,
-    () => equalsNegativeOne(value.indexOf(search)),
-    or(isString(value), isArray(value)),
-);
-const includes = define(pre);
+const internal = compose(not, includes);
+const excludes = define(internal, 2);
 
-export default includes;
+export default excludes;

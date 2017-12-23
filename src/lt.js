@@ -13,9 +13,9 @@
  *     lt('a')('b'); //=> true
  */
 
+import _lt from './_internal/_lt';
 import define from './define';
 
-const pre = (a, b) => a < b;
-const lt = define(pre);
+const lt = define(_lt);
 
 export default lt;

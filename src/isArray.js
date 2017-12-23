@@ -12,6 +12,6 @@
  *     isArray(1); //=> false
  */
 
-const { isArray } = Array;
+import _isArray from './_internal/_isArray';
 
-export default isArray;
+export default _isArray;

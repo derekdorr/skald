@@ -14,6 +14,7 @@
  */
 
 import { INT_ONE, INT_ZERO, STR_EMPTY } from 'permanent';
+import _slice from './_internal/_slice';
 import add from './add';
 import defaultTo from './defaultTo';
 import define from './define';
@@ -25,13 +26,15 @@ import toNumber from './toNumber';
 
 const addOne = add(INT_ONE);
 const defaultToEmptyString = defaultTo(STR_EMPTY);
-const failureToString = ternary(STR_EMPTY);
+const failToString = ternary(STR_EMPTY);
 
 const pre = (index, val) => {
     const ind = toNumber(index);
-    return failureToString(
-        () => defaultToEmptyString(val.slice(ind, addOne(ind))[INT_ZERO]),
-        or(isArray(val), isString(val)),
+    const isValArray = isArray(val);
+    const isValString = isString(val);
+    return failToString(
+        () => defaultToEmptyString(_slice(val, ind, addOne(ind))[INT_ZERO]),
+        or(isValArray, isValString),
     );
 };
 

@@ -12,10 +12,14 @@
  *     compose(val => val + 1, val => val + 2); //=> val => val + 3
  */
 
-const compose = (...args) => {
-    const [first, ...rest] = args.reverse();
+import _reduce from './_internal/_reduce';
+import _reverse from './_internal/_reverse';
 
-    return (...opts) => rest.reduce(
+const compose = (...args) => {
+    const [first, ...rest] = _reverse(args);
+
+    return (...opts) => _reduce(
+        rest,
         (prevFn, nextFn) => nextFn(prevFn),
         first(...opts),
     );

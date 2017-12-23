@@ -14,19 +14,24 @@
  */
 
 import { BOOL_FALSE, INT_NEGATIVE_ONE } from 'permanent';
+import _indexOf from './_internal/_indexOf';
+import compose from './compose';
 import define from './define';
 import notEquals from './notEquals';
 import isArray from './isArray';
 import isString from './isString';
 import or from './or';
-import ternary from './ternary';
+import ternaryWith from './ternaryWith';
 
 const notNegativeOne = notEquals(INT_NEGATIVE_ONE);
-const pre = (search, value) => ternary(
-    BOOL_FALSE,
-    () => notNegativeOne(value.indexOf(search)),
-    or(isString(value), isArray(value)),
-);
-const includes = define(pre);
+const isStringOrArray = val => or(isString(val), isArray(val));
+const indexOf = define((search, value) => _indexOf(value, search));
+const failToFalse = ternaryWith(BOOL_FALSE);
+const internal = (search, value) => {
+    const indexOfValue = indexOf(search);
+    const indexNotNegativeOne = compose(notNegativeOne, indexOfValue);
+    return failToFalse(indexNotNegativeOne, isStringOrArray, value);
+};
+const includes = define(internal);
 
 export default includes;

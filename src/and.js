@@ -14,6 +14,8 @@
  */
 
 import { INT_ONE, INT_ZERO } from 'permanent';
+import _every from './_internal/_every';
+import _len from './_internal/_len';
 import equals from './equals';
 import ternary from './ternary';
 import toBoolean from './toBoolean';
@@ -21,9 +23,9 @@ import toBoolean from './toBoolean';
 const equalsOne = equals(INT_ONE);
 
 const and = (...args) => ternary(
-    () => args.every(toBoolean),
+    () => _every(args, toBoolean),
     () => and(...args[INT_ZERO]),
-    equalsOne(args.length),
+    equalsOne(_len(args)),
 );
 
 export default and;

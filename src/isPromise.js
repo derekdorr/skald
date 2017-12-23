@@ -15,16 +15,10 @@
 import { BOOL_FALSE, BOOL_TRUE } from 'permanent';
 import isFunction from './isFunction';
 import isObject from './isObject';
-import ternary from './ternary';
+import ternaryWith from './ternaryWith';
 
-const isPromise = val => ternary(
-    BOOL_FALSE,
-    () => ternary(
-        BOOL_FALSE,
-        BOOL_TRUE,
-        isFunction(val.then),
-    ),
-    isObject(val),
-);
+const isThen = val => isFunction(val.then);
+const hasThen = ternaryWith(BOOL_FALSE, BOOL_TRUE, isThen);
+const isPromise = ternaryWith(BOOL_FALSE, hasThen, isObject);
 
 export default isPromise;

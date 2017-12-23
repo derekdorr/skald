@@ -4,6 +4,7 @@ import at from './at';
 import attempt from './attempt';
 import bindTo from './bindTo';
 import callback from './callback';
+import callbackWith from './callbackWith';
 import check from './check';
 import compose from './compose';
 import composeL from './composeL';
@@ -14,8 +15,10 @@ import define from './define';
 import divide from './divide';
 import equals from './equals';
 import excludes from './excludes';
+import filterBy from './filterBy';
 import gt from './gt';
 import gte from './gte';
+import has from './has';
 import identity from './identity';
 import includes from './includes';
 import isArray from './isArray';
@@ -29,18 +32,23 @@ import isObject from './isObject';
 import isPromise from './isPromise';
 import isString from './isString';
 import isUndefined from './isUndefined';
+import iterate from './iterate';
 import lt from './lt';
 import lte from './lte';
+import mapBy from './mapBy';
+import memoize from './memoize';
 import multiply from './multiply';
 import none from './none';
 import noop from './noop';
 import not from './not';
 import notEquals from './notEquals';
 import or from './or';
+import reduceBy from './reduceBy';
 import reverse from './reverse';
 import subtract from './subtract';
 import ternary from './ternary';
 import ternaryL from './ternaryL';
+import ternaryWith from './ternaryWith';
 import toArray from './toArray';
 import toBoolean from './toBoolean';
 import toFunction from './toFunction';
@@ -58,6 +66,7 @@ export {
     attempt,
     bindTo,
     callback,
+    callbackWith,
     check,
     compose,
     composeL,
@@ -68,8 +77,10 @@ export {
     divide,
     equals,
     excludes,
+    filterBy,
     gt,
     gte,
+    has,
     identity,
     includes,
     isArray,
@@ -83,18 +94,23 @@ export {
     isPromise,
     isString,
     isUndefined,
+    iterate,
     lt,
     lte,
+    mapBy,
+    memoize,
     multiply,
     none,
     noop,
     not,
     notEquals,
     or,
+    reduceBy,
     reverse,
     subtract,
     ternary,
     ternaryL,
+    ternaryWith,
     toArray,
     toBoolean,
     toFunction,
