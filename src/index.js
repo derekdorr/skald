@@ -1,6 +1,7 @@
 import add from './add';
 import and from './and';
 import andWith from './andWith';
+import apply from './apply';
 import at from './at';
 import attempt from './attempt';
 import bindTo from './bindTo';
@@ -16,6 +17,7 @@ import define from './define';
 import divide from './divide';
 import equals from './equals';
 import excludes from './excludes';
+import executeWith from './executeWith';
 import filterBy from './filterBy';
 import gt from './gt';
 import gte from './gte';
@@ -65,6 +67,7 @@ export {
     add,
     and,
     andWith,
+    apply,
     at,
     attempt,
     bindTo,
@@ -80,6 +83,7 @@ export {
     divide,
     equals,
     excludes,
+    executeWith,
     filterBy,
     gt,
     gte,

@@ -7,6 +7,13 @@
 <dt><a href="#and">and(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if all arguments are truthy or if array is truthy</p>
 </dd>
+<dt><a href="#orWith">orWith(args, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dd><p>Take an array of functions (or values) and determine if all results are
+true given value</p>
+</dd>
+<dt><a href="#apply">apply(fns, vals)</a> ⇒ <code>function</code> | <code>array</code></dt>
+<dd><p>Apply functions from an array to corresponding index in other array</p>
+</dd>
 <dt><a href="#at">at(index, val)</a> ⇒ <code>*</code></dt>
 <dd><p>Returns copy of entry or character at given index in string or array</p>
 </dd>
@@ -52,6 +59,10 @@ passed until it executes</p>
 </dd>
 <dt><a href="#excludes">excludes(search, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Returns true if string is not in string or array</p>
+</dd>
+<dt><a href="#executeWith">executeWith(fn, ...args)</a> ⇒ <code>function</code></dt>
+<dd><p>Create a function which executes a function with each arg being transformed
+by a function</p>
 </dd>
 <dt><a href="#filterBy">filterBy(fn, arr)</a> ⇒ <code>function</code> | <code>Array</code></dt>
 <dd><p>Filter elements in an array by function</p>
@@ -128,14 +139,18 @@ passed until it executes</p>
 <dt><a href="#noop">noop()</a> ⇒ <code>undefined</code></dt>
 <dd><p>Executes a noop</p>
 </dd>
-<dt><a href="#not">not(val)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Returns false if truthy, true if falsy</p>
+<dt><a href="#not">not(val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dd><p>Returns false if truthy, true if falsy, negation if function</p>
 </dd>
 <dt><a href="#notEquals">notEquals(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Return true if two values are not equal</p>
 </dd>
 <dt><a href="#or">or(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if at least one argument or array value is truthy</p>
+</dd>
+<dt><a href="#orWith">orWith(args, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dd><p>Take an array of functions (or values) and determine if one result is
+true given value</p>
 </dd>
 <dt><a href="#reduceBy">reduceBy(fn, accumulator, arr)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Reduce array to new value by function</p>
@@ -222,6 +237,47 @@ Determine if all arguments are truthy or if array is truthy
 and(true, true); //=> true
     and([true, true]); //=> true
     and(true, true, false); //=> false
+```
+<a name="orWith"></a>
+
+## orWith(args, val) ⇒ <code>boolean</code> &#124; <code>function</code>
+Take an array of functions (or values) and determine if all results are
+true given value
+
+**Kind**: global function  
+**Since**: 1.10.0  
+
+| Param | Type |
+| --- | --- |
+| args | <code>Array</code> | 
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = val => val < 10;
+    const bar = val => val > 5;
+    andWith([foo, bar], 6); //=> true
+    andWith([foo, bar])(1); //=> false
+```
+<a name="apply"></a>
+
+## apply(fns, vals) ⇒ <code>function</code> &#124; <code>array</code>
+Apply functions from an array to corresponding index in other array
+
+**Kind**: global function  
+**Since**: 1.11.0  
+
+| Param | Type |
+| --- | --- |
+| fns | <code>Array</code> | 
+| vals | <code>Array</code> | 
+
+**Example**  
+```js
+const add1 = a => a + 1;
+    const add2 = a => a + 2;
+    apply([add1, add2], [0, 0]); //=> [1, 2];
+    apply([add1])([1, 2, 3]); //=> [2, 2, 3];
 ```
 <a name="at"></a>
 
@@ -484,6 +540,28 @@ Returns true if string is not in string or array
 ```js
 excludes('h', 'hello'); //=> false
     excludes('a')('apple'); //=> false
+```
+<a name="executeWith"></a>
+
+## executeWith(fn, ...args) ⇒ <code>function</code>
+Create a function which executes a function with each arg being transformed
+by a function
+
+**Kind**: global function  
+**Since**: 1.11.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| ...args | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = (a, b) => a + b;
+    const add1 = a => a + 1;
+    const add2 = b => b + 2;
+    executeWith(foo, add1, add2)(0, 0); //=> 3
+    executeWith(foo, add1)(0, 0); //=> 1
 ```
 <a name="filterBy"></a>
 
@@ -904,8 +982,8 @@ Executes a noop
 **Since**: 1.5.0  
 <a name="not"></a>
 
-## not(val) ⇒ <code>boolean</code>
-Returns false if truthy, true if falsy
+## not(val) ⇒ <code>boolean</code> &#124; <code>function</code>
+Returns false if truthy, true if falsy, negation if function
 
 **Kind**: global function  
 **Since**: 1.1.0  
@@ -916,8 +994,10 @@ Returns false if truthy, true if falsy
 
 **Example**  
 ```js
-not(1); //=> false
+const identity = a => a;
+    not(1); //=> false
     not(false); //=> true
+    not(identity)(true); //=> false
 ```
 <a name="notEquals"></a>
 
@@ -953,6 +1033,27 @@ Determine if at least one argument or array value is truthy
 ```js
 or(true, false, false); //=> true
     or([false, false, true]); //=> true
+```
+<a name="orWith"></a>
+
+## orWith(args, val) ⇒ <code>boolean</code> &#124; <code>function</code>
+Take an array of functions (or values) and determine if one result is
+true given value
+
+**Kind**: global function  
+**Since**: 1.10.0  
+
+| Param | Type |
+| --- | --- |
+| args | <code>Array</code> | 
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = val => val > 10;
+    const bar = val => val < 5;
+    orWith([foo, bar], 6); //=> false
+    orWith([foo, bar])(1); //=> true
 ```
 <a name="reduceBy"></a>
 
