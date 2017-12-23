@@ -1,5 +1,6 @@
 import add from './add';
 import and from './and';
+import andWith from './andWith';
 import at from './at';
 import attempt from './attempt';
 import bindTo from './bindTo';
@@ -43,6 +44,7 @@ import noop from './noop';
 import not from './not';
 import notEquals from './notEquals';
 import or from './or';
+import orWith from './orWith';
 import reduceBy from './reduceBy';
 import reverse from './reverse';
 import subtract from './subtract';
@@ -62,6 +64,7 @@ import typeOf from './typeOf';
 export {
     add,
     and,
+    andWith,
     at,
     attempt,
     bindTo,
@@ -105,6 +108,7 @@ export {
     not,
     notEquals,
     or,
+    orWith,
     reduceBy,
     reverse,
     subtract,
