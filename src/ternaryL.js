@@ -14,15 +14,10 @@
  *     ternaryL(true, 1, 2); //=> 1
  *     ternaryL(false, 1, 2); //=> 2
  */
+import reverse from './reverse';
+import ternary from './ternary';
 
-import define from './define';
-import toFunction from './toFunction';
-
-const internal = (predicate, success, failure) =>
-    (toFunction(predicate)() ?
-        toFunction(success)() :
-        toFunction(failure)());
-
-const ternaryL = define(internal);
+const INT_THREE = 3;
+const ternaryL = reverse(ternary, INT_THREE);
 
 export default ternaryL;
