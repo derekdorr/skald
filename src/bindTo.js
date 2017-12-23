@@ -1,7 +1,7 @@
 /**
  * Takes a function and arguments. Leaves undefined arguments unbound and
  * binds defined arguments to their position in arguments list.
- * 
+ *
  * @module bindTo
  * @func
  * @since 1.8.0
@@ -9,7 +9,7 @@
  * @param {...*} args
  * @return {function}
  * @example
- * 
+ *
  *     const foo = (a, b, c) = a + b + c;
  *     bindTo(foo, 1, 2)(3); //=> 6
  *     bindTo(foo, undefined, 1, 2)(1); //=> 4
@@ -29,20 +29,20 @@ const bindTo = (fn, ...args) => {
     const def = args.filter(val => !isUndefined(val));
     const defLength = def.length;
     const iterator = Array(length).fill(BOOL_TRUE);
-    const diff = subtract(length,defLength);
+    const diff = subtract(length, defLength);
     const internal = (...ops) => {
         const fin = iterator.map((v, index) => {
             const argAtIndex = args[index];
             return ternary(
                 argAtIndex,
                 () => ops.pop(),
-                isUndefined(argAtIndex),  
+                isUndefined(argAtIndex),
             );
         });
-        
+
         return fn(...fin);
     };
-    
+
     return define(internal, diff);
 };
 
