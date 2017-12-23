@@ -12,6 +12,8 @@
  *     not(false); //=> true
  */
 
-const not = val => !val;
+import isFunction from './isFunction';
+
+const not = val => (isFunction(val) ? a => !a : !val);
 
 export default not;
