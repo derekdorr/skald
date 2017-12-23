@@ -10,5 +10,6 @@ test('Tests - ternary.js', t => {
     t.equal(ternary(4)(3, false), 4, 'false returns 4');
     t.equal(ternary(5)(4)(true), 4, 'true returns 4');
     t.equal(ternary(5)(4)(false), 5, 'false returns 5');
+    t.equal(ternary(2, 1, () => false), 2, 'false predicate returns 2');
     t.end();
 });
