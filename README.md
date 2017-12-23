@@ -14,6 +14,10 @@
 <dd><p>Attempt something. If an error is thrown, return something else.
 (Wrapper for try / catch)</p>
 </dd>
+<dt><a href="#bindTo">bindTo(fn, ...args)</a> ⇒ <code>function</code></dt>
+<dd><p>Takes a function and arguments. Leaves undefined arguments unbound and
+binds defined arguments to their position in arguments list.</p>
+</dd>
 <dt><a href="#callback">callback(cb, predicate)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first.</p>
 </dd>
@@ -229,6 +233,28 @@ Attempt something. If an error is thrown, return something else.
 ```js
 attempt(() => JSON.parse('<>'), false); //=> false
     attempt(5, () => ({})); //=> 5
+```
+<a name="bindTo"></a>
+
+## bindTo(fn, ...args) ⇒ <code>function</code>
+Takes a function and arguments. Leaves undefined arguments unbound and
+binds defined arguments to their position in arguments list.
+
+**Kind**: global function  
+**Since**: 1.8.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| ...args | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = (a, b, c) = a + b + c;
+    bindTo(foo, 1, 2)(3); //=> 6
+    bindTo(foo, undefined, 1, 2)(1); //=> 4
+    bindTo(foo, undefined, undefined, 3)(1, 2); //=> 6
+    bindTo(foo, undefined, 1)(1)(1); //=> 3
 ```
 <a name="callback"></a>
 

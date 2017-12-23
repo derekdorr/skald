@@ -2,6 +2,7 @@ import add from './add';
 import and from './and';
 import at from './at';
 import attempt from './attempt';
+import bindTo from './bindTo';
 import callback from './callback';
 import check from './check';
 import compose from './compose';
@@ -55,6 +56,7 @@ export {
     and,
     at,
     attempt,
+    bindTo,
     callback,
     check,
     compose,
