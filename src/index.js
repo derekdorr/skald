@@ -46,6 +46,7 @@ import toNumber from './toNumber';
 import toObject from './toObject';
 import toPromise from './toPromise';
 import toString from './toString';
+import traverse from './traverse';
 import typeOf from './typeOf';
 
 export {
@@ -97,5 +98,6 @@ export {
     toObject,
     toPromise,
     toString,
+    traverse,
     typeOf,
 };

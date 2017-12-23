@@ -13,9 +13,10 @@
  *     defaultTo(3)(4); //=> 4
  */
 
+import _or from './_internal/_or';
 import define from './define';
 
-const pre = (def, val) => val || def;
+const pre = (def, val) => _or(val, def);
 
 const defaultTo = define(pre);
 

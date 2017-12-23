@@ -17,8 +17,10 @@
  *     bar(1)(2)(3); // 6
  */
 
+import _or from './_internal/_or';
+
 const define = (fn, len) => {
-    const length = len || fn.length;
+    const length = _or(len, fn.length);
     const internal = (...args) => (args.length < length ?
         (...ops) => internal(...args.concat(ops)) :
         fn(...args));
