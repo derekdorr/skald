@@ -16,11 +16,9 @@ import _or from './_internal/_or';
 
 const reverse = (fn, len) => {
     const length = _or(len, fn.length);
-    const internal = (...args) => {
-        return (args.length < length ?
-            (...ops) => internal(...args.concat(ops)) :
-            fn(...args.reverse()));
-    };
+    const internal = (...args) => (args.length < length ?
+        (...ops) => internal(...args.concat(ops)) :
+        fn(...args.reverse()));
 
     return internal;
 };

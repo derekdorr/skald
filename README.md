@@ -10,11 +10,12 @@
 <dt><a href="#at">at(index, val)</a> ⇒ <code>*</code></dt>
 <dd><p>Returns copy of entry or character at given index in string or array</p>
 </dd>
+<dt><a href="#ternaryL">ternaryL(toTry, onError)</a> ⇒ <code>*</code></dt>
+<dd><p>Attempt something. If an error is thrown, return something else.
+(Wrapper for try / catch)</p>
+</dd>
 <dt><a href="#callback">callback(cb, predicate)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first.</p>
-</dd>
-<dt><a href="#check">check(obj, path)</a> ⇒ <code>*</code></dt>
-<dd><p>Safely traverse object nested properties</p>
 </dd>
 <dt><a href="#compose">compose(...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
@@ -148,6 +149,9 @@ failure are functions, returns executed result.</p>
 <dt><a href="#toString">toString(value)</a> ⇒ <code>string</code></dt>
 <dd><p>Converts value to string. Converts undefined to empty string.</p>
 </dd>
+<dt><a href="#traverse">traverse(obj, path)</a> ⇒ <code>*</code></dt>
+<dd><p>Safely traverse object nested properties</p>
+</dd>
 <dt><a href="#typeOf">typeOf(val)</a> ⇒ <code>string</code></dt>
 <dd><p>Returns typeof value</p>
 </dd>
@@ -207,6 +211,25 @@ Returns copy of entry or character at given index in string or array
 at(2, 'foo'); //=> 'o'
     at(1)([0, 1, 2]); //=> 1
 ```
+<a name="ternaryL"></a>
+
+## ternaryL(toTry, onError) ⇒ <code>\*</code>
+Attempt something. If an error is thrown, return something else.
+(Wrapper for try / catch)
+
+**Kind**: global function  
+**Since**: 1.7.0  
+
+| Param | Type |
+| --- | --- |
+| toTry | <code>\*</code> | 
+| onError | <code>\*</code> | 
+
+**Example**  
+```js
+attempt(() => JSON.parse('<>'), false); //=> false
+    attempt(5, () => ({})); //=> 5
+```
 <a name="callback"></a>
 
 ## callback(cb, predicate) ⇒ <code>\*</code>
@@ -224,24 +247,6 @@ Take two arguments and if second argument is truthy, return first.
 ```js
 callback('foo', true); //=> 'foo'
     callback('foo', false); //=> null
-```
-<a name="check"></a>
-
-## check(obj, path) ⇒ <code>\*</code>
-Safely traverse object nested properties
-
-**Kind**: global function  
-**Since**: 1.0.0  
-
-| Param | Type |
-| --- | --- |
-| obj | <code>Object</code> | 
-| path | <code>Array.&lt;string&gt;</code> | 
-
-**Example**  
-```js
-traverse({}, ['a', 'b', 'c']); //=> undefined
-    traverse({ a: 1 })(['a']); //=> 1
 ```
 <a name="compose"></a>
 
@@ -791,7 +796,7 @@ or(true, false, false); //=> true
 <a name="reverse"></a>
 
 ## reverse(fn) ⇒ <code>function</code>
-Take a function and return a function which accepts ars in reverse order
+Take a function and return a function which accepts args in reverse order
 
 **Kind**: global function  
 **Since**: 1.1.0  
@@ -803,7 +808,7 @@ Take a function and return a function which accepts ars in reverse order
 **Example**  
 ```js
 const foo = (a, b, c) => a + b - c;
-    reverse(foo); //=> (c, b, a) => c + b - a;
+    reverse(foo); //=> (c)(b)(a) => c + b - a;
 ```
 <a name="subtract"></a>
 
@@ -984,6 +989,24 @@ Converts value to string. Converts undefined to empty string.
 toString('foo'); //=> 'foo'
     toString(false); //=> 'false'
     toString(undefined); //=> ''
+```
+<a name="traverse"></a>
+
+## traverse(obj, path) ⇒ <code>\*</code>
+Safely traverse object nested properties
+
+**Kind**: global function  
+**Since**: 1.6.0  
+
+| Param | Type |
+| --- | --- |
+| obj | <code>Object</code> | 
+| path | <code>Array.&lt;string&gt;</code> | 
+
+**Example**  
+```js
+traverse({}, ['a', 'b', 'c']); //=> undefined
+    traverse({ a: 1 })(['a']); //=> 1
 ```
 <a name="typeOf"></a>
 
