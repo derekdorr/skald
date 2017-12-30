@@ -12,16 +12,9 @@
  *     compose(val => val + 1, val => val + 2); //=> val => val + 3
  */
 
-import _reduce from './_internal/_reduce';
+import compose from './compose';
+import reverse from './reverse';
 
-const compose = (...args) => {
-    const [first, ...rest] = args;
+const composeL = reverse(compose);
 
-    return (...opts) => _reduce(
-        rest,
-        (prevFn, nextFn) => nextFn(prevFn),
-        first(...opts),
-    );
-};
-
-export default compose;
+export default composeL;
