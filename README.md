@@ -7,7 +7,7 @@
 <dt><a href="#and">and(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if all arguments are truthy or if array is truthy</p>
 </dd>
-<dt><a href="#orWith">orWith(args, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dt><a href="#andWith">andWith(args, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Take an array of functions (or values) and determine if all results are
 true given value</p>
 </dd>
@@ -28,7 +28,7 @@ binds defined arguments to their position in arguments list.</p>
 <dt><a href="#callback">callback(cb, predicate)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first.</p>
 </dd>
-<dt><a href="#callback">callback(cb, predicate, val)</a> ⇒ <code>*</code></dt>
+<dt><a href="#callbackWith">callbackWith(cb, predicate, val)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first
 based on val</p>
 </dd>
@@ -238,9 +238,9 @@ and(true, true); //=> true
     and([true, true]); //=> true
     and(true, true, false); //=> false
 ```
-<a name="orWith"></a>
+<a name="andWith"></a>
 
-## orWith(args, val) ⇒ <code>boolean</code> &#124; <code>function</code>
+## andWith(args, val) ⇒ <code>boolean</code> &#124; <code>function</code>
 Take an array of functions (or values) and determine if all results are
 true given value
 
@@ -356,9 +356,9 @@ Take two arguments and if second argument is truthy, return first.
 callback('foo', true); //=> 'foo'
     callback('foo', false); //=> null
 ```
-<a name="callback"></a>
+<a name="callbackWith"></a>
 
-## callback(cb, predicate, val) ⇒ <code>\*</code>
+## callbackWith(cb, predicate, val) ⇒ <code>\*</code>
 Take two arguments and if second argument is truthy, return first
 based on val
 
@@ -373,8 +373,8 @@ based on val
 
 **Example**  
 ```js
-callback('foo', true); //=> 'foo'
-    callback('foo', false); //=> null
+callbackWith(a => a, true, 3); //=> 3
+    callbackWith(a => a, false, 3); //=> null
 ```
 <a name="compose"></a>
 
