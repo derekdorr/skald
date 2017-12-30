@@ -3,7 +3,7 @@
  * Take two arguments and if second argument is truthy, return first
  * based on val
  *
- * @module callback
+ * @module callbackWith
  * @func
  * @since 1.9.0
  * @param {*} cb
@@ -12,8 +12,8 @@
  * @return {*}
  * @example
  *
- *     callback('foo', true); //=> 'foo'
- *     callback('foo', false); //=> null
+ *     callbackWith(a => a, true, 3); //=> 3
+ *     callbackWith(a => a, false, 3); //=> null
  */
 
 import { NULL } from 'permanent';

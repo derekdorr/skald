@@ -23,7 +23,6 @@ const equalsOne = equals(INT_ONE);
 const lengthEqualsOne = compose(equalsOne, _len);
 const allTrue = arr => _some(arr, toBoolean);
 
-
 const or = (...args) => ternaryWith(
     allTrue,
     () => or(...args[INT_ZERO]),

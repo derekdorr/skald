@@ -2,7 +2,7 @@
  * Take an array of functions (or values) and determine if all results are
  * true given value
  *
- * @module orWith
+ * @module andWith
  * @func
  * @since 1.10.0
  * @param {Array} args

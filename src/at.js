@@ -16,28 +16,28 @@
 import { INT_ONE, INT_ZERO, STR_EMPTY } from 'permanent';
 import _slice from './_internal/_slice';
 import add from './add';
-import defaultTo from './defaultTo';
+import and from './and';
+import compose from './compose';
 import define from './define';
+import executeWith from './executeWith';
 import isArray from './isArray';
+import isNumber from './isNumber';
 import isString from './isString';
-import or from './or';
+import orWith from './orWith';
 import ternary from './ternary';
-import toNumber from './toNumber';
 
 const addOne = add(INT_ONE);
-const defaultToEmptyString = defaultTo(STR_EMPTY);
+const atZero = arr => arr[INT_ZERO];
+const isStringOrArray = orWith([isString, isArray]);
 const failToString = ternary(STR_EMPTY);
+const sliceAtZero = compose(atZero, _slice);
+const predicate = executeWith(and, isStringOrArray, isNumber);
 
-const pre = (index, val) => {
-    const ind = toNumber(index);
-    const isValArray = isArray(val);
-    const isValString = isString(val);
-    return failToString(
-        () => defaultToEmptyString(_slice(val, ind, addOne(ind))[INT_ZERO]),
-        or(isValArray, isValString),
-    );
-};
+const internal = (index, val) => failToString(
+    () => sliceAtZero(val, index, addOne(index)),
+    predicate(val, index),
+);
 
-const at = define(pre);
+const at = define(internal);
 
 export default at;

@@ -17,11 +17,13 @@
  *     bindTo(foo, undefined, 1)(1)(1); //=> 3
  */
 
-import _filter from './_internal/_filter';
 import _len from './_internal/_len';
-import _or from './_internal/_or';
+import _max from './_internal/_max';
+import _pop from './_internal/_pop';
 import compose from './compose';
 import define from './define';
+import executeWith from './executeWith';
+import filterBy from './filterBy';
 import isUndefined from './isUndefined';
 import iterate from './iterate';
 import not from './not';
@@ -29,9 +31,11 @@ import subtract from './subtract';
 import ternary from './ternary';
 
 const notIsUndefined = compose(not, isUndefined);
+const maxLength = executeWith(_max, _len, _len);
+const filterByNotUndefined = filterBy(notIsUndefined);
 const bindTo = (fn, ...args) => {
-    const length = _or(_len(fn), _len(args));
-    const def = _filter(args, notIsUndefined);
+    const length = maxLength(fn, args);
+    const def = filterByNotUndefined(args);
     const defLength = _len(def);
     const diff = subtract(length, defLength);
     const internal = (...ops) => {
@@ -39,7 +43,7 @@ const bindTo = (fn, ...args) => {
             const argAtIndex = args[i];
             return ternary(
                 argAtIndex,
-                () => ops.pop(),
+                () => _pop(ops),
                 isUndefined(argAtIndex),
             );
         }, length);

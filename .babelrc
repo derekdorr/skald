@@ -3,26 +3,66 @@
         [
             "env",
             {
-                targets: {
-                    "node": "6.10"
-                }
+                "targets": {
+                    "browsers": ["ie >= 10"]
+                },
+                "modules": false,
             }
-        ]
+        ],
+        "stage-0"
+    ],
+    "plugins": [
+        ["transform-imports", {
+            "permanent": {
+                "transform": "permanent/src/${member}",
+                "preventFullImport": true
+            },
+        }]
     ],
     "env": {
+        "lib": {
+            "presets": [
+                [
+                    "env",
+                    {
+                        "targets": {
+                            "node": "6.10"
+                        }
+                    }
+                ],
+                "stage-0"
+            ],
+            "plugins": [
+                ["transform-imports", {
+                    "permanent": {
+                        "transform": "permanent/es/${member}",
+                        "preventFullImport": true
+                    },
+                }]
+            ],
+        },
         "es": {
             "presets": [
                 [
                     "env",
                     {
-                        targets: {
+                        "targets": {
                             "node": "6.10"
                         },
-                        modules: false,
-                        loose: true
+                        "modules": false,
+                        "loose": true
                     }
-                ]
-            ]
+                ],
+                "stage-0"
+            ],
+            "plugins": [
+            ["transform-imports", {
+                "permanent": {
+                    "transform": "permanent/es/${member}",
+                    "preventFullImport": true
+                },
+            }]
+        ],
         }
     }
 }
