@@ -34,6 +34,7 @@ import isNull from './isNull';
 import isNumber from './isNumber';
 import isObject from './isObject';
 import isPromise from './isPromise';
+import isPropertyOf from './isPropertyOf';
 import isString from './isString';
 import isUndefined from './isUndefined';
 import iterate from './iterate';
@@ -104,6 +105,7 @@ export {
     isNumber,
     isObject,
     isPromise,
+    isPropertyOf,
     isString,
     isUndefined,
     iterate,

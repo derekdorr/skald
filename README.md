@@ -112,6 +112,9 @@ by a function</p>
 <dt><a href="#isPromise">isPromise(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Take a value and determine if it is a promise</p>
 </dd>
+<dt><a href="#isPropertyOf">isPropertyOf(key, obj)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Determine if string is property of object</p>
+</dd>
 <dt><a href="#isString">isString(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is string</p>
 </dd>
@@ -851,6 +854,24 @@ Take a value and determine if it is a promise
 ```js
 isPromise(Promise.resolve()); //=> true
     isPromise('foo'); //=> false
+```
+<a name="isPropertyOf"></a>
+
+## isPropertyOf(key, obj) ⇒ <code>boolean</code>
+Determine if string is property of object
+
+**Kind**: global function  
+**Since**: 1.13.0  
+
+| Param | Type |
+| --- | --- |
+| key | <code>string</code> | 
+| obj | <code>Object</code> | 
+
+**Example**  
+```js
+isPropertyOf('foo', { foo: 'a' }); //=> true
+    isPropertyOf('foo')({ bar: 'b' }); //=> false
 ```
 <a name="isString"></a>
 
