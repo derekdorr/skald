@@ -1,6 +1,7 @@
 import add from './add';
 import and from './and';
 import andWith from './andWith';
+import appendTo from './appendTo';
 import apply from './apply';
 import at from './at';
 import attempt from './attempt';
@@ -33,9 +34,11 @@ import isNull from './isNull';
 import isNumber from './isNumber';
 import isObject from './isObject';
 import isPromise from './isPromise';
+import isPropertyOf from './isPropertyOf';
 import isString from './isString';
 import isUndefined from './isUndefined';
 import iterate from './iterate';
+import joinBy from './joinBy';
 import lt from './lt';
 import lte from './lte';
 import mapBy from './mapBy';
@@ -47,8 +50,10 @@ import not from './not';
 import notEquals from './notEquals';
 import or from './or';
 import orWith from './orWith';
+import prependTo from './prependTo';
 import reduceBy from './reduceBy';
 import reverse from './reverse';
+import splitBy from './splitBy';
 import subtract from './subtract';
 import ternary from './ternary';
 import ternaryL from './ternaryL';
@@ -67,6 +72,7 @@ export {
     add,
     and,
     andWith,
+    appendTo,
     apply,
     at,
     attempt,
@@ -99,9 +105,11 @@ export {
     isNumber,
     isObject,
     isPromise,
+    isPropertyOf,
     isString,
     isUndefined,
     iterate,
+    joinBy,
     lt,
     lte,
     mapBy,
@@ -113,8 +121,10 @@ export {
     notEquals,
     or,
     orWith,
+    prependTo,
     reduceBy,
     reverse,
+    splitBy,
     subtract,
     ternary,
     ternaryL,
