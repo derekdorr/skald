@@ -11,6 +11,9 @@
 <dd><p>Take an array of functions (or values) and determine if all results are
 true given value</p>
 </dd>
+<dt><a href="#appendTo">appendTo(str, append)</a> ⇒ <code>function</code> | <code>string</code></dt>
+<dd><p>Append string to the end of another string</p>
+</dd>
 <dt><a href="#apply">apply(fns, vals)</a> ⇒ <code>function</code> | <code>array</code></dt>
 <dd><p>Apply functions from an array to corresponding index in other array</p>
 </dd>
@@ -118,6 +121,9 @@ by a function</p>
 <dt><a href="#iterate">iterate(fn, len)</a> ⇒ <code>Array</code></dt>
 <dd><p>Return array of function iterations of specified length generated from 0-based index</p>
 </dd>
+<dt><a href="#joinBy">joinBy(delimiter, arr)</a> ⇒ <code>function</code> | <code>string</code></dt>
+<dd><p>Join array to string, delimited by other string</p>
+</dd>
 <dt><a href="#lt">lt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if value is less than other value</p>
 </dd>
@@ -152,11 +158,17 @@ by a function</p>
 <dd><p>Take an array of functions (or values) and determine if one result is
 true given value</p>
 </dd>
+<dt><a href="#prependTo">prependTo(str, append)</a> ⇒ <code>function</code> | <code>string</code></dt>
+<dd><p>Prepend string to the beginning of another string</p>
+</dd>
 <dt><a href="#reduceBy">reduceBy(fn, accumulator, arr)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Reduce array to new value by function</p>
 </dd>
 <dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
 <dd><p>Take a function and return a function which accepts args in reverse order</p>
+</dd>
+<dt><a href="#splitBy">splitBy(search, str)</a> ⇒ <code>function</code> | <code>Array</code></dt>
+<dd><p>Split string to array by another string</p>
 </dd>
 <dt><a href="#subtract">subtract(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Subtract one number from another</p>
@@ -258,6 +270,24 @@ const foo = val => val < 10;
     const bar = val => val > 5;
     andWith([foo, bar], 6); //=> true
     andWith([foo, bar])(1); //=> false
+```
+<a name="appendTo"></a>
+
+## appendTo(str, append) ⇒ <code>function</code> &#124; <code>string</code>
+Append string to the end of another string
+
+**Kind**: global function  
+**Since**: 1.13.0  
+
+| Param | Type |
+| --- | --- |
+| str | <code>string</code> | 
+| append | <code>string</code> | 
+
+**Example**  
+```js
+appendTo('foo', 'bar'); //=> 'foobar'
+    appendTo('bar')('baz'); //=> 'barbaz'
 ```
 <a name="apply"></a>
 
@@ -875,6 +905,24 @@ const foo = index => index + 1;
     iterate(foo, 3); //=> [1, 2, 3]
     iterate(foo)(2); //=> [1, 2]
 ```
+<a name="joinBy"></a>
+
+## joinBy(delimiter, arr) ⇒ <code>function</code> &#124; <code>string</code>
+Join array to string, delimited by other string
+
+**Kind**: global function  
+**Since**: 1.13.0  
+
+| Param | Type |
+| --- | --- |
+| delimiter | <code>string</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+joinBy('.', ['foo', 'bar', 'baz']); //=> 'foo.bar.baz'
+    joinBy(',')([1, 2, 3]); //=> '1.2.3';
+```
 <a name="lt"></a>
 
 ## lt(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
@@ -1055,6 +1103,24 @@ const foo = val => val > 10;
     orWith([foo, bar], 6); //=> false
     orWith([foo, bar])(1); //=> true
 ```
+<a name="prependTo"></a>
+
+## prependTo(str, append) ⇒ <code>function</code> &#124; <code>string</code>
+Prepend string to the beginning of another string
+
+**Kind**: global function  
+**Since**: 1.13.0  
+
+| Param | Type |
+| --- | --- |
+| str | <code>string</code> | 
+| append | <code>string</code> | 
+
+**Example**  
+```js
+prependTo('foo', 'bar'); //=> 'barfoo'
+    prependTo('bar')('baz'); //=> 'bazbar'
+```
 <a name="reduceBy"></a>
 
 ## reduceBy(fn, accumulator, arr) ⇒ <code>function</code> &#124; <code>\*</code>
@@ -1092,6 +1158,24 @@ Take a function and return a function which accepts args in reverse order
 ```js
 const foo = (a, b, c) => a + b - c;
     reverse(foo); //=> (c)(b)(a) => c + b - a;
+```
+<a name="splitBy"></a>
+
+## splitBy(search, str) ⇒ <code>function</code> &#124; <code>Array</code>
+Split string to array by another string
+
+**Kind**: global function  
+**Since**: 1.13.0  
+
+| Param | Type |
+| --- | --- |
+| search | <code>string</code> | 
+| str | <code>string</code> | 
+
+**Example**  
+```js
+splitBy('.', 'foo.bar.baz'); //=> ['foo', 'bar', 'baz']
+    splitBy(',')('1,2,3'); //=> ['1', '2', '3'];
 ```
 <a name="subtract"></a>
 
