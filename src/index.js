@@ -52,6 +52,7 @@ import or from './or';
 import orWith from './orWith';
 import prependTo from './prependTo';
 import reduceBy from './reduceBy';
+import replaceWith from './replaceWith';
 import reverse from './reverse';
 import splitBy from './splitBy';
 import subtract from './subtract';
@@ -66,6 +67,7 @@ import toObject from './toObject';
 import toPromise from './toPromise';
 import toString from './toString';
 import traverse from './traverse';
+import traverseR from './traverseR';
 import typeOf from './typeOf';
 
 export {
@@ -123,6 +125,7 @@ export {
     orWith,
     prependTo,
     reduceBy,
+    replaceWith,
     reverse,
     splitBy,
     subtract,
@@ -137,5 +140,6 @@ export {
     toPromise,
     toString,
     traverse,
+    traverseR,
     typeOf,
 };
