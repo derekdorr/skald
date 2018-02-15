@@ -12,12 +12,13 @@
  *     toFunction(() => 1); //=> () => 1
  */
 
+import cast from './cast';
 import isFunction from './isFunction';
 
 const toFunction = val => (
     isFunction(val) ?
         val :
-        () => val
+        cast(val)
 );
 
 export default toFunction;

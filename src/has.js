@@ -17,8 +17,6 @@
 import _hasOwnProperty from './_internal/_hasOwnProperty';
 import define from './define';
 
-const internal = (obj, key) => _hasOwnProperty(obj, key);
-
-const has = define(internal);
+const has = define(_hasOwnProperty, 2);
 
 export default has;

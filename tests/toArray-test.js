@@ -7,5 +7,6 @@ test('Tests - toArray.js', t => {
     t.deepEqual(toArray(false, true), [false, true], 'false, true becomes array');
     t.deepEqual(toArray(0), [0], '0 becomes array');
     t.deepEqual(toArray(1, 2, 3), [1, 2, 3], '1,2,3 becomes array');
+    t.deepEqual(toArray([1, 2], [3, 4]), [1, 2, 3, 4], '1, 2, 3, 4 returned');
     t.end();
 });

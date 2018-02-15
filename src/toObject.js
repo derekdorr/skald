@@ -16,6 +16,7 @@
 import { INT_ONE, INT_ZERO, NULL } from 'permanent';
 import _assign from './_internal/_assign';
 import _len from './_internal/_len';
+import args from './args';
 import at from './at';
 import compose from './compose';
 import equals from './equals';
@@ -37,6 +38,6 @@ const ifNull = ternaryWith(ifString, NULL, isNullAtZero);
 const ifLengthOne = ternaryWith(assignMultiple, ifNull, lenEqualsOne);
 const ifLengthZero = ternaryWith(ifLengthOne, {}, lenEqualsZero);
 
-const toObject = (...vals) => ifLengthZero(vals);
+const toObject = compose(ifLengthZero, args);
 
 export default toObject;

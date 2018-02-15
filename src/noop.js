@@ -7,6 +7,8 @@
  * @returns {undefined}
  */
 
-const noop = () => {};
+import cast from './cast';
+
+const noop = cast();
 
 export default noop;

@@ -14,14 +14,15 @@
 
 import _concat from './_internal/_concat';
 import compose from './compose';
+import define from './define';
 import filterBy from './filterBy';
 import isUndefined from './isUndefined';
 import not from './not';
 
 const notUndefined = compose(not, isUndefined);
 const removeUndefined = filterBy(notUndefined);
-const removeUndefinedFromClone = compose(removeUndefined, _concat);
+const removeUndefinedFromClone = define(compose(removeUndefined, _concat), 2);
 
-const toArray = (...args) => removeUndefinedFromClone([], ...args);
+const toArray = removeUndefinedFromClone([]);
 
 export default toArray;

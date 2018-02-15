@@ -22,9 +22,11 @@ import mapBy from './mapBy';
 import toFunction from './toFunction';
 
 const mapToFunction = mapBy(toFunction);
+const applyToValue = define((val, fn) => fn(val));
 const internal = (args, val) => {
     const fns = mapToFunction(args);
-    const values = mapBy(fn => fn(val), fns);
+    const applyToVal = applyToValue(val);
+    const values = mapBy(applyToVal, fns);
     return or(...values);
 };
 
