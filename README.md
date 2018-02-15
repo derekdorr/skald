@@ -70,6 +70,12 @@ by a function</p>
 <dt><a href="#filterBy">filterBy(fn, arr)</a> ⇒ <code>function</code> | <code>Array</code></dt>
 <dd><p>Filter elements in an array by function</p>
 </dd>
+<dt><a href="#getObject">getObject(prop, value)</a> ⇒ <code>function</code> | <code>Object</code></dt>
+<dd><p>Get an object with single property and value</p>
+</dd>
+<dt><a href="#getProp">getProp(prop, obj)</a> ⇒ <code>function</code> | <code>*</code></dt>
+<dd><p>Get property of an object</p>
+</dd>
 <dt><a href="#gt">gt(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if first value is greater than</p>
 </dd>
@@ -167,6 +173,9 @@ true given value</p>
 <dt><a href="#reduceBy">reduceBy(fn, accumulator, arr)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Reduce array to new value by function</p>
 </dd>
+<dt><a href="#replaceWith">replaceWith(search, rep, str)</a> ⇒ <code>string</code> | <code>function</code></dt>
+<dd><p>Replace search with new value in string</p>
+</dd>
 <dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
 <dd><p>Take a function and return a function which accepts args in reverse order</p>
 </dd>
@@ -210,6 +219,9 @@ failure are functions, returns executed result with passed in parameter;</p>
 <dd><p>Converts value to string. Converts undefined to empty string.</p>
 </dd>
 <dt><a href="#traverse">traverse(obj, path)</a> ⇒ <code>*</code></dt>
+<dd><p>Safely traverse object nested properties</p>
+</dd>
+<dt><a href="#traverseR">traverseR(path, obj)</a> ⇒ <code>*</code></dt>
 <dd><p>Safely traverse object nested properties</p>
 </dd>
 <dt><a href="#typeOf">typeOf(val)</a> ⇒ <code>string</code></dt>
@@ -614,6 +626,42 @@ Filter elements in an array by function
 const foo = val => val < 3;
     filterBy(foo, [1, 2, 4]); //=> [1, 2]
     filterBy(foo)([2,3]); //=> [2]
+```
+<a name="getObject"></a>
+
+## getObject(prop, value) ⇒ <code>function</code> &#124; <code>Object</code>
+Get an object with single property and value
+
+**Kind**: global function  
+**Since**: 1.15.0  
+
+| Param | Type |
+| --- | --- |
+| prop | <code>string</code> &#124; <code>number</code> | 
+| value | <code>\*</code> | 
+
+**Example**  
+```js
+getObject('a', 1); //=> { a: 1 }
+    getProp('b')(2); //=> { b: 2 }
+```
+<a name="getProp"></a>
+
+## getProp(prop, obj) ⇒ <code>function</code> &#124; <code>\*</code>
+Get property of an object
+
+**Kind**: global function  
+**Since**: 1.15.0  
+
+| Param | Type |
+| --- | --- |
+| prop | <code>string</code> &#124; <code>number</code> | 
+| obj | <code>Object</code> | 
+
+**Example**  
+```js
+getProp('a', { a: 1 }); //=> 1
+    getProp('b')({ b: 2 }); //=> 2
 ```
 <a name="gt"></a>
 
@@ -1163,6 +1211,25 @@ const foo = (acc, val) = acc + val;
     reduceBy(foo, 2)([2, 2]); //=> 6
     reduceBy(foo)(3)([3, 3]); //=> 9
 ```
+<a name="replaceWith"></a>
+
+## replaceWith(search, rep, str) ⇒ <code>string</code> &#124; <code>function</code>
+Replace search with new value in string
+
+**Kind**: global function  
+**Since**: 1.6.0  
+
+| Param | Type |
+| --- | --- |
+| search | <code>string</code> &#124; <code>RegExp</code> | 
+| rep | <code>string</code> | 
+| str | <code>string</code> | 
+
+**Example**  
+```js
+replaceWith('f', 'b', 'foo'); //=> 'boo'
+    replaceWith(/o/g)('a')('foo'); //=> 'faa'
+```
 <a name="reverse"></a>
 
 ## reverse(fn) ⇒ <code>function</code>
@@ -1418,6 +1485,24 @@ Safely traverse object nested properties
 ```js
 traverse({}, ['a', 'b', 'c']); //=> undefined
     traverse({ a: 1 })(['a']); //=> 1
+```
+<a name="traverseR"></a>
+
+## traverseR(path, obj) ⇒ <code>\*</code>
+Safely traverse object nested properties
+
+**Kind**: global function  
+**Since**: 1.14.0  
+
+| Param | Type |
+| --- | --- |
+| path | <code>Array.&lt;string&gt;</code> | 
+| obj | <code>Object</code> | 
+
+**Example**  
+```js
+traverse(['a', 'b', 'c'], {}); //=> undefined
+    traverse(['a'])({ a: 1 }); //=> 1
 ```
 <a name="typeOf"></a>
 

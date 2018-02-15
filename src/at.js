@@ -20,6 +20,7 @@ import and from './and';
 import compose from './compose';
 import define from './define';
 import executeWith from './executeWith';
+import getProp from './getProp';
 import isArray from './isArray';
 import isNumber from './isNumber';
 import isString from './isString';
@@ -27,7 +28,7 @@ import orWith from './orWith';
 import ternary from './ternary';
 
 const addOne = add(INT_ONE);
-const atZero = arr => arr[INT_ZERO];
+const atZero = getProp(INT_ZERO);
 const isStringOrArray = orWith([isString, isArray]);
 const failToString = ternary(STR_EMPTY);
 const sliceAtZero = compose(atZero, _slice);

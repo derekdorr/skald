@@ -20,6 +20,8 @@ import equals from './equals';
 import excludes from './excludes';
 import executeWith from './executeWith';
 import filterBy from './filterBy';
+import getObject from './getObject';
+import getProp from './getProp';
 import gt from './gt';
 import gte from './gte';
 import has from './has';
@@ -93,6 +95,8 @@ export {
     excludes,
     executeWith,
     filterBy,
+    getObject,
+    getProp,
     gt,
     gte,
     has,
