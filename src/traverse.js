@@ -14,21 +14,14 @@
  */
 
 import { UNDEF } from 'permanent';
-import _reduce from './_internal/_reduce';
 import define from './define';
+import getProp from './getProp';
 import isObject from './isObject';
-import ternary from './ternary';
+import reduceBy from './reduceBy';
+import ternaryWith from './ternaryWith';
 
-const internal = (obj, path) => _reduce(
-    path,
-    (acc, seg) => ternary(
-        UNDEF,
-        () => acc[seg],
-        isObject(acc),
-    ),
-    obj,
-);
-
+const getSegment = (acc, seg) => ternaryWith(UNDEF, getProp(seg), isObject)(acc);
+const internal = (obj, path) => reduceBy(getSegment, obj, path);
 const traverse = define(internal);
 
 export default traverse;
