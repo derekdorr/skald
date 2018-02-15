@@ -13,12 +13,12 @@
  *     replaceWith('f', 'b', 'foo'); //=> 'boo'
  *     replaceWith(/o/g)('a')('foo'); //=> 'faa'
  */
- 
- import _replace from './_internal/_replace';
- import define from './define';
- 
- const internal = (search, rep, str) => _replace(str, search, rep);
- const replaceWith = define(internal);
- 
- export default replaceWith;
- 
+
+import _replace from './_internal/_replace';
+import define from './define';
+
+const internal = (search, rep, str) => _replace(str, search, rep);
+const replaceWith = define(internal);
+
+export default replaceWith;
+
