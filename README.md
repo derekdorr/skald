@@ -17,6 +17,9 @@ true given value</p>
 <dt><a href="#apply">apply(fns, vals)</a> ⇒ <code>function</code> | <code>array</code></dt>
 <dd><p>Apply functions from an array to corresponding index in other array</p>
 </dd>
+<dt><a href="#args">args(...vals)</a> ⇒ <code>Array</code></dt>
+<dd><p>Returns an array of passed arguments</p>
+</dd>
 <dt><a href="#at">at(index, val)</a> ⇒ <code>*</code></dt>
 <dd><p>Returns copy of entry or character at given index in string or array</p>
 </dd>
@@ -35,11 +38,17 @@ binds defined arguments to their position in arguments list.</p>
 <dd><p>Take two arguments and if second argument is truthy, return first
 based on val</p>
 </dd>
+<dt><a href="#concat">concat(val)</a> ⇒ <code>function</code></dt>
+<dd><p>Returns a function which accepts no params and returns the passed value</p>
+</dd>
 <dt><a href="#compose">compose(...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
 </dd>
 <dt><a href="#composeL">composeL(...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
+</dd>
+<dt><a href="#concat">concat(...args)</a> ⇒ <code>Array</code></dt>
+<dd><p>Returns a new array, which is a merge of multiple arrays</p>
 </dd>
 <dt><a href="#curry">curry(fn, ...args)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Curry arguments to function and return new function</p>
@@ -69,6 +78,12 @@ by a function</p>
 </dd>
 <dt><a href="#filterBy">filterBy(fn, arr)</a> ⇒ <code>function</code> | <code>Array</code></dt>
 <dd><p>Filter elements in an array by function</p>
+</dd>
+<dt><a href="#getEmptyArr">getEmptyArr()</a> ⇒ <code>Array</code></dt>
+<dd><p>Returns an empty array</p>
+</dd>
+<dt><a href="#getEmptyObj">getEmptyObj()</a> ⇒ <code>Object</code></dt>
+<dd><p>Returns an empty object</p>
 </dd>
 <dt><a href="#getObject">getObject(prop, value)</a> ⇒ <code>function</code> | <code>Object</code></dt>
 <dd><p>Get an object with single property and value</p>
@@ -144,6 +159,9 @@ by a function</p>
 </dd>
 <dt><a href="#memoize">memoize(fn, [function])</a> ⇒ <code>function</code></dt>
 <dd><p>Cache return contents of functions</p>
+</dd>
+<dt><a href="#merge">merge(...args)</a> ⇒ <code>Object</code></dt>
+<dd><p>Returns new object, which is a shallow merge of multiple objects</p>
 </dd>
 <dt><a href="#multiply">multiply(a, b)</a> ⇒ <code>function</code> | <code>number</code></dt>
 <dd><p>Multiply two numbers together</p>
@@ -324,6 +342,22 @@ const add1 = a => a + 1;
     apply([add1, add2], [0, 0]); //=> [1, 2];
     apply([add1])([1, 2, 3]); //=> [2, 2, 3];
 ```
+<a name="args"></a>
+
+## args(...vals) ⇒ <code>Array</code>
+Returns an array of passed arguments
+
+**Kind**: global function  
+**Since**: 1.16.0  
+
+| Param | Type |
+| --- | --- |
+| ...vals | <code>\*</code> | 
+
+**Example**  
+```js
+args(1, 2, [3, 4]); //=> [1, 2, [3, 4]]
+```
 <a name="at"></a>
 
 ## at(index, val) ⇒ <code>\*</code>
@@ -421,6 +455,22 @@ based on val
 callbackWith(a => a, true, 3); //=> 3
     callbackWith(a => a, false, 3); //=> null
 ```
+<a name="concat"></a>
+
+## concat(val) ⇒ <code>function</code>
+Returns a function which accepts no params and returns the passed value
+
+**Kind**: global function  
+**Since**: 1.16.0  
+
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+cast(6); //=> () = 6;
+```
 <a name="compose"></a>
 
 ## compose(...args) ⇒ <code>function</code>
@@ -452,6 +502,22 @@ Compose functions from right to left
 **Example**  
 ```js
 compose(val => val + 1, val => val + 2); //=> val => val + 3
+```
+<a name="concat"></a>
+
+## concat(...args) ⇒ <code>Array</code>
+Returns a new array, which is a merge of multiple arrays
+
+**Kind**: global function  
+**Since**: 1.16.0  
+
+| Param | Type |
+| --- | --- |
+| ...args | <code>Array</code> | 
+
+**Example**  
+```js
+const([1, 2], [3, 4]); //=> [1, 2, 3, 4]
 ```
 <a name="curry"></a>
 
@@ -626,6 +692,28 @@ Filter elements in an array by function
 const foo = val => val < 3;
     filterBy(foo, [1, 2, 4]); //=> [1, 2]
     filterBy(foo)([2,3]); //=> [2]
+```
+<a name="getEmptyArr"></a>
+
+## getEmptyArr() ⇒ <code>Array</code>
+Returns an empty array
+
+**Kind**: global function  
+**Since**: 1.16.0  
+**Example**  
+```js
+getEmptyArray(); //=> []
+```
+<a name="getEmptyObj"></a>
+
+## getEmptyObj() ⇒ <code>Object</code>
+Returns an empty object
+
+**Kind**: global function  
+**Since**: 1.16.0  
+**Example**  
+```js
+getEmptyObj(); //=> {}
 ```
 <a name="getObject"></a>
 
@@ -1060,6 +1148,22 @@ Cache return contents of functions
 | fn | <code>function</code> | Function to templatize |
 | [function] |  | template - Function to determine cache key |
 
+<a name="merge"></a>
+
+## merge(...args) ⇒ <code>Object</code>
+Returns new object, which is a shallow merge of multiple objects
+
+**Kind**: global function  
+**Since**: 1.16.0  
+
+| Param | Type |
+| --- | --- |
+| ...args | <code>Object</code> | 
+
+**Example**  
+```js
+merge({ a: 1 }, { b: 2}); //=> { a: 1, b: 2 }
+```
 <a name="multiply"></a>
 
 ## multiply(a, b) ⇒ <code>function</code> &#124; <code>number</code>

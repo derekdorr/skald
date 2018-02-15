@@ -3,14 +3,17 @@ import and from './and';
 import andWith from './andWith';
 import appendTo from './appendTo';
 import apply from './apply';
+import args from './args';
 import at from './at';
 import attempt from './attempt';
 import bindTo from './bindTo';
 import callback from './callback';
 import callbackWith from './callbackWith';
+import cast from './cast';
 import check from './check';
 import compose from './compose';
 import composeL from './composeL';
+import concat from './concat';
 import curry from './curry';
 import deepEquals from './deepEquals';
 import defaultTo from './defaultTo';
@@ -20,6 +23,8 @@ import equals from './equals';
 import excludes from './excludes';
 import executeWith from './executeWith';
 import filterBy from './filterBy';
+import getEmptyArr from './getEmptyArr';
+import getEmptyObj from './getEmptyObj';
 import getObject from './getObject';
 import getProp from './getProp';
 import gt from './gt';
@@ -45,6 +50,7 @@ import lt from './lt';
 import lte from './lte';
 import mapBy from './mapBy';
 import memoize from './memoize';
+import merge from './merge';
 import multiply from './multiply';
 import none from './none';
 import noop from './noop';
@@ -78,14 +84,17 @@ export {
     andWith,
     appendTo,
     apply,
+    args,
     at,
     attempt,
     bindTo,
     callback,
     callbackWith,
+    cast,
     check,
     compose,
     composeL,
+    concat,
     curry,
     deepEquals,
     defaultTo,
@@ -95,6 +104,8 @@ export {
     excludes,
     executeWith,
     filterBy,
+    getEmptyArr,
+    getEmptyObj,
     getObject,
     getProp,
     gt,
@@ -120,6 +131,7 @@ export {
     lte,
     mapBy,
     memoize,
+    merge,
     multiply,
     none,
     noop,
