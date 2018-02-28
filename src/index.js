@@ -67,6 +67,7 @@ import reduceBy from './reduceBy';
 import replaceWith from './replaceWith';
 import reverse from './reverse';
 import someBy from './someBy';
+import sliceFrom from './sliceFrom';
 import splitBy from './splitBy';
 import spread from './spread';
 import subtract from './subtract';
@@ -153,6 +154,7 @@ export {
     reduceBy,
     replaceWith,
     reverse,
+    sliceFrom,
     someBy,
     splitBy,
     spread,

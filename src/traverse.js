@@ -13,15 +13,26 @@
  *     traverse({ a: 1 })(['a']); //=> 1
  */
 
-import { UNDEF } from 'permanent';
+import { INT_ZERO, UNDEF } from 'permanent';
+import _reverse from './_internal/_reverse';
+import call from './call';
+import compose from './compose';
 import define from './define';
 import getProp from './getProp';
 import isObject from './isObject';
 import reduceBy from './reduceBy';
+import sliceFrom from './sliceFrom';
+import spread from './spread';
 import ternaryWith from './ternaryWith';
 
-const getSegment = (acc, seg) => ternaryWith(UNDEF, getProp(seg), isObject)(acc);
-const internal = (obj, path) => reduceBy(getSegment, obj, path);
-const traverse = define(internal);
+const getPropZero = getProp(INT_ZERO);
+const callGetProp = call(getProp);
+const sliceFirstTwo = sliceFrom(INT_ZERO, 2);
+const getProperty = compose(callGetProp, _reverse, sliceFirstTwo);
+const isAccObject = compose(isObject, getPropZero);
+const checkSegment = ternaryWith(UNDEF, getProperty, isAccObject);
+const getSegment = compose(checkSegment, spread);
+const internal = reduceBy(getSegment);
+const traverse = define(internal, 2);
 
 export default traverse;
