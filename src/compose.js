@@ -19,11 +19,12 @@ import executeOn from './executeOn';
 
 const compose = (...args) => {
     const [first, ...rest] = _reverse(args);
+    const callFirst = call(first);
 
     return (...opts) => _reduce(
         rest,
         executeOn,
-        call(first, opts),
+        callFirst(opts),
     );
 };
 
