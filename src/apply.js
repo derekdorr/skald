@@ -16,15 +16,17 @@
  */
 
 import _assign from './_internal/_assign';
-import _fill from './_internal/_fill';
 import _len from './_internal/_len';
 import _max from './_internal/_max';
 import _newArray from './_internal/_newArray';
+import compose from './compose';
 import define from './define';
+import fillBy from './fillBy';
 import identity from './identity';
 import iterate from './iterate';
 
-const getFnsArray = len => _fill(_newArray(len), identity);
+const fillByIdentity = fillBy(identity);
+const getFnsArray = compose(fillByIdentity, _newArray);
 
 const internal = (fns, vals) => {
     const fnsLength = _len(fns);

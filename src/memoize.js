@@ -10,25 +10,33 @@
  */
 
 import _or from './_internal/_or';
+import call from './call';
+import compose from './compose';
+import getProp from './getProp';
 import has from './has';
+import reverse from './reverse';
+import spread from './spread';
 import ternaryWith from './ternaryWith';
 import toString from './toString';
 
-const defaultTemplate = (...args) => toString(args);
+const callToString = call(toString);
+const defaultTemplate = compose(callToString, spread);
+const getPropR = reverse(getProp, 2);
 
 const memoize = (fn, template) => {
     const tmpl = _or(template, defaultTemplate);
     const cache = {};
-    const fromCache = val => cache[val];
+    const fromCache = getPropR(cache);
+    const cacheHas = has(cache);
+    const callFn = call(fn);
 
     return (...args) => {
         const key = tmpl(args);
-        const cacheHas = has(cache);
-        const call = val => {
-            cache[val] = fn(...args);
+        const caller = val => {
+            cache[val] = callFn(args);
             return cache[val];
         };
-        return ternaryWith(call, fromCache, cacheHas, key);
+        return ternaryWith(caller, fromCache, cacheHas, key);
     };
 };
 

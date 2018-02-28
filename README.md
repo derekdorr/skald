@@ -7,7 +7,7 @@
 <dt><a href="#and">and(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if all arguments are truthy or if array is truthy</p>
 </dd>
-<dt><a href="#andWith">andWith(args, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
+<dt><a href="#andWith">andWith(fns, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Take an array of functions (or values) and determine if all results are
 true given value</p>
 </dd>
@@ -31,6 +31,9 @@ true given value</p>
 <dd><p>Takes a function and arguments. Leaves undefined arguments unbound and
 binds defined arguments to their position in arguments list.</p>
 </dd>
+<dt><a href="#call">call(fn, arr)</a> ⇒ <code>function</code></dt>
+<dd><p>Execute function with array as arguments</p>
+</dd>
 <dt><a href="#callback">callback(cb, predicate)</a> ⇒ <code>*</code></dt>
 <dd><p>Take two arguments and if second argument is truthy, return first.</p>
 </dd>
@@ -47,8 +50,8 @@ based on val</p>
 <dt><a href="#composeL">composeL(...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Compose functions from right to left</p>
 </dd>
-<dt><a href="#concat">concat(...args)</a> ⇒ <code>Array</code></dt>
-<dd><p>Returns a new array, which is a merge of multiple arrays</p>
+<dt><a href="#concat">concat(...args)</a> ⇒ <code>function</code> | <code>Array</code></dt>
+<dd><p>Returns a new array, which is a merge of at least two arrays</p>
 </dd>
 <dt><a href="#curry">curry(fn, ...args)</a> ⇒ <code>function</code> | <code>*</code></dt>
 <dd><p>Curry arguments to function and return new function</p>
@@ -69,12 +72,21 @@ passed until it executes</p>
 <dt><a href="#equals">equals(a, b)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Determine if two values are equal</p>
 </dd>
+<dt><a href="#everyBy">everyBy(fn, arr)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd><p>Determine if all values in array satisfy function</p>
+</dd>
 <dt><a href="#excludes">excludes(search, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Returns true if string is not in string or array</p>
+</dd>
+<dt><a href="#executeWith">executeWith(val, fn)</a> ⇒ <code>function</code> | <code>*</code></dt>
+<dd><p>Create a function which executes a function based on a defined value</p>
 </dd>
 <dt><a href="#executeWith">executeWith(fn, ...args)</a> ⇒ <code>function</code></dt>
 <dd><p>Create a function which executes a function with each arg being transformed
 by a function</p>
+</dd>
+<dt><a href="#fillBy">fillBy(val, arr)</a> ⇒ <code>function</code> | <code>arr</code></dt>
+<dd><p>Fill an array with a defined value</p>
 </dd>
 <dt><a href="#filterBy">filterBy(fn, arr)</a> ⇒ <code>function</code> | <code>Array</code></dt>
 <dd><p>Filter elements in an array by function</p>
@@ -197,8 +209,14 @@ true given value</p>
 <dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
 <dd><p>Take a function and return a function which accepts args in reverse order</p>
 </dd>
+<dt><a href="#someBy">someBy(fn, arr)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dd><p>Determine if at least one value in array satisfy function</p>
+</dd>
 <dt><a href="#splitBy">splitBy(search, str)</a> ⇒ <code>function</code> | <code>Array</code></dt>
 <dd><p>Split string to array by another string</p>
+</dd>
+<dt><a href="#spread">spread(...args)</a> ⇒ <code>Array</code></dt>
+<dd><p>Convert argument list to array (alias args)</p>
 </dd>
 <dt><a href="#subtract">subtract(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Subtract one number from another</p>
@@ -285,7 +303,7 @@ and(true, true); //=> true
 ```
 <a name="andWith"></a>
 
-## andWith(args, val) ⇒ <code>boolean</code> &#124; <code>function</code>
+## andWith(fns, val) ⇒ <code>boolean</code> &#124; <code>function</code>
 Take an array of functions (or values) and determine if all results are
 true given value
 
@@ -294,7 +312,7 @@ true given value
 
 | Param | Type |
 | --- | --- |
-| args | <code>Array</code> | 
+| fns | <code>Array</code> | 
 | val | <code>\*</code> | 
 
 **Example**  
@@ -417,6 +435,25 @@ const foo = (a, b, c) = a + b + c;
     bindTo(foo, undefined, undefined, 3)(1, 2); //=> 6
     bindTo(foo, undefined, 1)(1)(1); //=> 3
 ```
+<a name="call"></a>
+
+## call(fn, arr) ⇒ <code>function</code>
+Execute function with array as arguments
+
+**Kind**: global function  
+**Since**: 1.17.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+const foo = (a, b) => a + b;
+    call(foo, [1, 2]) //=> 3
+    call(foo)([2, 3]) //=> 5
+```
 <a name="callback"></a>
 
 ## callback(cb, predicate) ⇒ <code>\*</code>
@@ -505,8 +542,8 @@ compose(val => val + 1, val => val + 2); //=> val => val + 3
 ```
 <a name="concat"></a>
 
-## concat(...args) ⇒ <code>Array</code>
-Returns a new array, which is a merge of multiple arrays
+## concat(...args) ⇒ <code>function</code> &#124; <code>Array</code>
+Returns a new array, which is a merge of at least two arrays
 
 **Kind**: global function  
 **Since**: 1.16.0  
@@ -634,6 +671,25 @@ Determine if two values are equal
 equals(1, 1); //=> true
     equals(1)(2); //=> false
 ```
+<a name="everyBy"></a>
+
+## everyBy(fn, arr) ⇒ <code>function</code> &#124; <code>boolean</code>
+Determine if all values in array satisfy function
+
+**Kind**: global function  
+**Since**: 1.17.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+const isTrue = val => val === true;
+    everyBy(isTrue, [true, true]) //=> true
+    everyBy(isTrue)([true, false]) //=> false
+```
 <a name="excludes"></a>
 
 ## excludes(search, val) ⇒ <code>boolean</code> &#124; <code>function</code>
@@ -651,6 +707,25 @@ Returns true if string is not in string or array
 ```js
 excludes('h', 'hello'); //=> false
     excludes('a')('apple'); //=> false
+```
+<a name="executeWith"></a>
+
+## executeWith(val, fn) ⇒ <code>function</code> &#124; <code>\*</code>
+Create a function which executes a function based on a defined value
+
+**Kind**: global function  
+**Since**: 1.11.0  
+
+| Param | Type |
+| --- | --- |
+| val | <code>\*</code> | 
+| fn | <code>function</code> | 
+
+**Example**  
+```js
+const addOne = a => a + 1;
+    executeOn(1, addOne); //=> 2
+    executeOn(2)(addOne); //=> 3
 ```
 <a name="executeWith"></a>
 
@@ -673,6 +748,24 @@ const foo = (a, b) => a + b;
     const add2 = b => b + 2;
     executeWith(foo, add1, add2)(0, 0); //=> 3
     executeWith(foo, add1)(0, 0); //=> 1
+```
+<a name="fillBy"></a>
+
+## fillBy(val, arr) ⇒ <code>function</code> &#124; <code>arr</code>
+Fill an array with a defined value
+
+**Kind**: global function  
+**Since**: 1.17.0  
+
+| Param | Type |
+| --- | --- |
+| val | <code>val</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+fillBy(1, [undefined, undefined]); //=> [1, 1]
+    fillBy(2)([undefined, undefined); //=> [2, 2]
 ```
 <a name="filterBy"></a>
 
@@ -1351,6 +1444,25 @@ Take a function and return a function which accepts args in reverse order
 const foo = (a, b, c) => a + b - c;
     reverse(foo); //=> (c)(b)(a) => c + b - a;
 ```
+<a name="someBy"></a>
+
+## someBy(fn, arr) ⇒ <code>function</code> &#124; <code>boolean</code>
+Determine if at least one value in array satisfy function
+
+**Kind**: global function  
+**Since**: 1.17.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| arr | <code>Array</code> | 
+
+**Example**  
+```js
+const isTrue = val => val === true;
+    someBy(isTrue, [true, false]) //=> true
+    someBy(isTrue)([false, false]) //=> false
+```
 <a name="splitBy"></a>
 
 ## splitBy(search, str) ⇒ <code>function</code> &#124; <code>Array</code>
@@ -1368,6 +1480,22 @@ Split string to array by another string
 ```js
 splitBy('.', 'foo.bar.baz'); //=> ['foo', 'bar', 'baz']
     splitBy(',')('1,2,3'); //=> ['1', '2', '3'];
+```
+<a name="spread"></a>
+
+## spread(...args) ⇒ <code>Array</code>
+Convert argument list to array (alias args)
+
+**Kind**: global function  
+**Since**: 1.17.0  
+
+| Param | Type |
+| --- | --- |
+| ...args | <code>\*</code> | 
+
+**Example**  
+```js
+spread(1, 2, 3); //=> [1, 2, 3]
 ```
 <a name="subtract"></a>
 

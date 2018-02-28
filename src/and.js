@@ -13,19 +13,16 @@
  *     and(true, true, false); //=> false
  */
 
-import { INT_ONE, INT_ZERO } from 'permanent';
-import _every from './_internal/_every';
-import _len from './_internal/_len';
-import equals from './equals';
-import ternary from './ternary';
+import call from './call';
+import compose from './compose';
+import concat from './concat';
+import everyBy from './everyBy';
+import spread from './spread';
 import toBoolean from './toBoolean';
 
-const equalsOne = equals(INT_ONE);
-
-const and = (...args) => ternary(
-    () => _every(args, toBoolean),
-    () => and(...args[INT_ZERO]),
-    equalsOne(_len(args)),
-);
+const allTrue = everyBy(toBoolean);
+const concatArgs = concat([]);
+const alwaysArray = call(concatArgs);
+const and = compose(allTrue, alwaysArray, spread);
 
 export default and;

@@ -15,9 +15,8 @@
  */
 
 import _map from './_internal/_map';
-import define from './define';
+import reverse from './reverse';
 
-const internal = (fn, arr) => _map(arr, fn);
-const mapBy = define(internal);
+const mapBy = reverse(_map, 2);
 
 export default mapBy;

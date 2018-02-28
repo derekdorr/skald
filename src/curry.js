@@ -16,8 +16,9 @@
  *     curry(foo)(1)(1)(1); // => 3
  */
 
+import call from './call';
 import define from './define';
 
-const curry = (fn, ...args) => define(fn)(...args);
+const curry = (fn, ...args) => call(define(fn), args);
 
 export default curry;

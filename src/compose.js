@@ -14,14 +14,16 @@
 
 import _reduce from './_internal/_reduce';
 import _reverse from './_internal/_reverse';
+import call from './call';
+import executeOn from './executeOn';
 
 const compose = (...args) => {
     const [first, ...rest] = _reverse(args);
 
     return (...opts) => _reduce(
         rest,
-        (prevFn, nextFn) => nextFn(prevFn),
-        first(...opts),
+        executeOn,
+        call(first, opts),
     );
 };
 
