@@ -20,6 +20,7 @@
 import _len from './_internal/_len';
 import _max from './_internal/_max';
 import _pop from './_internal/_pop';
+import call from './call';
 import compose from './compose';
 import define from './define';
 import executeWith from './executeWith';
@@ -48,7 +49,7 @@ const bindTo = (fn, ...args) => {
             );
         }, length);
 
-        return fn(...fin);
+        return call(fn, fin);
     };
 
     return define(internal, diff);

@@ -7,6 +7,7 @@ import args from './args';
 import at from './at';
 import attempt from './attempt';
 import bindTo from './bindTo';
+import call from './call';
 import callback from './callback';
 import callbackWith from './callbackWith';
 import cast from './cast';
@@ -20,8 +21,11 @@ import defaultTo from './defaultTo';
 import define from './define';
 import divide from './divide';
 import equals from './equals';
+import everyBy from './everyBy';
 import excludes from './excludes';
+import executeOn from './executeOn';
 import executeWith from './executeWith';
+import fillBy from './fillBy';
 import filterBy from './filterBy';
 import getEmptyArr from './getEmptyArr';
 import getEmptyObj from './getEmptyObj';
@@ -62,7 +66,9 @@ import prependTo from './prependTo';
 import reduceBy from './reduceBy';
 import replaceWith from './replaceWith';
 import reverse from './reverse';
+import someBy from './someBy';
 import splitBy from './splitBy';
+import spread from './spread';
 import subtract from './subtract';
 import ternary from './ternary';
 import ternaryL from './ternaryL';
@@ -88,6 +94,7 @@ export {
     at,
     attempt,
     bindTo,
+    call,
     callback,
     callbackWith,
     cast,
@@ -101,8 +108,11 @@ export {
     define,
     divide,
     equals,
+    everyBy,
     excludes,
+    executeOn,
     executeWith,
+    fillBy,
     filterBy,
     getEmptyArr,
     getEmptyObj,
@@ -143,7 +153,9 @@ export {
     reduceBy,
     replaceWith,
     reverse,
+    someBy,
     splitBy,
+    spread,
     subtract,
     ternary,
     ternaryL,

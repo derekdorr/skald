@@ -5,7 +5,7 @@
  * @module andWith
  * @func
  * @since 1.10.0
- * @param {Array} args
+ * @param {Array} fns
  * @param {*} val
  * @return {boolean|function}
  * @example
@@ -18,14 +18,16 @@
 
 import and from './and';
 import define from './define';
+import executeOn from './executeOn';
 import mapBy from './mapBy';
 import toFunction from './toFunction';
 
 const mapToFunction = mapBy(toFunction);
-const internal = (args, val) => {
-    const fns = mapToFunction(args);
-    const values = mapBy(fn => fn(val), fns);
-    return and(...values);
+const internal = (fns, val) => {
+    const funcs = mapToFunction(fns);
+    const executeOnVal = executeOn(val);
+    const values = mapBy(executeOnVal, funcs);
+    return and(values);
 };
 
 const andWith = define(internal);

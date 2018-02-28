@@ -14,10 +14,8 @@
  */
 
 import _or from './_internal/_or';
-import define from './define';
+import reverse from './reverse';
 
-const pre = (def, val) => _or(val, def);
-
-const defaultTo = define(pre);
+const defaultTo = reverse(_or, 2);
 
 export default defaultTo;

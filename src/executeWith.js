@@ -18,7 +18,8 @@
  */
 
 import apply from './apply';
+import call from './call';
 
-const executeWith = (fn, ...args) => (...ops) => fn(...apply(args, ops));
+const executeWith = (fn, ...args) => (...ops) => call(fn, apply(args, ops));
 
 export default executeWith;

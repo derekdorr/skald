@@ -11,22 +11,16 @@
  *     or(true, false, false); //=> true
  *     or([false, false, true]); //=> true
  */
-import { INT_ONE, INT_ZERO } from 'permanent';
-import _len from './_internal/_len';
-import _some from './_internal/_some';
+import call from './call';
 import compose from './compose';
-import equals from './equals';
-import ternaryWith from './ternaryWith';
+import concat from './concat';
+import someBy from './someBy';
+import spread from './spread';
 import toBoolean from './toBoolean';
 
-const equalsOne = equals(INT_ONE);
-const lengthEqualsOne = compose(equalsOne, _len);
-const allTrue = arr => _some(arr, toBoolean);
-
-const or = (...args) => ternaryWith(
-    allTrue,
-    () => or(...args[INT_ZERO]),
-    lengthEqualsOne,
-)(args);
+const someTrue = someBy(toBoolean);
+const concatArgs = concat([]);
+const alwaysArray = call(concatArgs);
+const or = compose(someTrue, alwaysArray, spread);
 
 export default or;
