@@ -13,10 +13,9 @@
  *     at(1)([0, 1, 2]); //=> 1
  */
 
-import { INT_ONE, INT_ZERO, STR_EMPTY } from 'permanent';
-import _slice from './_internal/_slice';
-import add from './add';
+import { STR_EMPTY } from 'permanent';
 import and from './and';
+import call from './call';
 import compose from './compose';
 import define from './define';
 import executeWith from './executeWith';
@@ -25,20 +24,16 @@ import isArray from './isArray';
 import isNumber from './isNumber';
 import isString from './isString';
 import orWith from './orWith';
-import ternary from './ternary';
+import spread from './spread';
+import ternaryWith from './ternaryWith';
 
-const addOne = add(INT_ONE);
-const atZero = getProp(INT_ZERO);
 const isStringOrArray = orWith([isString, isArray]);
-const failToString = ternary(STR_EMPTY);
-const sliceAtZero = compose(atZero, _slice);
-const predicate = executeWith(and, isStringOrArray, isNumber);
+const checkArgs = executeWith(and, isNumber, isStringOrArray);
+const callCheckArgs = call(checkArgs);
+const callGetProp = call(getProp);
+const getValue = ternaryWith(STR_EMPTY, callGetProp, callCheckArgs);
+const internal = compose(getValue, spread);
 
-const internal = (index, val) => failToString(
-    () => sliceAtZero(val, index, addOne(index)),
-    predicate(val, index),
-);
-
-const at = define(internal);
+const at = define(internal, 2);
 
 export default at;

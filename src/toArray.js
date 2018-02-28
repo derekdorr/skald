@@ -12,17 +12,15 @@
  *     toArray(2, 3); //=> [2, 3]
  */
 
-import _concat from './_internal/_concat';
 import compose from './compose';
-import define from './define';
+import concat from './concat';
 import filterBy from './filterBy';
 import isUndefined from './isUndefined';
 import not from './not';
 
 const notUndefined = compose(not, isUndefined);
 const removeUndefined = filterBy(notUndefined);
-const removeUndefinedFromClone = define(compose(removeUndefined, _concat), 2);
-
-const toArray = removeUndefinedFromClone([]);
+const concatToEmpty = concat([]);
+const toArray = compose(removeUndefined, concatToEmpty);
 
 export default toArray;

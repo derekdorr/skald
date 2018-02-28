@@ -209,6 +209,9 @@ true given value</p>
 <dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
 <dd><p>Take a function and return a function which accepts args in reverse order</p>
 </dd>
+<dt><a href="#sliceFrom">sliceFrom(start, end, val)</a> ⇒ <code>function</code> | <code>Array</code> | <code>string</code></dt>
+<dd><p>Slice an array or string</p>
+</dd>
 <dt><a href="#someBy">someBy(fn, arr)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
 <dd><p>Determine if at least one value in array satisfy function</p>
 </dd>
@@ -1443,6 +1446,24 @@ Take a function and return a function which accepts args in reverse order
 ```js
 const foo = (a, b, c) => a + b - c;
     reverse(foo); //=> (c)(b)(a) => c + b - a;
+```
+<a name="sliceFrom"></a>
+
+## sliceFrom(start, end, val) ⇒ <code>function</code> &#124; <code>Array</code> &#124; <code>string</code>
+Slice an array or string
+
+**Kind**: global function  
+**Since**: 1.17.1  
+
+| Param | Type |
+| --- | --- |
+| start | <code>number</code> | 
+| end | <code>number</code> | 
+| val | <code>Array</code> &#124; <code>string</code> | 
+
+**Example**  
+```js
+sliceFrom(0, 1, [1, 2, 3]) //=> [0];
 ```
 <a name="someBy"></a>
 

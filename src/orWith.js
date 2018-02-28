@@ -16,20 +16,18 @@
  *     orWith([foo, bar])(1); //=> true
  */
 
-import call from './call';
 import define from './define';
+import executeOn from './executeOn';
 import or from './or';
 import mapBy from './mapBy';
 import toFunction from './toFunction';
 
 const mapToFunction = mapBy(toFunction);
-const applyToValue = define((val, fn) => fn(val));
-const callOr = call(or);
 const internal = (args, val) => {
     const fns = mapToFunction(args);
-    const applyToVal = applyToValue(val);
-    const values = mapBy(applyToVal, fns);
-    return callOr(values);
+    const executeOnVal = executeOn(val);
+    const values = mapBy(executeOnVal, fns);
+    return or(values);
 };
 
 const orWith = define(internal);
