@@ -14,9 +14,9 @@
  *     call(foo)([2, 3]) //=> 5
  */
 
+import _call from './_internal/_call';
 import define from './define';
 
-const pre = (fn, arr) => fn(...arr);
-const call = define(pre);
+const call = define(_call, 2);
 
 export default call;
