@@ -1,6 +1,6 @@
 {
   "name": "skald",
-  "version": "1.17.2",
+  "version": "1.17.3",
   "description": "Javascript utilty functions",
   "repository": "https://github.com/derekdorr/skald",
   "browser": "browser/index.js",

@@ -19,7 +19,9 @@
 
 import apply from './apply';
 import call from './call';
+import compose from './compose';
+import spread from './spread';
 
-const executeWith = (fn, ...args) => (...ops) => call(fn, apply(args, ops));
+const executeWith = (fn, ...args) => compose(call(fn), apply(args), spread);
 
 export default executeWith;

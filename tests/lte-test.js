@@ -1,7 +1,7 @@
 import test from 'tape';
 import { lte } from '../src';
 
-test('Tests - lt.js', t => {
+test('Tests - lte.js', t => {
     t.equal(lte(1, 2), true, '1 is less than 2');
     t.equal(lte(2)(3), true, '2 is less than 3');
     t.equal(lte(2, 1), false, '2 is not less than 1');
