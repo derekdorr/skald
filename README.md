@@ -118,6 +118,9 @@ by a function</p>
 <dt><a href="#includes">includes(search, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Returns true if string is in string or array</p>
 </dd>
+<dt><a href="#invoke">invoke(fn)</a> ⇒ <code>*</code></dt>
+<dd><p>Invoke a function without arguments</p>
+</dd>
 <dt><a href="#isArray">isArray(val)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if value is array</p>
 </dd>
@@ -932,6 +935,23 @@ Returns true if string is in string or array
 ```js
 includes('h', 'hello'); //=> true
     includes('a')('apple'); //=> true
+```
+<a name="invoke"></a>
+
+## invoke(fn) ⇒ <code>\*</code>
+Invoke a function without arguments
+
+**Kind**: global function  
+**Since**: 1.18.0  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+
+**Example**  
+```js
+var foo = () => 1;
+    invoke(foo); //=> 1;
 ```
 <a name="isArray"></a>
 
