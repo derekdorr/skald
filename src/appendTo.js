@@ -13,9 +13,12 @@
  *     appendTo('bar')('baz'); //=> 'barbaz'
  */
 
+import add from './add';
 import define from './define';
+import executeWith from './executeWith';
+import toString from './toString';
 
-const pre = (str, append) => `${str}${append}`;
-const appendTo = define(pre);
+const pre = executeWith(add, toString, toString);
+const appendTo = define(pre, 2);
 
 export default appendTo;
