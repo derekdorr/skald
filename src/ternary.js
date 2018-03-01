@@ -15,14 +15,16 @@
  *     ternary(1, 2, false); //=> 1
  */
 
+import _ternary from './_internal/_ternary';
+import compose from './compose';
 import define from './define';
+import executeWith from './executeWith';
+import invoke from './invoke';
 import toFunction from './toFunction';
 
-const internal = (failure, success, predicate) =>
-    (toFunction(predicate)() ?
-        toFunction(success)() :
-        toFunction(failure)());
-
-const ternary = define(internal);
+const invokeToFunction = compose(invoke, toFunction);
+const executeTernary = executeWith(_ternary, toFunction, toFunction, invokeToFunction);
+const internal = compose(invoke, executeTernary);
+const ternary = define(internal, 3);
 
 export default ternary;

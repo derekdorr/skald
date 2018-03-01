@@ -36,6 +36,7 @@ import gte from './gte';
 import has from './has';
 import identity from './identity';
 import includes from './includes';
+import invoke from './invoke';
 import isArray from './isArray';
 import isBoolean from './isBoolean';
 import isEmpty from './isEmpty';
@@ -124,6 +125,7 @@ export {
     has,
     identity,
     includes,
+    invoke,
     isArray,
     isBoolean,
     isEmpty,
