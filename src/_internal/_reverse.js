@@ -1,3 +1,5 @@
-const _reverse = arr => arr.reverse();
+import _execFn from './_execFn';
+
+const _reverse = _execFn('reverse');
 
 export default _reverse;

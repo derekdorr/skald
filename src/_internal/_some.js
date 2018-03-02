@@ -1,3 +1,5 @@
-const _some = (arr, fn) => arr.some(fn);
+import _execFn from './_execFn';
+
+const _some = _execFn('some');
 
 export default _some;

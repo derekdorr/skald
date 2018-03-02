@@ -1,3 +1,5 @@
-const _slice = (val, begin, end) => val.slice(begin, end);
+import _execFn from './_execFn';
+
+const _slice = _execFn('slice');
 
 export default _slice;
