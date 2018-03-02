@@ -16,6 +16,7 @@
  */
 
 import _ternary from './_internal/_ternary';
+import INT_THREE from './_constants/INT_THREE';
 import compose from './compose';
 import define from './define';
 import executeWith from './executeWith';
@@ -25,6 +26,6 @@ import toFunction from './toFunction';
 const invokeToFunction = compose(invoke, toFunction);
 const executeTernary = executeWith(_ternary, toFunction, toFunction, invokeToFunction);
 const internal = compose(invoke, executeTernary);
-const ternary = define(internal, 3);
+const ternary = define(internal, INT_THREE);
 
 export default ternary;

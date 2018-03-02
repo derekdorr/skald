@@ -15,8 +15,9 @@
  */
 
 import _call from './_internal/_call';
+import INT_TWO from './_constants/INT_TWO';
 import define from './define';
 
-const call = define(_call, 2);
+const call = define(_call, INT_TWO);
 
 export default call;

@@ -10,6 +10,7 @@
  */
 
 import _or from './_internal/_or';
+import INT_TWO from './_constants/INT_TWO';
 import call from './call';
 import compose from './compose';
 import getProp from './getProp';
@@ -21,7 +22,7 @@ import toString from './toString';
 
 const callToString = call(toString);
 const defaultTemplate = compose(callToString, spread);
-const getPropR = reverse(getProp, 2);
+const getPropR = reverse(getProp, INT_TWO);
 
 const memoize = (fn, template) => {
     const tmpl = _or(template, defaultTemplate);

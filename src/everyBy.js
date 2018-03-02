@@ -15,8 +15,9 @@
  */
 
 import _every from './_internal/_every';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const everyBy = reverse(_every, 2);
+const everyBy = reverse(_every, INT_TWO);
 
 export default everyBy;

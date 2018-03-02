@@ -14,10 +14,11 @@
  *     ternaryL(true, 1, 2); //=> 1
  *     ternaryL(false, 1, 2); //=> 2
  */
+
+import INT_THREE from './_constants/INT_THREE';
 import reverse from './reverse';
 import ternary from './ternary';
 
-const INT_THREE = 3;
 const ternaryL = reverse(ternary, INT_THREE);
 
 export default ternaryL;

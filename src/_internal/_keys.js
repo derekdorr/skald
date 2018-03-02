@@ -1,3 +1,3 @@
-const _keys = obj => Object.keys(obj);
+const _keys = Object.keys;
 
 export default _keys;

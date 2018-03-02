@@ -15,8 +15,9 @@
  */
 
 import _some from './_internal/_some';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const someBy = reverse(_some, 2);
+const someBy = reverse(_some, INT_TWO);
 
 export default someBy;

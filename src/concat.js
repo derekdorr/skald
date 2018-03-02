@@ -12,7 +12,8 @@
  */
 
 import _concat from './_internal/_concat';
+import INT_TWO from './_constants/INT_TWO';
 import define from './define';
 
-const concat = define(_concat, 2);
+const concat = define(_concat, INT_TWO);
 export default concat;

@@ -14,6 +14,7 @@
  */
 
 import { INT_ZERO, UNDEF } from 'permanent';
+import INT_TWO from './_constants/INT_TWO';
 import _reverse from './_internal/_reverse';
 import call from './call';
 import compose from './compose';
@@ -27,12 +28,12 @@ import ternaryWith from './ternaryWith';
 
 const getPropZero = getProp(INT_ZERO);
 const callGetProp = call(getProp);
-const sliceFirstTwo = sliceFrom(INT_ZERO, 2);
+const sliceFirstTwo = sliceFrom(INT_ZERO, INT_TWO);
 const getProperty = compose(callGetProp, _reverse, sliceFirstTwo);
 const isAccObject = compose(isObject, getPropZero);
 const checkSegment = ternaryWith(UNDEF, getProperty, isAccObject);
 const getSegment = compose(checkSegment, spread);
 const internal = reduceBy(getSegment);
-const traverse = define(internal, 2);
+const traverse = define(internal, INT_TWO);
 
 export default traverse;

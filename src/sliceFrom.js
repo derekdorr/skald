@@ -14,9 +14,17 @@
  */
 
 import _slice from './_internal/_slice';
+import ARR_ORDER from './_constants/ARR_ORDER';
+import INT_THREE from './_constants/INT_THREE';
+import call from './call';
+import compose from './compose';
 import define from './define';
+import orderBy from './orderBy';
+import spread from './spread';
 
-const internal = (start, end, val) => _slice(val, start, end);
-const sliceFrom = define(internal);
+const callSlice = call(_slice);
+const orderArgs = orderBy(ARR_ORDER);
+const internal = compose(callSlice, orderArgs, spread);
+const sliceFrom = define(internal, INT_THREE);
 
 export default sliceFrom;

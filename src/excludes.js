@@ -13,12 +13,13 @@
  *     excludes('a')('apple'); //=> false
  */
 
+import INT_TWO from './_constants/INT_TWO';
 import compose from './compose';
 import define from './define';
 import includes from './includes';
 import not from './not';
 
 const internal = compose(not, includes);
-const excludes = define(internal, 2);
+const excludes = define(internal, INT_TWO);
 
 export default excludes;

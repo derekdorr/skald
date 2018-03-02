@@ -62,6 +62,7 @@ import noop from './noop';
 import not from './not';
 import notEquals from './notEquals';
 import or from './or';
+import orderBy from './orderBy';
 import orWith from './orWith';
 import prependTo from './prependTo';
 import reduceBy from './reduceBy';
@@ -151,6 +152,7 @@ export {
     not,
     notEquals,
     or,
+    orderBy,
     orWith,
     prependTo,
     reduceBy,

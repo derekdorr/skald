@@ -1,3 +1,3 @@
-const _isNaN = val => Number.isNaN(val);
+const _isNaN = Number.isNaN;
 
 export default _isNaN;

@@ -14,8 +14,9 @@
  */
 
 import _hasOwnProperty from './_internal/_hasOwnProperty';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const isPropertyOf = reverse(_hasOwnProperty, 2);
+const isPropertyOf = reverse(_hasOwnProperty, INT_TWO);
 
 export default isPropertyOf;
