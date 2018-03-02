@@ -1,3 +1,5 @@
-const _every = (arr, fn) => arr.every(fn);
+import _execFn from './_execFn';
+
+const _every = _execFn('every');
 
 export default _every;

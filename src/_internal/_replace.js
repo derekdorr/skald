@@ -1,3 +1,5 @@
-const _replace = (str, search, rep) => str.replace(search, rep);
+import _execFn from './_execFn';
+
+const _replace = _execFn('replace');
 
 export default _replace;

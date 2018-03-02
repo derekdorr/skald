@@ -1,3 +1,5 @@
-const _map = (arr, fn) => arr.map(fn);
+import _execFn from './_execFn';
+
+const _map = _execFn('map');
 
 export default _map;
