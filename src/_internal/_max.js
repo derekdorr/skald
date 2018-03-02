@@ -1,5 +1,3 @@
-import _call from './_call';
-
-const _max = (...args) => _call(Math.max, args);
+const _max = Math.max;
 
 export default _max;
