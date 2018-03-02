@@ -1,3 +1,3 @@
-const _newArray = size => Array(size);
+const _newArray = Array;
 
 export default _newArray;

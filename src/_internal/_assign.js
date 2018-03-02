@@ -1,3 +1,3 @@
-const _assign = (...args) => Object.assign(...args);
+const _assign = Object.assign;
 
 export default _assign;
