@@ -16,6 +16,6 @@
 
 import isFunction from './isFunction';
 
-const not = val => (isFunction(val) ? a => !a : !val);
+const not = val => (isFunction(val) ? a => !val(a) : !val);
 
 export default not;

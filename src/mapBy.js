@@ -15,8 +15,9 @@
  */
 
 import _map from './_internal/_map';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const mapBy = reverse(_map, 2);
+const mapBy = reverse(_map, INT_TWO);
 
 export default mapBy;

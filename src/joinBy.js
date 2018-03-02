@@ -14,8 +14,9 @@
  */
 
 import _join from './_internal/_join';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const joinBy = reverse(_join, 2);
+const joinBy = reverse(_join, INT_TWO);
 
 export default joinBy;

@@ -13,12 +13,13 @@
  *     notEquals(3)(4); //=> true
  */
 
+import INT_TWO from './_constants/INT_TWO';
 import compose from './compose';
 import define from './define';
 import equals from './equals';
 import not from './not';
 
 const pre = compose(not, equals);
-const notEquals = define(pre, 2);
+const notEquals = define(pre, INT_TWO);
 
 export default notEquals;

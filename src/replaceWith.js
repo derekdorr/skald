@@ -15,10 +15,18 @@
  */
 
 import _replace from './_internal/_replace';
+import ARR_ORDER from './_constants/ARR_ORDER';
+import INT_THREE from './_constants/INT_THREE';
+import call from './call';
+import compose from './compose';
 import define from './define';
+import orderBy from './orderBy';
+import spread from './spread';
 
-const internal = (search, rep, str) => _replace(str, search, rep);
-const replaceWith = define(internal);
+const callReplace = call(_replace);
+const orderArgs = orderBy(ARR_ORDER);
+const internal = compose(callReplace, orderArgs, spread);
+const replaceWith = define(internal, INT_THREE);
 
 export default replaceWith;
 

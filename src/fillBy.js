@@ -14,8 +14,9 @@
  */
 
 import _fill from './_internal/_fill';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const fillBy = reverse(_fill, 2);
+const fillBy = reverse(_fill, INT_TWO);
 
 export default fillBy;

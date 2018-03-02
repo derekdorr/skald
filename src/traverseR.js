@@ -13,10 +13,11 @@
  *     traverse(['a'])({ a: 1 }); //=> 1
  */
 
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 import traverse from './traverse';
 
-const traverseR = reverse(traverse, 2);
+const traverseR = reverse(traverse, INT_TWO);
 
 export default traverseR;
 

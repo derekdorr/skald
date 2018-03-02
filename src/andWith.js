@@ -17,6 +17,7 @@
  */
 
 import _reverse from './_internal/_reverse';
+import INT_TWO from './_constants/INT_TWO';
 import and from './and';
 import call from './call';
 import compose from './compose';
@@ -31,6 +32,6 @@ const mapToFunction = mapBy(toFunction);
 const updateArgs = executeWith(mapBy, executeOn, mapToFunction);
 const callUpdateArgs = call(updateArgs);
 const internal = compose(and, callUpdateArgs, _reverse, spread);
-const andWith = define(internal, 2);
+const andWith = define(internal, INT_TWO);
 
 export default andWith;

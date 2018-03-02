@@ -17,6 +17,7 @@
  */
 
 import _reverse from './_internal/_reverse';
+import INT_TWO from './_constants/INT_TWO';
 import call from './call';
 import compose from './compose';
 import define from './define';
@@ -32,6 +33,6 @@ const updateArgs = executeWith(mapBy, executeOn, mapToFunction);
 const callUpdateArgs = call(updateArgs);
 const internal = compose(or, callUpdateArgs, _reverse, spread);
 
-const orWith = define(internal, 2);
+const orWith = define(internal, INT_TWO);
 
 export default orWith;

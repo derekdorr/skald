@@ -14,8 +14,9 @@
  */
 
 import _or from './_internal/_or';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const defaultTo = reverse(_or, 2);
+const defaultTo = reverse(_or, INT_TWO);
 
 export default defaultTo;

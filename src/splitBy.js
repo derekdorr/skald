@@ -14,8 +14,9 @@
  */
 
 import _split from './_internal/_split';
+import INT_TWO from './_constants/INT_TWO';
 import reverse from './reverse';
 
-const splitBy = reverse(_split, 2);
+const splitBy = reverse(_split, INT_TWO);
 
 export default splitBy;

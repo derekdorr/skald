@@ -200,6 +200,9 @@ by a function</p>
 <dd><p>Take an array of functions (or values) and determine if one result is
 true given value</p>
 </dd>
+<dt><a href="#orderBy">orderBy(template, src)</a> ⇒ <code>function</code> | <code>Array</code></dt>
+<dd><p>Generate array based on template of indexes and source</p>
+</dd>
 <dt><a href="#prependTo">prependTo(str, append)</a> ⇒ <code>function</code> | <code>string</code></dt>
 <dd><p>Prepend string to the beginning of another string</p>
 </dd>
@@ -1391,6 +1394,24 @@ const foo = val => val > 10;
     const bar = val => val < 5;
     orWith([foo, bar], 6); //=> false
     orWith([foo, bar])(1); //=> true
+```
+<a name="orderBy"></a>
+
+## orderBy(template, src) ⇒ <code>function</code> &#124; <code>Array</code>
+Generate array based on template of indexes and source
+
+**Kind**: global function  
+**Since**: 1.19.0  
+
+| Param | Type |
+| --- | --- |
+| template | <code>Array</code> | 
+| src | <code>Array</code> | 
+
+**Example**  
+```js
+orderBy([1, 2, 0], ['a', 'b', 'c']); //=> ['b', 'c', 'a'];
+    orderBy([2, 0, 1])(['d', 'e', 'f']); //=> ['f', 'd', 'e'];
 ```
 <a name="prependTo"></a>
 

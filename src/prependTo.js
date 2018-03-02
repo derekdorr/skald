@@ -13,9 +13,10 @@
  *     prependTo('bar')('baz'); //=> 'bazbar'
  */
 
+import INT_TWO from './_constants/INT_TWO';
 import appendTo from './appendTo';
 import reverse from './reverse';
 
-const prependTo = reverse(appendTo, 2);
+const prependTo = reverse(appendTo, INT_TWO);
 
 export default prependTo;

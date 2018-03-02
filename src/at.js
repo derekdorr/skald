@@ -14,6 +14,7 @@
  */
 
 import { STR_EMPTY } from 'permanent';
+import INT_TWO from './_constants/INT_TWO';
 import and from './and';
 import call from './call';
 import compose from './compose';
@@ -34,6 +35,6 @@ const callGetProp = call(getProp);
 const getValue = ternaryWith(STR_EMPTY, callGetProp, callCheckArgs);
 const internal = compose(getValue, spread);
 
-const at = define(internal, 2);
+const at = define(internal, INT_TWO);
 
 export default at;

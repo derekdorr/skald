@@ -13,12 +13,13 @@
  *     appendTo('bar')('baz'); //=> 'barbaz'
  */
 
+import INT_TWO from './_constants/INT_TWO';
 import add from './add';
 import define from './define';
 import executeWith from './executeWith';
 import toString from './toString';
 
 const pre = executeWith(add, toString, toString);
-const appendTo = define(pre, 2);
+const appendTo = define(pre, INT_TWO);
 
 export default appendTo;

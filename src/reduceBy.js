@@ -17,9 +17,17 @@
  */
 
 import _reduce from './_internal/_reduce';
+import ARR_ORDER from './_constants/ARR_ORDER';
+import INT_THREE from './_constants/INT_THREE';
+import call from './call';
+import compose from './compose';
 import define from './define';
+import orderBy from './orderBy';
+import spread from './spread';
 
-const internal = (fn, accumulator, arr) => _reduce(arr, fn, accumulator);
-const reduce = define(internal);
+const callReduce = call(_reduce);
+const orderArgs = orderBy(ARR_ORDER);
+const internal = compose(callReduce, orderArgs, spread);
+const reduce = define(internal, INT_THREE);
 
 export default reduce;
