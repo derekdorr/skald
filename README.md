@@ -1,5 +1,7 @@
 ## Functions
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/derekdorr/skald.svg)](https://greenkeeper.io/)
+
 <dl>
 <dt><a href="#add">add(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Add two numbers</p>
