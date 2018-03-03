@@ -203,6 +203,9 @@ true given value</p>
 <dt><a href="#orderBy">orderBy(template, src)</a> ⇒ <code>function</code> | <code>Array</code></dt>
 <dd><p>Generate array based on template of indexes and source</p>
 </dd>
+<dt><a href="#power">power(exponent, base)</a> ⇒ <code>function</code> | <code>number</code></dt>
+<dd><p>Return exponent from one number to another</p>
+</dd>
 <dt><a href="#prependTo">prependTo(str, append)</a> ⇒ <code>function</code> | <code>string</code></dt>
 <dd><p>Prepend string to the beginning of another string</p>
 </dd>
@@ -227,7 +230,7 @@ true given value</p>
 <dt><a href="#spread">spread(...args)</a> ⇒ <code>Array</code></dt>
 <dd><p>Convert argument list to array (alias args)</p>
 </dd>
-<dt><a href="#subtract">subtract(a, b)</a> ⇒ <code>function</code> | <code>boolean</code></dt>
+<dt><a href="#subtract">subtract(a, b)</a> ⇒ <code>function</code> | <code>number</code></dt>
 <dd><p>Subtract one number from another</p>
 </dd>
 <dt><a href="#ternary">ternary(failure, success, predicate)</a> ⇒ <code>*</code></dt>
@@ -1413,6 +1416,24 @@ Generate array based on template of indexes and source
 orderBy([1, 2, 0], ['a', 'b', 'c']); //=> ['b', 'c', 'a'];
     orderBy([2, 0, 1])(['d', 'e', 'f']); //=> ['f', 'd', 'e'];
 ```
+<a name="power"></a>
+
+## power(exponent, base) ⇒ <code>function</code> &#124; <code>number</code>
+Return exponent from one number to another
+
+**Kind**: global function  
+**Since**: 1.20.0  
+
+| Param | Type |
+| --- | --- |
+| exponent | <code>number</code> | 
+| base | <code>number</code> | 
+
+**Example**  
+```js
+power(2, 3); //=> 9
+    power(2)(2); //=> 4
+```
 <a name="prependTo"></a>
 
 ## prependTo(str, append) ⇒ <code>function</code> &#124; <code>string</code>
@@ -1561,7 +1582,7 @@ spread(1, 2, 3); //=> [1, 2, 3]
 ```
 <a name="subtract"></a>
 
-## subtract(a, b) ⇒ <code>function</code> &#124; <code>boolean</code>
+## subtract(a, b) ⇒ <code>function</code> &#124; <code>number</code>
 Subtract one number from another
 
 **Kind**: global function  

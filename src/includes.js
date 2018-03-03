@@ -13,26 +13,29 @@
  *     includes('a')('apple'); //=> true
  */
 
-import { BOOL_FALSE, INT_NEGATIVE_ONE } from 'permanent';
+import { BOOL_FALSE, INT_ONE, INT_NEGATIVE_ONE } from 'permanent';
+import INT_TWO from './_constants/INT_TWO';
+import STR_INDEXOF from './_constants/STR_INDEXOF';
 import _indexOf from './_internal/_indexOf';
+import call from './call';
 import compose from './compose';
 import define from './define';
-import isArray from './isArray';
-import isString from './isString';
+import getProp from './getProp';
+import isFunction from './isFunction';
 import notEquals from './notEquals';
-import orWith from './orWith';
 import reverse from './reverse';
+import spread from './spread';
 import ternaryWith from './ternaryWith';
 
 const notNegativeOne = notEquals(INT_NEGATIVE_ONE);
-const isStringOrArray = orWith([isString, isArray]);
-const indexOf = reverse(_indexOf);
-const failToFalse = ternaryWith(BOOL_FALSE);
-const internal = (search, value) => {
-    const indexOfValue = indexOf(search);
-    const indexNotNegativeOne = compose(notNegativeOne, indexOfValue);
-    return failToFalse(indexNotNegativeOne, isStringOrArray, value);
-};
-const includes = define(internal);
+const getIndexOf = getProp(STR_INDEXOF);
+const getSecondArg = getProp(INT_ONE);
+const checkIndexOf = compose(isFunction, getIndexOf, getSecondArg);
+const indexOf = reverse(_indexOf, INT_TWO);
+const indexNotNegativeOne = compose(notNegativeOne, indexOf);
+const callIndexNotNegativeOne = call(indexNotNegativeOne);
+const checkIndex = ternaryWith(BOOL_FALSE, callIndexNotNegativeOne, checkIndexOf);
+const internal = compose(checkIndex, spread);
+const includes = define(internal, INT_TWO);
 
 export default includes;

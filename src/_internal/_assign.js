@@ -1,4 +1,4 @@
-import _obj from './_obj'
+import _obj from './_obj';
 
 const _assign = _obj.assign;
 

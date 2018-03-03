@@ -13,9 +13,16 @@
  *     divide(4)(2); //=> 2
  */
 
+import { INT_NEGATIVE_ONE } from 'permanent';
+import INT_TWO from './_constants/INT_TWO';
 import define from './define';
+import executeWith from './executeWith';
+import identity from './identity';
+import multiply from './multiply';
+import power from './power';
 
-const pre = (a, b) => a / b;
-const divide = define(pre);
+const invert = power(INT_NEGATIVE_ONE);
+const pre = executeWith(multiply, identity, invert);
+const divide = define(pre, INT_TWO);
 
 export default divide;

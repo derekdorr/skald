@@ -14,5 +14,6 @@ test('Tests - bindTo.js', t => {
     t.equal(fn3(1, 2), 5, '1 + 2 + 2 = 5');
     t.equal(fn3(1)(1), 4, '1 + 2 + 1 = 4');
     t.equal(fn4(1, 1, 1), 3, '1 + 1 + 1 = 3');
+    t.equal(fn4('a')('b')('c'), 'abc', 'Got abc');
     t.end();
 });
