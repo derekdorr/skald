@@ -61,6 +61,7 @@ typings/
 es/
 lib/
 browser/
+docs/jsdoc.md
 
 # IDE
 .idea
