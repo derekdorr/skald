@@ -17,11 +17,19 @@
  *     executeWith(foo, add1)(0, 0); //=> 1
  */
 
+import { INT_ONE, INT_ZERO } from 'permanent';
+import _slice from './_internal/_slice';
 import apply from './apply';
 import call from './call';
 import compose from './compose';
+import getProp from './getProp';
 import spread from './spread';
 
-const executeWith = (fn, ...args) => compose(call(fn), apply(args), spread);
+const getPropZero = getProp(INT_ZERO);
+const executeWith = arr => {
+    const fn = getPropZero(arr);
+    const args = _slice(arr, INT_ONE);
+    return compose(call(fn), apply(args), spread);
+};
 
-export default executeWith;
+export default compose(executeWith, spread);

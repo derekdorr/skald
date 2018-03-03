@@ -218,6 +218,9 @@ true given value</p>
 <dt><a href="#reverse">reverse(fn)</a> ⇒ <code>function</code></dt>
 <dd><p>Take a function and return a function which accepts args in reverse order</p>
 </dd>
+<dt><a href="#setProp">setProp(prop, value, obj)</a> ⇒ <code>function</code> | <code>Object</code></dt>
+<dd><p>Returns a copy of an object with a new name / value pair</p>
+</dd>
 <dt><a href="#sliceFrom">sliceFrom(start, end, val)</a> ⇒ <code>function</code> | <code>Array</code> | <code>string</code></dt>
 <dd><p>Slice an array or string</p>
 </dd>
@@ -1508,6 +1511,25 @@ Take a function and return a function which accepts args in reverse order
 ```js
 const foo = (a, b, c) => a + b - c;
     reverse(foo); //=> (c)(b)(a) => c + b - a;
+```
+<a name="setProp"></a>
+
+## setProp(prop, value, obj) ⇒ <code>function</code> &#124; <code>Object</code>
+Returns a copy of an object with a new name / value pair
+
+**Kind**: global function  
+**Since**: 1.21.0  
+
+| Param | Type |
+| --- | --- |
+| prop | <code>string</code> &#124; <code>number</code> | 
+| value | <code>\*</code> | 
+| obj | <code>Object</code> | 
+
+**Example**  
+```js
+setProp('a', 1, {}); //=> { a: 1 }
+    getProp('b')(2)({}); //=> { b: 2 }
 ```
 <a name="sliceFrom"></a>
 

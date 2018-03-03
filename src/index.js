@@ -69,6 +69,7 @@ import prependTo from './prependTo';
 import reduceBy from './reduceBy';
 import replaceWith from './replaceWith';
 import reverse from './reverse';
+import setProp from './setProp';
 import someBy from './someBy';
 import sliceFrom from './sliceFrom';
 import splitBy from './splitBy';
@@ -160,6 +161,7 @@ export {
     reduceBy,
     replaceWith,
     reverse,
+    setProp,
     sliceFrom,
     someBy,
     splitBy,
