@@ -14,8 +14,9 @@
  */
 
 import define from './define';
+import setProp from './setProp';
 
-const pre = (prop, value) => ({ [prop]: value });
+const pre = (prop, value) => setProp(prop, value, {});
 const getObject = define(pre);
 
 export default getObject;

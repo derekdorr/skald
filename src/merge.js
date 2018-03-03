@@ -12,7 +12,9 @@
  */
 
 import _assign from './_internal/_assign';
+import compose from './compose';
+import spread from './spread';
 
-const merge = (...args) => _assign({}, ...args);
+const merge = compose(args => _assign({}, ...args), spread);
 
 export default merge;
