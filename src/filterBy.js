@@ -15,9 +15,9 @@
  */
 
 import _filter from './_internal/_filter';
-import define from './define';
+import INT_TWO from './_constants/INT_TWO';
+import reverse from './reverse';
 
-const internal = (fn, arr) => _filter(arr, fn);
-const filterBy = define(internal);
+const filterBy = reverse(_filter, INT_TWO);
 
 export default filterBy;

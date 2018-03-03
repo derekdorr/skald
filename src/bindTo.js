@@ -17,9 +17,11 @@
  *     bindTo(foo, undefined, 1)(1)(1); //=> 3
  */
 
+import { INT_ONE, INT_ZERO } from 'permanent';
 import _len from './_internal/_len';
 import _max from './_internal/_max';
 import _pop from './_internal/_pop';
+import _slice from './_internal/_slice';
 import INT_TWO from './_constants/INT_TWO';
 import call from './call';
 import compose from './compose';
@@ -31,15 +33,19 @@ import isUndefined from './isUndefined';
 import iterate from './iterate';
 import not from './not';
 import reverse from './reverse';
+import spread from './spread';
 import subtract from './subtract';
 import ternaryWith from './ternaryWith';
 
 const notIsUndefined = compose(not, isUndefined);
 const maxLength = executeWith(_max, _len, _len);
 const filterByNotUndefined = filterBy(notIsUndefined);
+const getPropZero = getProp(INT_ZERO);
 const getPropR = reverse(getProp, INT_TWO);
 const iterateR = reverse(iterate, INT_TWO);
-const bindTo = (fn, ...args) => {
+const bindTo = arr => {
+    const fn = getPropZero(_slice(arr, INT_ZERO, INT_ONE));
+    const args = _slice(arr, INT_ONE);
     const length = maxLength(fn, args);
     const def = filterByNotUndefined(args);
     const defLength = _len(def);
@@ -48,9 +54,9 @@ const bindTo = (fn, ...args) => {
     const isArgDefined = compose(not, isUndefined, getArgsProp);
     const callFn = call(fn);
     const iterateLength = iterateR(length);
-    const internal = (...ops) => callFn(iterateLength(ternaryWith(() => _pop(ops), getArgsProp, isArgDefined))); // eslint-disable-line max-len
-
+    const pre = ops => callFn(iterateLength(ternaryWith(() => _pop(ops), getArgsProp, isArgDefined))); // eslint-disable-line max-len
+    const internal = compose(pre, spread);
     return define(internal, diff);
 };
 
-export default bindTo;
+export default compose(bindTo, spread);

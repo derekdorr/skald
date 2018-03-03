@@ -64,6 +64,7 @@ import notEquals from './notEquals';
 import or from './or';
 import orderBy from './orderBy';
 import orWith from './orWith';
+import power from './power';
 import prependTo from './prependTo';
 import reduceBy from './reduceBy';
 import replaceWith from './replaceWith';
@@ -154,6 +155,7 @@ export {
     or,
     orderBy,
     orWith,
+    power,
     prependTo,
     reduceBy,
     replaceWith,
