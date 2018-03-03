@@ -13,7 +13,7 @@
  *     setProp('a', 1, {}); //=> { a: 1 }
  *     getProp('b')(2)({}); //=> { b: 2 }
  */
- 
+
 import define from './define';
 import merge from './merge';
 
