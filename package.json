@@ -1,7 +1,14 @@
 {
   "name": "skald",
   "version": "1.21.1",
-  "description": "Javascript utilty functions",
+  "description": "Shakeable, tested javascript utility functions in a pure functional programming style",
+  "keywords": [
+    "client",
+    "functional",
+    "modules",
+    "util",
+    "server"
+  ],
   "repository": "https://github.com/derekdorr/skald",
   "browser": "browser/index.js",
   "main": "lib/index.js",
