@@ -54,6 +54,7 @@ import joinBy from './joinBy';
 import lt from './lt';
 import lte from './lte';
 import mapBy from './mapBy';
+import maybe from './maybe';
 import memoize from './memoize';
 import merge from './merge';
 import multiply from './multiply';
@@ -146,6 +147,7 @@ export {
     lt,
     lte,
     mapBy,
+    maybe,
     memoize,
     merge,
     multiply,

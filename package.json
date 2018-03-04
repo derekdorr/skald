@@ -1,6 +1,6 @@
 {
   "name": "skald",
-  "version": "1.21.3",
+  "version": "1.22.0",
   "description": "Shakeable, tested javascript utility functions in a pure functional programming style",
   "keywords": [
     "client",
