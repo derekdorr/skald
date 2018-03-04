@@ -222,6 +222,9 @@ by a function</p>
 <dt><a href="#mapBy">mapBy(fn, arr)</a> ⇒ <code>function</code> | <code>Array</code></dt>
 <dd><p>Map elements in an array by function</p>
 </dd>
+<dt><a href="#maybe">maybe(fn, val)</a> ⇒ <code>function</code> | <code>*</code></dt>
+<dd><p>Execute a function if the argument is not null or undefined</p>
+</dd>
 <dt><a href="#memoize">memoize(fn, [function])</a> ⇒ <code>function</code></dt>
 <dd><p>Cache return contents of functions</p>
 </dd>
@@ -346,7 +349,7 @@ Add two numbers
 **Example**  
 ```js
 add(1,2); //=> 3
-add(2)(3); //=> 5
+    add(2)(3); //=> 5
 ```
 <a name="and"></a>
 
@@ -1309,6 +1312,26 @@ Map elements in an array by function
 const foo = val => val + 1;
     mapBy(foo, [1, 2]); //=> [2, 3]
     mapBy(foo)([4, 5]); //=> [5, 6]
+```
+<a name="maybe"></a>
+
+## maybe(fn, val) ⇒ <code>function</code> &#124; <code>\*</code>
+Execute a function if the argument is not null or undefined
+
+**Kind**: global function  
+**Since**: 1.23.0  
+**Author:** oculus42  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = val => val + 1;
+    maybe(foo, 1); //=> 2
+    maybe(foo)(null); //=> null
 ```
 <a name="memoize"></a>
 
