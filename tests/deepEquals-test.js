@@ -12,5 +12,6 @@ test('Tests - deepEquals.js', t => {
     t.equal(deepEquals(arr1)(arr3), false, 'arr1 != arr3');
     t.equal(deepEquals(obj1, obj2), true, 'obj1 == obj2');
     t.equal(deepEquals(obj1)(obj3), false, 'obj1 != obj3');
+    t.equal(deepEquals({}, obj1), false, 'empty object not obj1');
     t.end();
 });

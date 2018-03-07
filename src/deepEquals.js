@@ -15,26 +15,24 @@
 
 import _every from './_internal/_every';
 import _keys from './_internal/_keys';
+import _len from './_internal/_len';
 import and from './and';
+import compose from './compose';
 import define from './define';
 import equals from './equals';
 import executeWith from './executeWith';
-import isNull from './isNull';
 import isObject from './isObject';
-import none from './none';
-import ternary from './ternary';
 
 const areObjects = executeWith(and, isObject, isObject);
-const noNulls = executeWith(none, isNull, isNull);
+const keyLength = compose(_len, _keys);
+const equalsKeyLength = executeWith(equals, keyLength, keyLength);
 
-const pre = (a, b) => {
-    const aEqualsB = () => equals(a, b);
-    const failUseEquals = ternary(aEqualsB);
-    const compareKeys = () => _every(_keys(a), val => pre(a[val], b[val]));
-    const checkNulls = failUseEquals(compareKeys);
-    const checkObjects = failUseEquals(() => checkNulls(noNulls(a, b)));
-    return checkObjects(areObjects(a, b));
-};
+const pre = (a, b) =>
+    equals(a, b) || (
+        areObjects(a, b) &&
+        equalsKeyLength(a, b) &&
+        _every(_keys(a), val => pre(a[val], b[val]))
+    );
 
 const deepEquals = define(pre);
 
