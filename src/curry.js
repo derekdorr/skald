@@ -16,9 +16,20 @@
  *     curry(foo)(1)(1)(1); // => 3
  */
 
+import { INT_ONE, INT_ZERO } from 'permanent';
+import _slice from './_internal/_slice';
 import call from './call';
+import compose from './compose';
 import define from './define';
+import getProp from './getProp';
+import spread from './spread';
 
-const curry = (fn, ...args) => call(define(fn), args);
+const getPropZero = getProp(INT_ZERO);
+const getFn = compose(call, define, getPropZero);
+const curry = arr => {
+    const fn = getFn(arr);
+    const args = _slice(arr, INT_ONE);
+    return fn(args);
+};
 
-export default curry;
+export default compose(curry, spread);
