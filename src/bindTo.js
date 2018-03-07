@@ -44,7 +44,7 @@ const getPropZero = getProp(INT_ZERO);
 const getPropR = reverse(getProp, INT_TWO);
 const iterateR = reverse(iterate, INT_TWO);
 const bindTo = arr => {
-    const fn = getPropZero(_slice(arr, INT_ZERO, INT_ONE));
+    const fn = getPropZero(arr);
     const args = _slice(arr, INT_ONE);
     const length = maxLength(fn, args);
     const def = filterByNotUndefined(args);
