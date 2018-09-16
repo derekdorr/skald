@@ -59,7 +59,7 @@
     "eslint": "^4.13.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "event-stream": "^3.3.4",
+    "event-stream": "^4.0.0",
     "glob": "^7.1.2",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
