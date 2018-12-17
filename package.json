@@ -1,6 +1,6 @@
 {
   "name": "skald",
-  "version": "1.22.2",
+  "version": "1.22.3",
   "description": "Shakeable, tested javascript utility functions in a pure functional programming style",
   "keywords": [
     "client",
@@ -59,7 +59,7 @@
     "eslint": "^4.13.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "event-stream": "^3.3.4",
+    "event-stream": "3.3.4",
     "glob": "^7.1.2",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
