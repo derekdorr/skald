@@ -1,7 +1,7 @@
 # skald
 [![npm](https://img.shields.io/npm/v/skald.svg)](https://www.npmjs.com/package/skald) 
 [![Build Status](https://travis-ci.org/derekdorr/skald.svg?branch=master)](https://travis-ci.org/derekdorr/skald) 
-[![Code Climate](https://codeclimate.com/github/derekdorr/skald/badges/gpa.svg)](https://codeclimate.com/github/derekdorr/skald) 
+[![Code Climate](https://codeclimate.com/github/derekdorr/skald/badges/gpa.svg)](https://codeclimate.com/github/derekdorr/skald/badges/gpa.svg) 
 [![Greenkeeper badge](https://badges.greenkeeper.io/derekdorr/skald.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io/test/npm/skald/badge.svg)](https://snyk.io/test/npm/skald)
 
@@ -249,12 +249,12 @@ by a function</p>
 <dt><a href="#or">or(...args)</a> ⇒ <code>boolean</code></dt>
 <dd><p>Determine if at least one argument or array value is truthy</p>
 </dd>
+<dt><a href="#orderBy">orderBy(template, src)</a> ⇒ <code>function</code> | <code>Array</code></dt>
+<dd><p>Generate array based on template of indexes and source</p>
+</dd>
 <dt><a href="#orWith">orWith(args, val)</a> ⇒ <code>boolean</code> | <code>function</code></dt>
 <dd><p>Take an array of functions (or values) and determine if one result is
 true given value</p>
-</dd>
-<dt><a href="#orderBy">orderBy(template, src)</a> ⇒ <code>function</code> | <code>Array</code></dt>
-<dd><p>Generate array based on template of indexes and source</p>
 </dd>
 <dt><a href="#power">power(exponent, base)</a> ⇒ <code>function</code> | <code>number</code></dt>
 <dd><p>Return exponent from one number to another</p>
@@ -348,8 +348,7 @@ Add two numbers
 
 **Example**  
 ```js
-add(1,2); //=> 3
-    add(2)(3); //=> 5
+add(1,2); //=> 3    add(2)(3); //=> 5
 ```
 <a name="and"></a>
 
@@ -365,15 +364,12 @@ Determine if all arguments are truthy or if array is truthy
 
 **Example**  
 ```js
-and(true, true); //=> true
-    and([true, true]); //=> true
-    and(true, true, false); //=> false
+and(true, true); //=> true    and([true, true]); //=> true    and(true, true, false); //=> false
 ```
 <a name="andWith"></a>
 
 ## andWith(fns, val) ⇒ <code>boolean</code> &#124; <code>function</code>
-Take an array of functions (or values) and determine if all results are
-true given value
+Take an array of functions (or values) and determine if all results aretrue given value
 
 **Kind**: global function  
 **Since**: 1.10.0  
@@ -385,10 +381,7 @@ true given value
 
 **Example**  
 ```js
-const foo = val => val < 10;
-    const bar = val => val > 5;
-    andWith([foo, bar], 6); //=> true
-    andWith([foo, bar])(1); //=> false
+const foo = val => val < 10;    const bar = val => val > 5;    andWith([foo, bar], 6); //=> true    andWith([foo, bar])(1); //=> false
 ```
 <a name="appendTo"></a>
 
@@ -405,8 +398,7 @@ Append string to the end of another string
 
 **Example**  
 ```js
-appendTo('foo', 'bar'); //=> 'foobar'
-    appendTo('bar')('baz'); //=> 'barbaz'
+appendTo('foo', 'bar'); //=> 'foobar'    appendTo('bar')('baz'); //=> 'barbaz'
 ```
 <a name="apply"></a>
 
@@ -423,10 +415,7 @@ Apply functions from an array to corresponding index in other array
 
 **Example**  
 ```js
-const add1 = a => a + 1;
-    const add2 = a => a + 2;
-    apply([add1, add2], [0, 0]); //=> [1, 2];
-    apply([add1])([1, 2, 3]); //=> [2, 2, 3];
+const add1 = a => a + 1;    const add2 = a => a + 2;    apply([add1, add2], [0, 0]); //=> [1, 2];    apply([add1])([1, 2, 3]); //=> [2, 2, 3];
 ```
 <a name="args"></a>
 
@@ -459,14 +448,12 @@ Returns copy of entry or character at given index in string or array
 
 **Example**  
 ```js
-at(2, 'foo'); //=> 'o'
-    at(1)([0, 1, 2]); //=> 1
+at(2, 'foo'); //=> 'o'    at(1)([0, 1, 2]); //=> 1
 ```
 <a name="attempt"></a>
 
 ## attempt(toTry, onError) ⇒ <code>\*</code>
-Attempt something. If an error is thrown, return something else.
-(Wrapper for try / catch)
+Attempt something. If an error is thrown, return something else.(Wrapper for try / catch)
 
 **Kind**: global function  
 **Since**: 1.7.0  
@@ -478,14 +465,12 @@ Attempt something. If an error is thrown, return something else.
 
 **Example**  
 ```js
-attempt(() => JSON.parse('<>'), false); //=> false
-    attempt(5, () => ({})); //=> 5
+attempt(() => JSON.parse('<>'), false); //=> false    attempt(5, () => ({})); //=> 5
 ```
 <a name="bindTo"></a>
 
 ## bindTo(fn, ...args) ⇒ <code>function</code>
-Takes a function and arguments. Leaves undefined arguments unbound and
-binds defined arguments to their position in arguments list.
+Takes a function and arguments. Leaves undefined arguments unbound andbinds defined arguments to their position in arguments list.
 
 **Kind**: global function  
 **Since**: 1.8.0  
@@ -497,11 +482,7 @@ binds defined arguments to their position in arguments list.
 
 **Example**  
 ```js
-const foo = (a, b, c) = a + b + c;
-    bindTo(foo, 1, 2)(3); //=> 6
-    bindTo(foo, undefined, 1, 2)(1); //=> 4
-    bindTo(foo, undefined, undefined, 3)(1, 2); //=> 6
-    bindTo(foo, undefined, 1)(1)(1); //=> 3
+const foo = (a, b, c) = a + b + c;    bindTo(foo, 1, 2)(3); //=> 6    bindTo(foo, undefined, 1, 2)(1); //=> 4    bindTo(foo, undefined, undefined, 3)(1, 2); //=> 6    bindTo(foo, undefined, 1)(1)(1); //=> 3
 ```
 <a name="call"></a>
 
@@ -518,9 +499,7 @@ Execute function with array as arguments
 
 **Example**  
 ```js
-const foo = (a, b) => a + b;
-    call(foo, [1, 2]) //=> 3
-    call(foo)([2, 3]) //=> 5
+const foo = (a, b) => a + b;    call(foo, [1, 2]) //=> 3    call(foo)([2, 3]) //=> 5
 ```
 <a name="callback"></a>
 
@@ -537,14 +516,12 @@ Take two arguments and if second argument is truthy, return first.
 
 **Example**  
 ```js
-callback('foo', true); //=> 'foo'
-    callback('foo', false); //=> null
+callback('foo', true); //=> 'foo'    callback('foo', false); //=> null
 ```
 <a name="callbackWith"></a>
 
 ## callbackWith(cb, predicate, val) ⇒ <code>\*</code>
-Take two arguments and if second argument is truthy, return first
-based on val
+Take two arguments and if second argument is truthy, return firstbased on val
 
 **Kind**: global function  
 **Since**: 1.9.0  
@@ -557,8 +534,7 @@ based on val
 
 **Example**  
 ```js
-callbackWith(a => a, true, 3); //=> 3
-    callbackWith(a => a, false, 3); //=> null
+callbackWith(a => a, true, 3); //=> 3    callbackWith(a => a, false, 3); //=> null
 ```
 <a name="concat"></a>
 
@@ -639,11 +615,7 @@ Curry arguments to function and return new function
 
 **Example**  
 ```js
-const foo = (a, b, c) => a + b + c;
-    curry(foo, 1, 2)(3); //=> 6
-    curry(foo, 1)(3, 4); //=> 8
-    curry(foo, 2)(3)(4); //=> 9
-    curry(foo)(1)(1)(1); // => 3
+const foo = (a, b, c) => a + b + c;    curry(foo, 1, 2)(3); //=> 6    curry(foo, 1)(3, 4); //=> 8    curry(foo, 2)(3)(4); //=> 9    curry(foo)(1)(1)(1); // => 3
 ```
 <a name="deepEquals"></a>
 
@@ -660,8 +632,7 @@ Allow comparison of two objects or arrays
 
 **Example**  
 ```js
-deepEquals({}, {}); //=> true
-    deepEquals([])([]); //=> true
+deepEquals({}, {}); //=> true    deepEquals([])([]); //=> true
 ```
 <a name="defaultTo"></a>
 
@@ -678,14 +649,12 @@ Sets default value if passed value is falsy
 
 **Example**  
 ```js
-defaultTo(5, undefined); //=> 5
-    defaultTo(3)(4); //=> 4
+defaultTo(5, undefined); //=> 5    defaultTo(3)(4); //=> 4
 ```
 <a name="define"></a>
 
 ## define(fn) ⇒ <code>function</code> &#124; <code>\*</code>
-Take a function with a known signature and allow arguments to be
-passed until it executes
+Take a function with a known signature and allow arguments to bepassed until it executes
 
 **Kind**: global function  
 **Update**:   
@@ -697,11 +666,7 @@ passed until it executes
 
 **Example**  
 ```js
-const foo = (a, b, c) => a + b + c;
-    const bar = define(foo);
-    bar(1); // (b, c) => 1 + b + c
-    bar(1)(2); // c => 1 + 2 + c
-    bar(1)(2)(3); // 6
+const foo = (a, b, c) => a + b + c;    const bar = define(foo);    bar(1); // (b, c) => 1 + b + c    bar(1)(2); // c => 1 + 2 + c    bar(1)(2)(3); // 6
 ```
 <a name="divide"></a>
 
@@ -718,8 +683,7 @@ Divide two numbers
 
 **Example**  
 ```js
-divide(9, 3); //=> 3
-    divide(4)(2); //=> 2
+divide(9, 3); //=> 3    divide(4)(2); //=> 2
 ```
 <a name="equals"></a>
 
@@ -736,8 +700,7 @@ Determine if two values are equal
 
 **Example**  
 ```js
-equals(1, 1); //=> true
-    equals(1)(2); //=> false
+equals(1, 1); //=> true    equals(1)(2); //=> false
 ```
 <a name="everyBy"></a>
 
@@ -754,9 +717,7 @@ Determine if all values in array satisfy function
 
 **Example**  
 ```js
-const isTrue = val => val === true;
-    everyBy(isTrue, [true, true]) //=> true
-    everyBy(isTrue)([true, false]) //=> false
+const isTrue = val => val === true;    everyBy(isTrue, [true, true]) //=> true    everyBy(isTrue)([true, false]) //=> false
 ```
 <a name="excludes"></a>
 
@@ -773,8 +734,7 @@ Returns true if string is not in string or array
 
 **Example**  
 ```js
-excludes('h', 'hello'); //=> false
-    excludes('a')('apple'); //=> false
+excludes('h', 'hello'); //=> false    excludes('a')('apple'); //=> false
 ```
 <a name="executeWith"></a>
 
@@ -791,15 +751,12 @@ Create a function which executes a function based on a defined value
 
 **Example**  
 ```js
-const addOne = a => a + 1;
-    executeOn(1, addOne); //=> 2
-    executeOn(2)(addOne); //=> 3
+const addOne = a => a + 1;    executeOn(1, addOne); //=> 2    executeOn(2)(addOne); //=> 3
 ```
 <a name="executeWith"></a>
 
 ## executeWith(fn, ...args) ⇒ <code>function</code>
-Create a function which executes a function with each arg being transformed
-by a function
+Create a function which executes a function with each arg being transformedby a function
 
 **Kind**: global function  
 **Since**: 1.11.0  
@@ -811,11 +768,7 @@ by a function
 
 **Example**  
 ```js
-const foo = (a, b) => a + b;
-    const add1 = a => a + 1;
-    const add2 = b => b + 2;
-    executeWith(foo, add1, add2)(0, 0); //=> 3
-    executeWith(foo, add1)(0, 0); //=> 1
+const foo = (a, b) => a + b;    const add1 = a => a + 1;    const add2 = b => b + 2;    executeWith(foo, add1, add2)(0, 0); //=> 3    executeWith(foo, add1)(0, 0); //=> 1
 ```
 <a name="fillBy"></a>
 
@@ -832,8 +785,7 @@ Fill an array with a defined value
 
 **Example**  
 ```js
-fillBy(1, [undefined, undefined]); //=> [1, 1]
-    fillBy(2)([undefined, undefined); //=> [2, 2]
+fillBy(1, [undefined, undefined]); //=> [1, 1]    fillBy(2)([undefined, undefined); //=> [2, 2]
 ```
 <a name="filterBy"></a>
 
@@ -850,9 +802,7 @@ Filter elements in an array by function
 
 **Example**  
 ```js
-const foo = val => val < 3;
-    filterBy(foo, [1, 2, 4]); //=> [1, 2]
-    filterBy(foo)([2,3]); //=> [2]
+const foo = val => val < 3;    filterBy(foo, [1, 2, 4]); //=> [1, 2]    filterBy(foo)([2,3]); //=> [2]
 ```
 <a name="getEmptyArr"></a>
 
@@ -891,8 +841,7 @@ Get an object with single property and value
 
 **Example**  
 ```js
-getObject('a', 1); //=> { a: 1 }
-    getProp('b')(2); //=> { b: 2 }
+getObject('a', 1); //=> { a: 1 }    getProp('b')(2); //=> { b: 2 }
 ```
 <a name="getProp"></a>
 
@@ -909,8 +858,7 @@ Get property of an object
 
 **Example**  
 ```js
-getProp('a', { a: 1 }); //=> 1
-    getProp('b')({ b: 2 }); //=> 2
+getProp('a', { a: 1 }); //=> 1    getProp('b')({ b: 2 }); //=> 2
 ```
 <a name="gt"></a>
 
@@ -927,8 +875,7 @@ Determine if first value is greater than
 
 **Example**  
 ```js
-gt(2, 1); //=> true
-    gt('b')('c'); //=> false
+gt(2, 1); //=> true    gt('b')('c'); //=> false
 ```
 <a name="gte"></a>
 
@@ -945,8 +892,7 @@ Determine if value is greater than or equal to other value
 
 **Example**  
 ```js
-gte(1, 1); //=> true
-    gte('b')('a'); //=> true
+gte(1, 1); //=> true    gte('b')('a'); //=> true
 ```
 <a name="has"></a>
 
@@ -963,9 +909,7 @@ Return true if object has key
 
 **Example**  
 ```js
-has({ a: 1 }, 'a'); //=> true
-   has({ a: 1 })('a'); //=> true
-   has({ a: 1 })('b'); //=> false
+has({ a: 1 }, 'a'); //=> true   has({ a: 1 })('a'); //=> true   has({ a: 1 })('b'); //=> false
 ```
 <a name="identity"></a>
 
@@ -977,8 +921,7 @@ A function which returns whatever is passed into it
 **Since**: 1.5.0  
 **Example**  
 ```js
-identity(5); //=> 5
-    identity({}); //=> {}
+identity(5); //=> 5    identity({}); //=> {}
 ```
 <a name="includes"></a>
 
@@ -995,8 +938,7 @@ Returns true if string is in string or array
 
 **Example**  
 ```js
-includes('h', 'hello'); //=> true
-    includes('a')('apple'); //=> true
+includes('h', 'hello'); //=> true    includes('a')('apple'); //=> true
 ```
 <a name="invoke"></a>
 
@@ -1012,8 +954,7 @@ Invoke a function without arguments
 
 **Example**  
 ```js
-var foo = () => 1;
-    invoke(foo); //=> 1;
+var foo = () => 1;    invoke(foo); //=> 1;
 ```
 <a name="isArray"></a>
 
@@ -1029,8 +970,7 @@ Determine if value is array
 
 **Example**  
 ```js
-isArray([]); //=> true
-    isArray(1); //=> false
+isArray([]); //=> true    isArray(1); //=> false
 ```
 <a name="isBoolean"></a>
 
@@ -1046,8 +986,7 @@ Determine if value is boolean;
 
 **Example**  
 ```js
-isBoolean(1); //=> false
-    isBoolean(false); //=> true
+isBoolean(1); //=> false    isBoolean(false); //=> true
 ```
 <a name="isEmpty"></a>
 
@@ -1063,9 +1002,7 @@ Check whether object, array, or string is empty
 
 **Example**  
 ```js
-isEmpty([]); //=> true
-    isEmpty({}); //=> true
-    isEmpty(''); //=> true
+isEmpty([]); //=> true    isEmpty({}); //=> true    isEmpty(''); //=> true
 ```
 <a name="isFunction"></a>
 
@@ -1081,8 +1018,7 @@ Determine if value is function
 
 **Example**  
 ```js
-isFunction(1); //=> false
-    isFunction(() => ({})); //=> true
+isFunction(1); //=> false    isFunction(() => ({})); //=> true
 ```
 <a name="isNaN"></a>
 
@@ -1098,8 +1034,7 @@ Determine if value is NaN
 
 **Example**  
 ```js
-isNaN(NaN); //=> true
-    isNaN(1); //=> false
+isNaN(NaN); //=> true    isNaN(1); //=> false
 ```
 <a name="isNull"></a>
 
@@ -1115,8 +1050,7 @@ Determine if value is null
 
 **Example**  
 ```js
-isNull(null); //=> true
-    isNull({}); //=> false
+isNull(null); //=> true    isNull({}); //=> false
 ```
 <a name="isNumber"></a>
 
@@ -1132,8 +1066,7 @@ Determine if value is function
 
 **Example**  
 ```js
-isNumber(1); //=> true
-    isNumber([]); //=> false
+isNumber(1); //=> true    isNumber([]); //=> false
 ```
 <a name="isObject"></a>
 
@@ -1149,8 +1082,7 @@ Detemine if value is object
 
 **Example**  
 ```js
-isObject({}); //=> true
-    isObject(1); //=> false
+isObject({}); //=> true    isObject(1); //=> false
 ```
 <a name="isPromise"></a>
 
@@ -1166,8 +1098,7 @@ Take a value and determine if it is a promise
 
 **Example**  
 ```js
-isPromise(Promise.resolve()); //=> true
-    isPromise('foo'); //=> false
+isPromise(Promise.resolve()); //=> true    isPromise('foo'); //=> false
 ```
 <a name="isPropertyOf"></a>
 
@@ -1184,8 +1115,7 @@ Determine if string is property of object
 
 **Example**  
 ```js
-isPropertyOf('foo', { foo: 'a' }); //=> true
-    isPropertyOf('foo')({ bar: 'b' }); //=> false
+isPropertyOf('foo', { foo: 'a' }); //=> true    isPropertyOf('foo')({ bar: 'b' }); //=> false
 ```
 <a name="isString"></a>
 
@@ -1201,8 +1131,7 @@ Determine if value is string
 
 **Example**  
 ```js
-isString('foo'); //=> true;
-    isString(true); //=> false;
+isString('foo'); //=> true;    isString(true); //=> false;
 ```
 <a name="isUndefined"></a>
 
@@ -1218,8 +1147,7 @@ Determine if value is undefined
 
 **Example**  
 ```js
-isUndefined(undefined); //=> true
-    isUndefined(true); //=> false
+isUndefined(undefined); //=> true    isUndefined(true); //=> false
 ```
 <a name="iterate"></a>
 
@@ -1236,9 +1164,7 @@ Return array of function iterations of specified length generated from 0-based i
 
 **Example**  
 ```js
-const foo = index => index + 1;
-    iterate(foo, 3); //=> [1, 2, 3]
-    iterate(foo)(2); //=> [1, 2]
+const foo = index => index + 1;    iterate(foo, 3); //=> [1, 2, 3]    iterate(foo)(2); //=> [1, 2]
 ```
 <a name="joinBy"></a>
 
@@ -1255,8 +1181,7 @@ Join array to string, delimited by other string
 
 **Example**  
 ```js
-joinBy('.', ['foo', 'bar', 'baz']); //=> 'foo.bar.baz'
-    joinBy(',')([1, 2, 3]); //=> '1.2.3';
+joinBy('.', ['foo', 'bar', 'baz']); //=> 'foo.bar.baz'    joinBy(',')([1, 2, 3]); //=> '1.2.3';
 ```
 <a name="lt"></a>
 
@@ -1273,8 +1198,7 @@ Determine if value is less than other value
 
 **Example**  
 ```js
-lt(1, 2); //=> true
-    lt('a')('b'); //=> true
+lt(1, 2); //=> true    lt('a')('b'); //=> true
 ```
 <a name="lte"></a>
 
@@ -1291,8 +1215,7 @@ Determine if value is less than or equal to other value
 
 **Example**  
 ```js
-lte(1, 1); //=> true
-    lte('a')('b'); //=> true
+lte(1, 1); //=> true    lte('a')('b'); //=> true
 ```
 <a name="mapBy"></a>
 
@@ -1309,9 +1232,7 @@ Map elements in an array by function
 
 **Example**  
 ```js
-const foo = val => val + 1;
-    mapBy(foo, [1, 2]); //=> [2, 3]
-    mapBy(foo)([4, 5]); //=> [5, 6]
+const foo = val => val + 1;    mapBy(foo, [1, 2]); //=> [2, 3]    mapBy(foo)([4, 5]); //=> [5, 6]
 ```
 <a name="maybe"></a>
 
@@ -1329,9 +1250,7 @@ Execute a function if the argument is not null or undefined
 
 **Example**  
 ```js
-const foo = val => val + 1;
-    maybe(foo, 1); //=> 2
-    maybe(foo)(null); //=> null
+const foo = val => val + 1;    maybe(foo, 1); //=> 2    maybe(foo)(null); //=> null
 ```
 <a name="memoize"></a>
 
@@ -1377,8 +1296,7 @@ Multiply two numbers together
 
 **Example**  
 ```js
-multiply(2, 3); //=> 6
-    multiply(2)(2); //=> 4
+multiply(2, 3); //=> 6    multiply(2)(2); //=> 4
 ```
 <a name="none"></a>
 
@@ -1413,10 +1331,7 @@ Returns false if truthy, true if falsy, negation if function
 
 **Example**  
 ```js
-const identity = a => a;
-    not(1); //=> false
-    not(false); //=> true
-    not(identity)(true); //=> false
+const identity = a => a;    not(1); //=> false    not(false); //=> true    not(identity)(true); //=> false
 ```
 <a name="notEquals"></a>
 
@@ -1433,8 +1348,7 @@ Return true if two values are not equal
 
 **Example**  
 ```js
-notEquals(1, 2); //=> true
-    notEquals(3)(4); //=> true
+notEquals(1, 2); //=> true    notEquals(3)(4); //=> true
 ```
 <a name="or"></a>
 
@@ -1450,29 +1364,7 @@ Determine if at least one argument or array value is truthy
 
 **Example**  
 ```js
-or(true, false, false); //=> true
-    or([false, false, true]); //=> true
-```
-<a name="orWith"></a>
-
-## orWith(args, val) ⇒ <code>boolean</code> &#124; <code>function</code>
-Take an array of functions (or values) and determine if one result is
-true given value
-
-**Kind**: global function  
-**Since**: 1.10.0  
-
-| Param | Type |
-| --- | --- |
-| args | <code>Array</code> | 
-| val | <code>\*</code> | 
-
-**Example**  
-```js
-const foo = val => val > 10;
-    const bar = val => val < 5;
-    orWith([foo, bar], 6); //=> false
-    orWith([foo, bar])(1); //=> true
+or(true, false, false); //=> true    or([false, false, true]); //=> true
 ```
 <a name="orderBy"></a>
 
@@ -1489,8 +1381,24 @@ Generate array based on template of indexes and source
 
 **Example**  
 ```js
-orderBy([1, 2, 0], ['a', 'b', 'c']); //=> ['b', 'c', 'a'];
-    orderBy([2, 0, 1])(['d', 'e', 'f']); //=> ['f', 'd', 'e'];
+orderBy([1, 2, 0], ['a', 'b', 'c']); //=> ['b', 'c', 'a'];    orderBy([2, 0, 1])(['d', 'e', 'f']); //=> ['f', 'd', 'e'];
+```
+<a name="orWith"></a>
+
+## orWith(args, val) ⇒ <code>boolean</code> &#124; <code>function</code>
+Take an array of functions (or values) and determine if one result istrue given value
+
+**Kind**: global function  
+**Since**: 1.10.0  
+
+| Param | Type |
+| --- | --- |
+| args | <code>Array</code> | 
+| val | <code>\*</code> | 
+
+**Example**  
+```js
+const foo = val => val > 10;    const bar = val => val < 5;    orWith([foo, bar], 6); //=> false    orWith([foo, bar])(1); //=> true
 ```
 <a name="power"></a>
 
@@ -1507,8 +1415,7 @@ Return exponent from one number to another
 
 **Example**  
 ```js
-power(2, 3); //=> 9
-    power(2)(2); //=> 4
+power(2, 3); //=> 9    power(2)(2); //=> 4
 ```
 <a name="prependTo"></a>
 
@@ -1525,8 +1432,7 @@ Prepend string to the beginning of another string
 
 **Example**  
 ```js
-prependTo('foo', 'bar'); //=> 'barfoo'
-    prependTo('bar')('baz'); //=> 'bazbar'
+prependTo('foo', 'bar'); //=> 'barfoo'    prependTo('bar')('baz'); //=> 'bazbar'
 ```
 <a name="reduceBy"></a>
 
@@ -1544,10 +1450,7 @@ Reduce array to new value by function
 
 **Example**  
 ```js
-const foo = (acc, val) = acc + val;
-    reduceBy(foo, 1, [1, 1]); //=> 3
-    reduceBy(foo, 2)([2, 2]); //=> 6
-    reduceBy(foo)(3)([3, 3]); //=> 9
+const foo = (acc, val) = acc + val;    reduceBy(foo, 1, [1, 1]); //=> 3    reduceBy(foo, 2)([2, 2]); //=> 6    reduceBy(foo)(3)([3, 3]); //=> 9
 ```
 <a name="replaceWith"></a>
 
@@ -1565,8 +1468,7 @@ Replace search with new value in string
 
 **Example**  
 ```js
-replaceWith('f', 'b', 'foo'); //=> 'boo'
-    replaceWith(/o/g)('a')('foo'); //=> 'faa'
+replaceWith('f', 'b', 'foo'); //=> 'boo'    replaceWith(/o/g)('a')('foo'); //=> 'faa'
 ```
 <a name="reverse"></a>
 
@@ -1582,8 +1484,7 @@ Take a function and return a function which accepts args in reverse order
 
 **Example**  
 ```js
-const foo = (a, b, c) => a + b - c;
-    reverse(foo); //=> (c)(b)(a) => c + b - a;
+const foo = (a, b, c) => a + b - c;    reverse(foo); //=> (c)(b)(a) => c + b - a;
 ```
 <a name="setProp"></a>
 
@@ -1601,8 +1502,7 @@ Returns a copy of an object with a new name / value pair
 
 **Example**  
 ```js
-setProp('a', 1, {}); //=> { a: 1 }
-    getProp('b')(2)({}); //=> { b: 2 }
+setProp('a', 1, {}); //=> { a: 1 }    getProp('b')(2)({}); //=> { b: 2 }
 ```
 <a name="sliceFrom"></a>
 
@@ -1637,9 +1537,7 @@ Determine if at least one value in array satisfy function
 
 **Example**  
 ```js
-const isTrue = val => val === true;
-    someBy(isTrue, [true, false]) //=> true
-    someBy(isTrue)([false, false]) //=> false
+const isTrue = val => val === true;    someBy(isTrue, [true, false]) //=> true    someBy(isTrue)([false, false]) //=> false
 ```
 <a name="splitBy"></a>
 
@@ -1656,8 +1554,7 @@ Split string to array by another string
 
 **Example**  
 ```js
-splitBy('.', 'foo.bar.baz'); //=> ['foo', 'bar', 'baz']
-    splitBy(',')('1,2,3'); //=> ['1', '2', '3'];
+splitBy('.', 'foo.bar.baz'); //=> ['foo', 'bar', 'baz']    splitBy(',')('1,2,3'); //=> ['1', '2', '3'];
 ```
 <a name="spread"></a>
 
@@ -1690,14 +1587,12 @@ Subtract one number from another
 
 **Example**  
 ```js
-subtract(3, 2); //=> 1
-    subtract(2)(1); //=> 1
+subtract(3, 2); //=> 1    subtract(2)(1); //=> 1
 ```
 <a name="ternary"></a>
 
 ## ternary(failure, success, predicate) ⇒ <code>\*</code>
-Return success or failure based on predicate evaluation. If success or
-failure are functions, returns executed result.
+Return success or failure based on predicate evaluation. If success orfailure are functions, returns executed result.
 
 **Kind**: global function  
 **Since**: 1.0.0  
@@ -1710,14 +1605,12 @@ failure are functions, returns executed result.
 
 **Example**  
 ```js
-ternary(1, 2, true); //=> 2
-    ternary(1, 2, false); //=> 1
+ternary(1, 2, true); //=> 2    ternary(1, 2, false); //=> 1
 ```
 <a name="ternaryL"></a>
 
 ## ternaryL(predicate, success, failure) ⇒ <code>\*</code>
-Return success or failure based on predicate evaluation. If success or
-failure are functions, returns executed result.
+Return success or failure based on predicate evaluation. If success orfailure are functions, returns executed result.
 
 **Kind**: global function  
 **Since**: 1.1.0  
@@ -1730,14 +1623,12 @@ failure are functions, returns executed result.
 
 **Example**  
 ```js
-ternaryL(true, 1, 2); //=> 1
-    ternaryL(false, 1, 2); //=> 2
+ternaryL(true, 1, 2); //=> 1    ternaryL(false, 1, 2); //=> 2
 ```
 <a name="ternaryWith"></a>
 
 ## ternaryWith(failure, success, predicate, val) ⇒ <code>\*</code>
-Return success or failure based on predicate evaluation. If success or
-failure are functions, returns executed result with passed in parameter;
+Return success or failure based on predicate evaluation. If success orfailure are functions, returns executed result with passed in parameter;
 
 **Kind**: global function  
 **Since**: 1.9.0  
@@ -1751,10 +1642,7 @@ failure are functions, returns executed result with passed in parameter;
 
 **Example**  
 ```js
-const foo = val => val + 1;
-    const bar = val => val - 1;
-    ternaryWith(bar, foo, true, 3); //=> 4
-    ternaryWith(bar, foo, false, 2); //=> 1
+const foo = val => val + 1;    const bar = val => val - 1;    ternaryWith(bar, foo, true, 3); //=> 4    ternaryWith(bar, foo, false, 2); //=> 1
 ```
 <a name="toArray"></a>
 
@@ -1770,8 +1658,7 @@ Force args to array if not arrays
 
 **Example**  
 ```js
-toArray([1, 2]); //=> [1, 2]
-    toArray(2, 3); //=> [2, 3]
+toArray([1, 2]); //=> [1, 2]    toArray(2, 3); //=> [2, 3]
 ```
 <a name="toBoolean"></a>
 
@@ -1787,8 +1674,7 @@ Returns boolean value and converts string 'false' to false
 
 **Example**  
 ```js
-toBoolean('false'); //=> false
-    toBoolean({}); //=> true
+toBoolean('false'); //=> false    toBoolean({}); //=> true
 ```
 <a name="toFunction"></a>
 
@@ -1804,8 +1690,7 @@ Returns function which returns value if value is not a function.
 
 **Example**  
 ```js
-toFunction(3); //=> () => 3
-    toFunction(() => 1); //=> () => 1
+toFunction(3); //=> () => 3    toFunction(() => 1); //=> () => 1
 ```
 <a name="toNumber"></a>
 
@@ -1821,9 +1706,7 @@ Parses int or float or Infinity to numeric value
 
 **Example**  
 ```js
-toNumber('Infinity'); //=> Infinity
-    toNumber('1.0'); //=> 1
-    toNumber({}); //=> NaN
+toNumber('Infinity'); //=> Infinity    toNumber('1.0'); //=> 1    toNumber({}); //=> NaN
 ```
 <a name="toObject"></a>
 
@@ -1839,9 +1722,7 @@ Forces value into object. If not object, returns {}
 
 **Example**  
 ```js
-toObject({ a: 1 }); //=> { a: 1 }
-    toObject(null); //=> null
-    toObject('foo'); //=> {}
+toObject({ a: 1 }); //=> { a: 1 }    toObject(null); //=> null    toObject('foo'); //=> {}
 ```
 <a name="toPromise"></a>
 
@@ -1857,8 +1738,7 @@ Take a value and if not a promise, make it a promise
 
 **Example**  
 ```js
-const foo = toPromise(5);
-    foo.then(console.log); //=> 5;
+const foo = toPromise(5);    foo.then(console.log); //=> 5;
 ```
 <a name="toString"></a>
 
@@ -1874,9 +1754,7 @@ Converts value to string. Converts undefined to empty string.
 
 **Example**  
 ```js
-toString('foo'); //=> 'foo'
-    toString(false); //=> 'false'
-    toString(undefined); //=> ''
+toString('foo'); //=> 'foo'    toString(false); //=> 'false'    toString(undefined); //=> ''
 ```
 <a name="traverse"></a>
 
@@ -1893,8 +1771,7 @@ Safely traverse object nested properties
 
 **Example**  
 ```js
-traverse({}, ['a', 'b', 'c']); //=> undefined
-    traverse({ a: 1 })(['a']); //=> 1
+traverse({}, ['a', 'b', 'c']); //=> undefined    traverse({ a: 1 })(['a']); //=> 1
 ```
 <a name="traverseR"></a>
 
@@ -1911,8 +1788,7 @@ Safely traverse object nested properties
 
 **Example**  
 ```js
-traverse(['a', 'b', 'c'], {}); //=> undefined
-    traverse(['a'])({ a: 1 }); //=> 1
+traverse(['a', 'b', 'c'], {}); //=> undefined    traverse(['a'])({ a: 1 }); //=> 1
 ```
 <a name="typeOf"></a>
 
@@ -1928,7 +1804,5 @@ Returns typeof value
 
 **Example**  
 ```js
-typeOf([]); //=> 'object'
-    typeOf(undefined); //=> 'undefined'
-    typeOf(5); //=> 'number'
+typeOf([]); //=> 'object'    typeOf(undefined); //=> 'undefined'    typeOf(5); //=> 'number'
 ```
