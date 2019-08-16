@@ -15,11 +15,8 @@ const toConfig = data => {
         format: 'iife',
         moduleName,
         plugins: [
-            babel({ 
-                plugins: ['external-helpers'],
-                externalHelpers: false,
-            }),
-            resolve({ main: false, modules: true }),
+            babel(),
+            resolve({ mainFields: false, modules: true }),
         ],
     };
 }
