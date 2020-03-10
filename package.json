@@ -71,7 +71,7 @@
     "rollup": "^0.68.1",
     "rollup-plugin-babel": "^4.1.0",
     "rollup-plugin-node-resolve": "^4.0.0",
-    "sinon": "^7.2.4",
+    "sinon": "^9.0.1",
     "tape": "^4.8.0"
   },
   "dependencies": {
